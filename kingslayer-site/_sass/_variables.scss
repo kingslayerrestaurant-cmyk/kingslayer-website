@@ -82,11 +82,13 @@ $section-y:    clamp(5rem, 10vw, 9rem);
 
 // ── BREAKPOINTS ─────────────────────────────────────────────────
 
-$bp-sm:   640px;
-$bp-md:   768px;
-$bp-lg:   1024px;
-$bp-xl:   1280px;
-$bp-2xl:  1440px;
+$bp-xxs:  340px;  // Ultra-small screens (320px)
+$bp-xs:   380px;  // Small phones (360px - 375px)
+$bp-sm:   640px;  // Standard & large phones
+$bp-md:   768px;  // Tablets portrait
+$bp-lg:   1024px; // Tablets landscape / small laptops
+$bp-xl:   1280px; // Standard desktops
+$bp-2xl:  1440px; // Large screens
 
 // ── TRANSITIONS ─────────────────────────────────────────────────
 

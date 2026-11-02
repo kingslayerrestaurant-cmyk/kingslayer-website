@@ -215,11 +215,21 @@
 
     // Mobile drawer toggle
     if (hamburger && mobileMenu) {
+      const setBodyLocked = (locked) => {
+        if (locked) {
+          document.body.style.overflow = 'hidden';
+          document.documentElement.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
+        }
+      };
+
       on(hamburger, 'click', () => {
         const isOpen = hamburger.classList.toggle('open');
         mobileMenu.classList.toggle('open', isOpen);
         hamburger.setAttribute('aria-expanded', String(isOpen));
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        setBodyLocked(isOpen);
       });
 
       // Close mobile menu on clicking any link
@@ -228,7 +238,7 @@
           hamburger.classList.remove('open');
           mobileMenu.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+          setBodyLocked(false);
         });
       });
 
@@ -238,7 +248,7 @@
           hamburger.classList.remove('open');
           mobileMenu.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+          setBodyLocked(false);
         }
       });
 
@@ -252,7 +262,7 @@
           hamburger.classList.remove('open');
           mobileMenu.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+          setBodyLocked(false);
         }
       });
     }
@@ -568,6 +578,41 @@
       on(nextBtn, 'click', () => openAt(currentIndex + 1));
       on(lb, 'click', (e) => { if (e.target === lb) closeLb(); });
 
+      // Mobile Touch Swipe Gesture Support
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      let touchEndY = 0;
+
+      on(lb, 'touchstart', (e) => {
+        if (!e.touches || !e.touches[0]) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchEndX = touchStartX;
+        touchEndY = touchStartY;
+      }, { passive: true });
+
+      on(lb, 'touchmove', (e) => {
+        if (!e.touches || !e.touches[0]) return;
+        touchEndX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY;
+      }, { passive: true });
+
+      on(lb, 'touchend', () => {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        // Require horizontal swipe of at least 45px and predominantly horizontal
+        if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+          if (deltaX < 0) {
+            // Swiped left -> Next photo
+            openAt(currentIndex + 1);
+          } else {
+            // Swiped right -> Previous photo
+            openAt(currentIndex - 1);
+          }
+        }
+      }, { passive: true });
+
       on(document, 'keydown', (e) => {
         if (lb.style.display !== 'flex') return;
         if (e.key === 'Escape')     closeLb();
@@ -735,10 +780,11 @@
      10. HERO PARALLAX (Subtle, Performance-Optimized)
      ═══════════════════════════════════════════════════════════ */
   function initParallax() {
-    // Only apply parallax on non-reduced-motion devices and if hero exists
+    // Only apply parallax on non-reduced-motion devices and desktop screens
     const prefersReduced = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
+    if (window.innerWidth < 768) return;
 
     // Target the hero media container's image specifically
     const heroBg = $('.hero__media img, .page-hero__media img');

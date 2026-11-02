@@ -685,48 +685,95 @@ html.ks-no-preloader {
       grid-template-columns: 1fr;
       gap: 1.5rem;
       min-height: auto;
-      padding: 0 1.25rem 2rem;
+      padding: 0 clamp(1rem, 3.5vw, 1.5rem) 2rem;
     }
 
     &__header {
-      padding: 2rem 1.25rem 1.25rem;
+      padding: clamp(1.5rem, 3vh, 2.2rem) clamp(1rem, 3.5vw, 1.5rem) 1.25rem;
+    }
+
+    &__brand-name {
+      letter-spacing: clamp(0.22em, 3.5vw, 0.40em);
+    }
+
+    &__brand-tagline {
+      letter-spacing: clamp(0.18em, 3vw, 0.35em);
+    }
+
+    &__title {
+      font-size: clamp(1.15rem, 3.5vw, 1.5rem);
+      letter-spacing: clamp(0.10em, 2vw, 0.16em);
     }
 
     &__footer {
       flex-direction: column;
       text-align: center;
       gap: 0.75rem;
+      padding: 1.2rem clamp(1rem, 3.5vw, 1.5rem);
     }
   }
 
   .ks-dest-panel {
-    min-height: 480px;
-    height: 56vh;
-    padding: 2rem 1.5rem;
+    min-height: clamp(380px, 52vh, 480px);
+    height: auto;
+    padding: clamp(1.5rem, 4vw, 2rem) clamp(1.2rem, 3.5vw, 1.75rem);
 
     &__watermark {
-      font-size: 7rem;
-      right: 1.25rem;
+      font-size: clamp(5rem, 18vw, 8rem);
+      right: 1rem;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    &__facilities {
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .ks-pill {
+      font-size: 0.48rem;
+      padding: 0.22rem 0.55rem;
     }
 
     &__cta {
       width: 100%;
       justify-content: center;
+      min-height: 48px;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.60rem;
     }
 
-    // Show all hidden states on mobile
-    &__narrative { opacity: 1 !important; }
+    // Show all narrative on mobile
+    &__narrative {
+      opacity: 1 !important;
+      font-size: 0.80rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
   }
 }
 
 @media (max-width: 480px) {
-  .ks-dest-panel {
-    min-height: 400px;
-    height: 50vh;
-    padding: 1.5rem 1.2rem;
+  .ks-entrance {
+    &__brand-crest svg {
+      width: 32px;
+      height: auto;
+    }
+  }
 
-    &__title { font-size: 1.65rem; }
-    &__narrative { font-size: 0.76rem; margin-bottom: 1.4rem; }
+  .ks-dest-panel {
+    min-height: 360px;
+    padding: 1.35rem 1.1rem;
+
+    &__title {
+      font-size: clamp(1.5rem, 6vw, 1.85rem);
+      margin-bottom: 0.65rem;
+    }
+
+    &__narrative {
+      font-size: 0.76rem;
+      margin-bottom: 1.2rem;
+    }
   }
 }
 

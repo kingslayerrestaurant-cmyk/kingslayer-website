@@ -27,20 +27,24 @@
 
 .t-display {
   font-family: $font-serif;
-  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-size: clamp(2.3rem, 7.5vw, 6.5rem);
   font-weight: 300;
-  line-height: 0.90;
+  line-height: 1.02;
   letter-spacing: -0.01em;
   color: $ivory;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .t-h1 {
   font-family: $font-serif;
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 5.8vw, 4.8rem);
   font-weight: 400;
-  line-height: 0.95;
+  line-height: 1.08;
   letter-spacing: 0.01em;
   color: $ivory;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 
   em {
     font-style: italic;
@@ -50,10 +54,12 @@
 
 .t-h2 {
   font-family: $font-serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(1.65rem, 4.2vw, 3.2rem);
   font-weight: 400;
-  line-height: 1.05;
+  line-height: 1.15;
   color: $ivory;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 
   em {
     font-style: italic;
@@ -63,33 +69,36 @@
 
 .t-h3 {
   font-family: $font-serif;
-  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.25;
   color: $ivory;
+  overflow-wrap: break-word;
 }
 
 .t-h4 {
   font-family: $font-serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.30;
   color: $ivory;
+  overflow-wrap: break-word;
 }
 
 .t-body {
   font-family: $font-sans;
-  font-size: clamp(0.92rem, 1.4vw, 1.06rem);
+  font-size: clamp(0.88rem, 1.25vw, 1.02rem);
   font-weight: 400;
-  line-height: 1.78;
+  line-height: 1.72;
   color: $ivory-dim;
+  overflow-wrap: break-word;
 }
 
 .t-body-sm {
   font-family: $font-sans;
-  font-size: $text-sm;
+  font-size: clamp(0.80rem, 1.1vw, 0.875rem);
   font-weight: 400;
-  line-height: 1.68;
+  line-height: 1.65;
   color: $ivory-dim;
 }
 

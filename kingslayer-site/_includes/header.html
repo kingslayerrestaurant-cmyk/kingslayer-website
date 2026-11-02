@@ -74,7 +74,7 @@
       <a href="{% if branch == 'varanasi' %}{{ '/varanasi/contact/' | relative_url }}{% else %}{{ '/ballia/contact/' | relative_url }}{% endif %}"
          class="btn-reserve"
          id="nav-reserve-btn">
-        Reserve a Table
+        <span class="btn-reserve__short">Reserve</span><span class="btn-reserve__rest"> a Table</span>
       </a>
 
       <!-- Hamburger toggle -->
@@ -101,22 +101,38 @@
   <div class="nav-mobile__inner">
 
     <!-- Brand inside mobile menu -->
-    <div class="nav-mobile__brand" style="margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(198,167,106,0.12);">
-      <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: #C6A76A; letter-spacing: 0.08em;">
-        Kingslayer
+    <div class="nav-mobile__brand">
+      <div class="nav-mobile__brand-crest" aria-hidden="true">
+        <svg viewBox="0 0 28 20" width="22" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 18H26M4 18L1.5 5.5L7.5 10L14 2L20.5 10L26.5 5.5L24 18H4Z"
+                stroke="#C6A76A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="14" cy="5" r="1.1" fill="#C6A76A"/>
+        </svg>
       </div>
-      <div style="font-family: 'Inter', sans-serif; font-size: 0.52rem; letter-spacing: 0.28em; color: #7A7167; text-transform: uppercase; margin-top: 3px;">
-        {{ branch_name }} &nbsp;·&nbsp; Restaurant &nbsp;·&nbsp; Banquet &nbsp;·&nbsp; Rooftop
+      <div>
+        <div class="nav-mobile__brand-title">Kingslayer</div>
+        <div class="nav-mobile__brand-sub">
+          {{ branch_name }} &nbsp;·&nbsp; Restaurant &nbsp;·&nbsp; Banquet &nbsp;·&nbsp; Rooftop
+        </div>
       </div>
     </div>
 
     <ul class="nav-mobile__links" role="list">
       {% for item in nav_items %}
+      {% assign is_current = false %}
+      {% if page.url == item.url %}
+        {% assign is_current = true %}
+      {% elsif item.url contains '/ballia/' and page.url contains '/ballia/' and page.url == item.url %}
+        {% assign is_current = true %}
+      {% elsif item.url contains '/varanasi/' and page.url contains '/varanasi/' and page.url == item.url %}
+        {% assign is_current = true %}
+      {% endif %}
       <li>
         <a href="{{ item.url | relative_url }}"
-           class="nav-mobile__link"
-           {% if page.url == item.url %}aria-current="page"{% endif %}>
-          {{ item.label }}
+           class="nav-mobile__link{% if is_current %} active{% endif %}"
+           {% if is_current %}aria-current="page"{% endif %}>
+          <span class="nav-mobile__link-text">{{ item.label }}</span>
+          <span class="nav-mobile__link-indicator" aria-hidden="true"></span>
         </a>
       </li>
       {% endfor %}
@@ -124,19 +140,21 @@
 
     <div class="nav-mobile__footer">
       <a href="{% if branch == 'varanasi' %}{{ '/varanasi/contact/' | relative_url }}{% else %}{{ '/ballia/contact/' | relative_url }}{% endif %}"
-         class="btn btn--gold">
+         class="btn btn--gold btn--full">
         Reserve a Table
       </a>
-      {% if branch == "ballia" %}
-      <a href="{{ '/varanasi/' | relative_url }}" class="btn btn--outline">Visit Varanasi</a>
-      {% else %}
-      <a href="{{ '/ballia/' | relative_url }}" class="btn btn--outline">Visit Ballia</a>
-      {% endif %}
-      <a href="{{ '/' | relative_url }}"
-         style="display:inline-flex; align-items:center; justify-content:center; padding:0.6rem 1rem; font-family:'Inter',sans-serif; font-size:0.58rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(122,113,103,0.85); border:1px solid rgba(198,167,106,0.16); transition:all 0.3s ease; margin-top:0.5rem; text-decoration:none;"
-         title="Return to destination selection">
-        ← Change Destination
-      </a>
+      <div class="nav-mobile__footer-row">
+        {% if branch == "ballia" %}
+        <a href="{{ '/varanasi/' | relative_url }}" class="btn btn--outline btn--half">Visit Varanasi</a>
+        {% else %}
+        <a href="{{ '/ballia/' | relative_url }}" class="btn btn--outline btn--half">Visit Ballia</a>
+        {% endif %}
+        <a href="{{ '/' | relative_url }}"
+           class="btn btn--ghost btn--half nav-mobile__dest-btn"
+           title="Return to destination selection">
+          Switch City
+        </a>
+      </div>
     </div>
   </div>
 </div>

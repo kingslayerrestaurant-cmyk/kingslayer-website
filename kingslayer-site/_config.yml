@@ -1,0 +1,85 @@
+# ═══════════════════════════════════════════════════════════
+# KINGSLAYER — Jekyll Configuration
+# Restaurant, Banquet & Rooftop | Ballia & Varanasi, UP
+# ═══════════════════════════════════════════════════════════
+
+# Site identity
+title: "Kingslayer"
+tagline: "Restaurant, Banquet & Rooftop"
+description: "A premium dining, rooftop and banquet destination. Kingslayer — where exceptional hospitality, memorable flavours and remarkable moments come together."
+url: ""  # Set to your domain when deploying, e.g. https://kingslayerrestaurant.com
+baseurl: ""
+
+# Brand
+brand:
+  name: "Kingslayer"
+  tagline: "Restaurant · Banquet · Rooftop"
+  established: "[Year to be confirmed]"
+  locations:
+    - name: "Ballia"
+      state: "Uttar Pradesh"
+      url: "/ballia/"
+      status: "active"
+    - name: "Varanasi"
+      state: "Uttar Pradesh"
+      url: "/varanasi/"
+      status: "active"
+
+# Author / SEO
+author:
+  name: "Kingslayer"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+  - scope:
+      path: "ballia"
+    values:
+      layout: "page"
+      branch: "ballia"
+      branch_name: "Ballia"
+      branch_label: "Kingslayer Ballia"
+  - scope:
+      path: "varanasi"
+    values:
+      layout: "page"
+      branch: "varanasi"
+      branch_name: "Varanasi"
+      branch_label: "Kingslayer Varanasi"
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - "*.sh"
+  - README.md
+
+# Include dotfiles if needed
+include:
+  - _redirects
+
+# Asset pipeline
+assets:
+  compress:
+    css: true
+    js: false

@@ -1,0 +1,180 @@
+---
+layout: page
+title: "Visual Gallery — Kingslayer Ballia"
+description: "Explore high-resolution photography of Kingslayer Ballia. Authentic glimpses of our dining room with crown seating, glowing night architecture, banquet ballroom, rooftop terrace and culinary art."
+branch: "ballia"
+branch_name: "Ballia"
+body_class: "gallery-page"
+---
+
+<!-- ═══ GALLERY HERO ═════════════════════════════════════════════════ -->
+<section class="page-hero" aria-label="Kingslayer Gallery Hero">
+  <div class="page-hero__media">
+    <img src="{{ '/assets/images/ballia/dining_ballia_cinematic.jpg' | relative_url }}"
+         alt="Kingslayer Ballia Visual Gallery"
+         loading="eager"
+         fetchpriority="high" />
+  </div>
+  <div class="page-hero__overlay"></div>
+
+  <div class="page-hero__content">
+    <div class="hero__eyebrow">
+      <span class="gold-line"></span>
+      <span class="t-eyebrow">Kingslayer Ballia &nbsp;·&nbsp; Visual Moments</span>
+    </div>
+    <h1 class="hero__title">
+      The Visual<br>
+      <em>Gallery</em>
+    </h1>
+    <p class="hero__subtitle">
+      Authentic glimpses into our spaces, royal dining appointments, celebratory milestones, and culinary craftsmanship.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ GALLERY FILTER BAR & CONTENT ═════════════════════════════════ -->
+<section class="section section--dark" id="gallery-container" aria-label="Photo Gallery">
+  <div class="container">
+
+    <!-- Category filter buttons -->
+    <div class="menu-tabs" style="justify-content: center; margin-bottom: 3.5rem;" role="tablist" aria-label="Gallery categories">
+      <button class="menu-tab active gallery-filter__btn" data-filter="all" role="tab">All Photographs</button>
+      <button class="menu-tab gallery-filter__btn" data-filter="dining" role="tab">Main Dining</button>
+      <button class="menu-tab gallery-filter__btn" data-filter="architecture" role="tab">Architecture &amp; Facade</button>
+      <button class="menu-tab gallery-filter__btn" data-filter="banquet" role="tab">Banquets</button>
+      <button class="menu-tab gallery-filter__btn" data-filter="rooftop" role="tab">Rooftop Skies</button>
+      <button class="menu-tab gallery-filter__btn" data-filter="cuisine" role="tab">Culinary Art</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="gallery-grid">
+
+      <!-- 1. Authentic Dining Room Interior (Featured double item) -->
+      <article class="gallery-item reveal" data-category="dining" tabindex="0" role="button" aria-label="View Main Dining Room">
+        <img src="{{ '/assets/images/ballia/restaurant_interior.jpg' | relative_url }}"
+             alt="Kingslayer Ballia Authentic Dining Room with Crown Seating and Marble Tables"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 2. Authentic Night Facade -->
+      <article class="gallery-item reveal" data-category="architecture" tabindex="0" role="button" aria-label="View Night Architecture">
+        <img src="{{ '/assets/images/ballia/facade_night.jpg' | relative_url }}"
+             alt="Kingslayer Ballia Illuminated Front Facade at Night"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 3. Authentic Glowing Signage -->
+      <article class="gallery-item reveal" data-category="architecture" tabindex="0" role="button" aria-label="View Illuminated Crown Signage">
+        <img src="{{ '/assets/images/ballia/signage_glow.jpg' | relative_url }}"
+             alt="Kingslayer Ballia Glowing Crown Neon and Signage at Night"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 4. Grand Banquet Hall -->
+      <article class="gallery-item reveal" data-category="banquet" tabindex="0" role="button" aria-label="View Banquet Ballroom">
+        <img src="{{ '/assets/images/hero_banquet.jpg' | relative_url }}"
+             alt="Kingslayer Ballia Grand Celebratory Banquet Hall"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 5. Multi-Level Building Architecture (Wide item) -->
+      <article class="gallery-item reveal" data-category="architecture" tabindex="0" role="button" aria-label="View Multi-Level Building">
+        <img src="{{ '/assets/images/ballia/building_exterior.jpg' | relative_url }}"
+             alt="Kingslayer Ballia Multi-Level Restaurant Banquet and Rooftop Architecture"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 6. Starlit Rooftop Lounge -->
+      <article class="gallery-item reveal" data-category="rooftop" tabindex="0" role="button" aria-label="View Rooftop Lounge">
+        <img src="{{ '/assets/images/hero_rooftop.jpg' | relative_url }}"
+             alt="Kingslayer Ballia Open-Air Rooftop Atmosphere"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 7. Authentic Red-Carpet Entrance Stairs -->
+      <article class="gallery-item reveal" data-category="architecture" tabindex="0" role="button" aria-label="View Entrance Stairs">
+        <img src="{{ '/assets/images/ballia/entrance_day.jpg' | relative_url }}"
+             alt="Kingslayer Ballia Grand Daytime Entrance Stairs"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 8. Artisanal Culinary Creation -->
+      <article class="gallery-item reveal" data-category="cuisine" tabindex="0" role="button" aria-label="View Culinary Creation">
+        <img src="{{ '/assets/images/hero_food.jpg' | relative_url }}"
+             alt="Gourmet Awadhi Dish at Kingslayer"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 9. Authentic Rooftop Pavilion Exterior -->
+      <article class="gallery-item reveal" data-category="rooftop" tabindex="0" role="button" aria-label="View Rooftop Pavilion">
+        <img src="{{ '/assets/images/ballia/rooftop_exterior.jpg' | relative_url }}"
+             alt="Kingslayer Ballia Rooftop Pavilion Exterior View"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ LIGHTBOX MODAL CONTAINER ═════════════════════════════════════ -->
+<div id="lightbox" class="lightbox" role="dialog" aria-hidden="true" aria-label="Enlarged photo preview">
+  <div class="lightbox__backdrop"></div>
+  <div class="lightbox__container">
+    <button class="lightbox__close" aria-label="Close photo preview">✕</button>
+    <img class="lightbox__img" src="" alt="Enlarged Kingslayer Photo" />
+    <div class="lightbox__caption"></div>
+    <button class="lightbox__prev lightbox__nav" aria-label="Previous photo">‹</button>
+    <button class="lightbox__next lightbox__nav" aria-label="Next photo">›</button>
+  </div>
+</div>
+
+<!-- ═══ RESERVATION CALLOUT ════════════════════════════════════════════ -->
+<section class="reservation-callout" aria-label="Visit Kingslayer Ballia">
+  <div class="container">
+    <div class="reservation-callout__inner reveal">
+      <div class="editorial-eyebrow editorial-eyebrow--center">
+        <span class="editorial-eyebrow__line"></span>
+        <span>Experience It in Person</span>
+        <span class="editorial-eyebrow__line"></span>
+      </div>
+      <h2 class="editorial-heading editorial-heading--center">
+        Step Inside <em>Kingslayer</em> Ballia
+      </h2>
+      <p class="editorial-lead editorial-lead--center">
+        Photography only hints at the atmosphere. Join us for lunch, an evening on the rooftop, or your family celebration.
+      </p>
+      <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <a href="{{ '/ballia/contact/' | relative_url }}" class="btn btn--gold">Reserve a Table</a>
+        <a href="{{ '/ballia/dining/' | relative_url }}" class="btn btn--outline">Dining Experience</a>
+      </div>
+    </div>
+  </div>
+</section>

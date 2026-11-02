@@ -1,0 +1,170 @@
+---
+layout: page
+title: "The Rooftop Lounge — Kingslayer Ballia"
+description: "Dine under starlit skies at Kingslayer Ballia's open-air rooftop. Panoramic city views, artisanal beverages, live charcoal grills and an unforgettable night ambiance."
+branch: "ballia"
+branch_name: "Ballia"
+body_class: "rooftop-page"
+---
+
+<!-- ═══ ROOFTOP HERO ═════════════════════════════════════════════════ -->
+<section class="page-hero" aria-label="Kingslayer Rooftop Hero">
+  <div class="page-hero__media">
+    <img src="{{ '/assets/images/hero_rooftop.jpg' | relative_url }}"
+         alt="Kingslayer Ballia Open-Air Rooftop View at Dusk"
+         loading="eager"
+         fetchpriority="high" />
+  </div>
+  <div class="page-hero__overlay"></div>
+
+  <div class="page-hero__content">
+    <div class="hero__eyebrow">
+      <span class="gold-line"></span>
+      <span class="t-eyebrow">Kingslayer Ballia &nbsp;·&nbsp; Sky Terrace</span>
+    </div>
+    <h1 class="hero__title">
+      The Rooftop<br>
+      <em>Lounge</em>
+    </h1>
+    <p class="hero__subtitle">
+      Dine beneath the constellations with gentle evening breezes and the sparkling cityscape of Ballia below.
+    </p>
+
+    <div class="hero__actions">
+      <a href="{{ '/ballia/contact/' | relative_url }}" class="btn btn--gold">Reserve a Rooftop Table</a>
+      <a href="{{ '/ballia/menu/' | relative_url }}" class="btn btn--outline">View Rooftop Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WEATHER ADVISORY NOTICE ══════════════════════════════════════ -->
+<section style="background: #111111; border-bottom: 1px solid rgba(198, 167, 106, 0.2); padding: 1.1rem 0; text-align: center;">
+  <div class="container" style="max-width: 860px;">
+    <p style="font-size: 0.8rem; letter-spacing: 0.05em; color: #A49B8B; margin: 0; line-height: 1.6;">
+      <strong style="color: #C6A76A; text-transform: uppercase; letter-spacing: 0.15em;">Operational Advisory:</strong>
+      {{ site.data.experiences.rooftop.availability_note }} For evening rooftop seating during monsoon or adverse weather, please contact our concierge in advance.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ THE ROOFTOP EXPERIENCE ═══════════════════════════════════════ -->
+<section class="section section--dark" id="experience" aria-label="Rooftop Experience">
+  <div class="container">
+    <div class="feature-split">
+
+      <div class="reveal">
+        <div class="editorial-eyebrow">
+          <span class="editorial-eyebrow__line"></span>
+          <span>Elevated Perspective</span>
+        </div>
+        <h2 class="editorial-heading">
+          Ballia's Most Enchanting<br>
+          <em>Evening</em> Destination
+        </h2>
+        <div class="gold-line" style="margin-bottom: 1.8rem;"></div>
+
+        <p class="editorial-lead">
+          {{ site.data.experiences.rooftop.description }}
+        </p>
+
+        <p class="t-body" style="margin-bottom: 1.5rem;">
+          As twilight settles across Ballia, our top-floor open pavilion transforms into a serene starlit haven. Gentle ambient lighting, comfortable lounge appointments, and acoustic warmth create the premier open-air setting for couples, families, and intimate gatherings.
+        </p>
+
+        <div class="feature-split__bullets">
+          {% for highlight in site.data.experiences.rooftop.highlights %}
+          <div class="feature-split__bullet">
+            <span class="feature-split__bullet-icon">✦</span>
+            <span>{{ highlight }}</span>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <a href="{{ '/ballia/contact/' | relative_url }}" class="btn btn--gold">Reserve Rooftop Seating</a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="feature-split__visual">
+          <div class="feature-split__frame">
+            <img src="{{ '/assets/images/ballia/signage_glow.jpg' | relative_url }}"
+                 alt="Kingslayer Ballia Illuminated Crown Signage and Upper Rooftop Terrace"
+                 loading="lazy" />
+          </div>
+          <div class="feature-split__tag">
+            <p class="feature-split__tag-eyebrow">Open Skies</p>
+            <p class="feature-split__tag-title">Starlit Dining in Ballia</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ROOFTOP HIGHLIGHTS ═══════════════════════════════════════════ -->
+<section class="section section--elevated" id="amenities" aria-label="Rooftop Amenities">
+  <div class="container">
+
+    <div class="section-header section-header--center">
+      <p class="section-header__eyebrow">Twilight Atmosphere</p>
+      <h2 class="section-header__title">The Rooftop <em>Elements</em></h2>
+      <p class="section-header__subtitle">
+        Curated sensory touches designed to elevate your evening above the ordinary.
+      </p>
+    </div>
+
+    <div class="grid-3">
+
+      <article class="pillar-card reveal">
+        <div style="font-size: 1.8rem; margin-bottom: 1rem;">🌆</div>
+        <h3 class="pillar-card__title">Panoramic City Horizon</h3>
+        <p class="pillar-card__text">
+          Unobstructed 360-degree sightlines over Ballia. Experience the magic of dusk transforming into starry skies.
+        </p>
+      </article>
+
+      <article class="pillar-card reveal">
+        <div style="font-size: 1.8rem; margin-bottom: 1rem;">🔥</div>
+        <h3 class="pillar-card__title">Live Charcoal Grills</h3>
+        <p class="pillar-card__text">
+          Freshly grilled skewers, sizzling sizzlers, and tandoori platters served hot directly from the rooftop tandoor.
+        </p>
+      </article>
+
+      <article class="pillar-card reveal">
+        <div style="font-size: 1.8rem; margin-bottom: 1rem;">🍹</div>
+        <h3 class="pillar-card__title">Artisanal Coolers</h3>
+        <p class="pillar-card__text">
+          Handcrafted mocktails, infused botanical sodas, and freshly muddled coolers blended to complement evening dining.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ RESERVATION CALLOUT ════════════════════════════════════════════ -->
+<section class="reservation-callout" aria-label="Rooftop Reservations">
+  <div class="container">
+    <div class="reservation-callout__inner reveal">
+      <div class="editorial-eyebrow editorial-eyebrow--center">
+        <span class="editorial-eyebrow__line"></span>
+        <span>Evening Table Reservations</span>
+        <span class="editorial-eyebrow__line"></span>
+      </div>
+      <h2 class="editorial-heading editorial-heading--center">
+        Join Us Under the <em>Stars</em>
+      </h2>
+      <p class="editorial-lead editorial-lead--center">
+        Due to high demand and open-air capacity, advance reservations for rooftop tables are highly recommended.
+      </p>
+      <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <a href="{{ '/ballia/contact/' | relative_url }}" class="btn btn--gold">Book Rooftop Table</a>
+        <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}" class="btn btn--outline" target="_blank" rel="noopener noreferrer">WhatsApp Table Request</a>
+      </div>
+    </div>
+  </div>
+</section>

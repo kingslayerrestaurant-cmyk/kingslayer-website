@@ -1,0 +1,47 @@
+# ═══════════════════════════════════════════════════════
+# KINGSLAYER — Contact & Location Data
+# Update with verified client information before launch
+# ═══════════════════════════════════════════════════════
+
+ballia:
+  name: "Kingslayer Ballia"
+  address_line1: "[Address Line 1]"       # e.g. "12, Civil Lines"
+  address_line2: "[Address Line 2]"       # e.g. "Near [landmark]"
+  city: "Ballia"
+  state: "Uttar Pradesh"
+  pincode: "[Pincode]"
+  country: "India"
+  phone_primary: "[+91 XXXXX XXXXX]"
+  phone_display: "+91 XXXXX XXXXX"
+  whatsapp: "91XXXXXXXXXX"              # Without + or spaces, for wa.me link
+  email: "[email@kingslayer.in]"
+  google_maps_embed: ""                  # Full Google Maps embed src URL
+  google_maps_link: "https://maps.google.com/?q=Ballia,Uttar+Pradesh"
+  instagram: ""                          # e.g. "kingslayer.ballia"
+  facebook: ""
+  hours:
+    monday_friday: "[To be confirmed]"
+    saturday_sunday: "[To be confirmed]"
+    note: "Opening hours to be confirmed. Please call ahead."
+
+varanasi:
+  name: "Kingslayer Varanasi"
+  address_line1: "[Address Line 1]"
+  address_line2: "Varanasi, Uttar Pradesh"
+  city: "Varanasi"
+  state: "Uttar Pradesh"
+  pincode: "[221001]"
+  country: "India"
+  status: "active"
+  phone_primary: "[+91 XXXXX XXXXX]"
+  phone_display: "+91 XXXXX XXXXX"
+  whatsapp: "91XXXXXXXXXX"
+  email: "[varanasi@kingslayer.in]"
+  google_maps_embed: ""
+  google_maps_link: "https://maps.google.com/?q=Varanasi,Uttar+Pradesh"
+  instagram: ""
+  facebook: ""
+  hours:
+    monday_friday: "12:00 PM – 11:30 PM"
+    saturday_sunday: "12:00 PM – 12:00 AM"
+    note: "Open 7 days a week. Reservations recommended for dinner & rooftop."

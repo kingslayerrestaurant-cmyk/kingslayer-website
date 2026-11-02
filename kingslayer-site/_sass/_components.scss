@@ -1,0 +1,2069 @@
+// ═══════════════════════════════════════════════════════════════
+// KINGSLAYER — Component Styles
+// v2.1 — Final Premium Refinement
+// ═══════════════════════════════════════════════════════════════
+// Variables and typography available via main.scss @import chain
+
+// ── RESET ────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+body {
+  background: $black;
+  color: $ivory;
+  font-family: $font-sans;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
+input, textarea, select { font: inherit; color: inherit; }
+ul, ol { list-style: none; }
+::selection { background: rgba($gold, 0.28); color: $ivory; }
+
+// ── LAYOUT ────────────────────────────────────────────────────────
+.container {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-left: $side-pad;
+  padding-right: $side-pad;
+}
+
+.section {
+  padding-top: $section-y;
+  padding-bottom: $section-y;
+  position: relative;
+}
+
+.section--dark     { background: $black; }
+.section--elevated { background: $bg-secondary; }
+.section--surface  { background: $bg-elevated; }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 2.2rem);
+}
+
+// ── BUTTONS ──────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.9rem 2.1rem;
+  font-family: $font-sans;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all $dur-base $ease;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity $dur-base $ease;
+  }
+
+  &:hover::after { opacity: 1; }
+
+  svg { width: 14px; height: 7px; flex-shrink: 0; }
+}
+
+.btn--gold {
+  background: $gold;
+  color: $black;
+  &::after { background: rgba($white, 0.14); }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-gold;
+  }
+  &:active { transform: translateY(0); }
+}
+
+.btn--outline {
+  border: 1px solid $gold-border-m;
+  color: $gold;
+  background: transparent;
+  &::after { background: $gold-pale; }
+  &:hover {
+    border-color: $gold;
+    transform: translateY(-1px);
+  }
+}
+
+.btn--ghost {
+  border: 1px solid rgba($white, 0.12);
+  color: $ivory-dim;
+  background: transparent;
+  &:hover {
+    border-color: rgba($white, 0.28);
+    color: $ivory;
+  }
+}
+
+.btn--sm {
+  padding: 0.6rem 1.4rem;
+  font-size: 0.58rem;
+}
+
+.btn--lg {
+  padding: 1.05rem 2.8rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+}
+
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: $font-sans;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: $gold;
+  transition: gap $dur-base $ease;
+
+  &:hover { gap: 1rem; }
+
+  &__line {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: $gold;
+    transition: width $dur-base $ease;
+  }
+  &:hover &__line { width: 44px; }
+}
+
+// ── NAVIGATION ──────────────────────────────────────────────────
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: $z-nav;
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  background: rgba($black, 0.45);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid rgba($gold, 0.10);
+  transition: height 0.4s $cinematic,
+              background 0.4s $ease,
+              border-color 0.4s $ease,
+              box-shadow 0.4s $ease;
+
+  &.scrolled {
+    height: 72px;
+    background: rgba($black, 0.96);
+    backdrop-filter: blur(28px) saturate(1.4);
+    -webkit-backdrop-filter: blur(28px) saturate(1.4);
+    border-bottom: 1px solid rgba($gold, 0.20);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.nav__inner {
+  width: 100%;
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  &-emblem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform $dur-base $ease;
+  }
+
+  &:hover &-emblem {
+    transform: translateY(-1px) scale(1.07);
+  }
+
+  &-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &-title {
+    font-family: $font-display;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    color: $ivory;
+    line-height: 1;
+    transition: color $dur-base $ease;
+  }
+
+  &:hover &-title {
+    color: $gold;
+  }
+
+  &-branch {
+    font-family: $font-sans;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: $gold;
+    padding-left: 12px;
+    border-left: 1px solid rgba($gold, 0.32);
+    line-height: 1;
+  }
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2.2rem);
+}
+
+.nav__link {
+  font-family: $font-sans;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba($ivory, 0.78);
+  transition: color $dur-base $ease;
+  position: relative;
+  padding: 6px 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: $gold;
+    transition: width 0.35s $ease;
+  }
+
+  &:hover, &.active {
+    color: $gold;
+    &::after { width: 100%; }
+  }
+}
+
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.nav__branch-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  border: 1px solid rgba($gold, 0.22);
+  background: rgba(20, 20, 20, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  font-size: 0.56rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $ivory-dim;
+  transition: all $dur-base $ease;
+
+  &:hover {
+    border-color: $gold;
+    color: $ivory;
+    background: rgba(30, 30, 30, 0.9);
+    transform: translateY(-1px);
+  }
+}
+
+.nav__branch-beacon {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: $success;
+  box-shadow: 0 0 8px rgba(76, 175, 111, 0.85);
+  flex-shrink: 0;
+}
+
+.btn-reserve {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px;
+  font-family: $font-sans;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $black;
+  background: $gold;
+  border: 1px solid $gold;
+  transition: all $dur-base $ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: $gold-light;
+    border-color: $gold-light;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 28px rgba(198, 167, 106, 0.38);
+  }
+}
+
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  z-index: $z-nav + 1;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: $ivory;
+    transition: all $dur-base $ease;
+    transform-origin: center;
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  }
+}
+
+// ── MOBILE NAVIGATION ────────────────────────────────────────────
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: $z-nav - 1;
+  background: rgba(9, 9, 9, 0.98);
+  backdrop-filter: blur(32px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $dur-slow $ease;
+
+  &.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__inner {
+    padding: calc(#{$nav-height} + 2.5rem) $side-pad 3.5rem;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+  }
+
+  &__link {
+    display: block;
+    padding: 1.1rem 0;
+    font-family: $font-serif;
+    font-size: clamp(1.6rem, 5.5vw, 2.4rem);
+    font-weight: 300;
+    color: rgba($ivory, 0.65);
+    border-bottom: 1px solid rgba($gold, 0.10);
+    transition: color $dur-base $ease,
+                padding-left $dur-base $ease,
+                border-color $dur-base $ease;
+
+    &:hover {
+      color: $gold;
+      padding-left: 0.75rem;
+      border-bottom-color: rgba($gold, 0.25);
+    }
+
+    &:first-child { border-top: 1px solid rgba($gold, 0.10); }
+  }
+
+  &__footer {
+    margin-top: auto;
+    padding-top: $space-10;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-4;
+  }
+}
+
+// ── HERO ─────────────────────────────────────────────────────────
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 700px;
+  max-height: 1200px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    will-change: transform;
+    transform-origin: center center;
+  }
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 40%, rgba(198, 167, 106, 0.08) 0%, transparent 55%),
+    linear-gradient(to right, rgba($black, 0.94) 0%, rgba($black, 0.70) 42%, rgba($black, 0.28) 100%),
+    linear-gradient(to bottom, rgba($black, 0.55) 0%, rgba($black, 0.10) 28%, rgba($black, 0.40) 62%, rgba($black, 0.97) 100%);
+}
+
+.hero__overlay-nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 220px;
+  background: linear-gradient(to bottom, rgba($black, 0.60), transparent);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $side-pad clamp(3.5rem, 8vh, 6rem);
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  margin-bottom: $space-6;
+}
+
+.hero__title {
+  @extend .t-h1;
+  max-width: 860px;
+
+  em {
+    font-style: italic;
+    color: $gold-light;
+  }
+}
+
+.hero__subtitle {
+  @extend .t-body;
+  margin-top: $space-6;
+  max-width: 520px;
+  color: rgba($ivory-dim, 0.92);
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  flex-wrap: wrap;
+  margin-top: $space-10;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 2.8rem;
+  right: $side-pad;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+
+  &-text {
+    font-size: 0.48rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: $ivory-muted;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+
+  &-line {
+    width: 1px;
+    height: 54px;
+    background: linear-gradient(to bottom, transparent, rgba($gold, 0.7));
+  }
+}
+
+// ── PAGE HERO (inner pages) ──────────────────────────────────────
+.page-hero {
+  position: relative;
+  height: 62vh;
+  min-height: 420px;
+  max-height: 700px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+  &__media {
+    position: absolute;
+    inset: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 40%, rgba(198, 167, 106, 0.07) 0%, transparent 55%),
+      linear-gradient(to right, rgba($black, 0.94) 0%, rgba($black, 0.65) 45%, rgba($black, 0.30) 100%),
+      linear-gradient(to bottom, rgba($black, 0.55) 0%, rgba($black, 0.10) 30%, rgba($black, 0.40) 60%, rgba($black, 0.97) 100%);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $side-pad clamp(2.8rem, 6vh, 4.5rem);
+  }
+}
+
+// ── BRAND STATEMENT ──────────────────────────────────────────────
+.brand-statement {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  text-align: center;
+  background: $bg-secondary;
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, $gold-border-m);
+  }
+  &::after {
+    top: auto;
+    bottom: 0;
+    background: linear-gradient(to top, transparent, $gold-border-m);
+  }
+
+  &__text {
+    font-family: $font-serif;
+    font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+    font-weight: 300;
+    color: $ivory;
+    line-height: 1.4;
+    max-width: 860px;
+    margin: 0 auto;
+    font-style: italic;
+
+    .highlight {
+      color: $gold-light;
+      font-style: normal;
+    }
+  }
+}
+
+// ── EXPERIENCE CARDS ─────────────────────────────────────────────
+.experience-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: $space-8;
+  cursor: pointer;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s $ease;
+    }
+  }
+
+  &:hover &__bg img { transform: scale(1.06); }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba($black, 0.92) 0%, rgba($black, 0.18) 100%);
+    transition: background $dur-slow $ease;
+  }
+
+  &:hover &__overlay {
+    background: linear-gradient(to top, rgba($black, 0.96) 0%, rgba($black, 0.35) 100%);
+  }
+
+  &__glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--glow-x, 50%) var(--glow-y, 50%),
+      rgba($gold, 0.07) 0%, transparent 55%
+    );
+    opacity: 0;
+    transition: opacity $dur-base $ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &:hover &__glow { opacity: 1; }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    margin-bottom: $space-3;
+    opacity: 0.7;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: $ivory;
+    line-height: 1.1;
+    margin-bottom: $space-2;
+  }
+
+  &__desc {
+    font-size: 0.82rem;
+    color: $ivory-muted;
+    line-height: 1.55;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $dur-slow $ease, margin-top $dur-base $ease;
+  }
+
+  &:hover &__desc {
+    max-height: 100px;
+    margin-top: $space-2;
+  }
+
+  &__cta {
+    margin-top: $space-4;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all $dur-base $ease 0.1s;
+  }
+
+  &:hover &__cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── MENU COMPONENT ───────────────────────────────────────────────
+.menu-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid $gold-border;
+  margin-bottom: $space-12;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.menu-tab {
+  padding: $space-4 $space-6;
+  font-size: 0.60rem;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: $ivory-muted;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  transition: all $dur-base $ease;
+  cursor: pointer;
+  background: none;
+
+  &.active {
+    color: $gold;
+    border-bottom-color: $gold;
+  }
+
+  &:hover { color: rgba($ivory, 0.85); }
+}
+
+.menu-panel {
+  display: none;
+  &.active { display: block; }
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1px;
+  background: $gold-border;
+}
+
+.menu-item {
+  background: $bg-elevated;
+  padding: $space-6;
+  display: flex;
+  gap: $space-5;
+  align-items: flex-start;
+  transition: background $dur-base $ease;
+
+  &:hover { background: $bg-surface; }
+
+  &__icon {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $gold-border;
+    background: $bg-secondary;
+    font-size: 1.2rem;
+    color: $ivory-muted;
+  }
+
+  &__body { flex: 1; min-width: 0; }
+
+  &__tags {
+    display: flex;
+    gap: $space-2;
+    flex-wrap: wrap;
+    margin-bottom: $space-2;
+  }
+
+  &__name {
+    font-family: $font-serif;
+    font-size: 1.18rem;
+    color: $ivory;
+    line-height: 1.2;
+    margin-bottom: $space-1;
+  }
+
+  &__desc {
+    font-size: 0.80rem;
+    color: $ivory-muted;
+    line-height: 1.6;
+    margin-bottom: $space-2;
+  }
+
+  &__price {
+    font-family: $font-serif;
+    font-size: 1rem;
+    color: $gold;
+    font-weight: 400;
+  }
+}
+
+.menu-tag {
+  font-size: 0.48rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid $gold-border;
+  color: $ivory-muted;
+
+  &--veg       { border-color: rgba($success, 0.35); color: rgba($success, 0.9); }
+  &--signature { border-color: $gold-border-m; color: $gold; }
+}
+
+.menu-note {
+  margin-top: $space-8;
+  padding: $space-5 $space-6;
+  border: 1px solid $gold-border;
+  font-size: 0.80rem;
+  color: $ivory-muted;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+// ── GALLERY ──────────────────────────────────────────────────────
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 320px;
+  gap: 4px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+
+  &:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  &:nth-child(5) { grid-column: span 2; }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.85s $ease;
+  }
+
+  &:hover img { transform: scale(1.06); }
+  &:focus-visible { box-shadow: 0 0 0 2px $gold; }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba($black, 0.55);
+    opacity: 0;
+    transition: opacity $dur-base $ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover &__overlay,
+  &:focus-visible &__overlay { opacity: 1; }
+
+  &__icon {
+    width: 52px; height: 52px;
+    border: 1px solid rgba($white, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: $white;
+    transform: scale(0.75);
+    transition: transform $dur-base $spring;
+    backdrop-filter: blur(8px);
+    background: rgba($black, 0.35);
+  }
+
+  &:hover &__icon,
+  &:focus-visible &__icon { transform: scale(1); }
+}
+
+// ── FORMS ────────────────────────────────────────────────────────
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+}
+
+.form-field {
+  position: relative;
+  border: 1px solid $gold-border;
+  margin-top: -1px;
+  margin-left: -1px;
+  background: $bg-elevated;
+  transition: border-color $dur-base $ease, background $dur-base $ease;
+
+  &:focus-within {
+    border-color: $gold-border-m;
+    background: $bg-surface;
+    z-index: 1;
+  }
+
+  &--full { grid-column: span 2; }
+
+  &.error {
+    border-color: rgba($error, 0.45);
+    background: rgba($error, 0.03);
+  }
+}
+
+.form-label {
+  display: block;
+  font-size: 0.52rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: $ivory-muted;
+  padding: $space-4 $space-5 $space-1;
+  transition: color $dur-base $ease;
+
+  .form-field:focus-within & { color: $gold; }
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  display: block;
+  width: 100%;
+  padding: $space-1 $space-5 $space-4;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: $ivory;
+  font-size: $text-sm;
+  line-height: 1.6;
+
+  &::placeholder { color: rgba($ivory-muted, 0.6); }
+}
+
+.form-select {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  option { background: $bg-elevated; color: $ivory; }
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit {
+  margin-top: 1px;
+  padding: $space-5 $space-8;
+  background: $gold;
+  color: $black;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+  transition: all $dur-base $ease;
+
+  &:hover {
+    background: $gold-light;
+    transform: translateY(-1px);
+    box-shadow: $shadow-gold;
+  }
+}
+
+.form-error {
+  font-size: $text-2xs;
+  color: $error;
+  padding: $space-1 $space-5 $space-3;
+}
+
+// ── CONTACT INFO ─────────────────────────────────────────────────
+.info-item {
+  display: flex;
+  gap: $space-4;
+  align-items: flex-start;
+
+  &__icon {
+    width: 40px; height: 40px;
+    border: 1px solid $gold-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    color: $gold;
+  }
+
+  &__label {
+    font-size: 0.52rem;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: $gold-dark;
+    margin-bottom: $space-1;
+  }
+
+  &__value {
+    font-size: $text-sm;
+    color: $ivory-dim;
+    line-height: 1.6;
+  }
+}
+
+// ── BANQUET / SPLIT SECTIONS ─────────────────────────────────────
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+
+  &__visual {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s $ease;
+    }
+
+    &:hover img { transform: scale(1.03); }
+  }
+
+  &__content {
+    background: $bg-secondary;
+    padding: clamp(3rem, 6vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  margin: $space-8 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-4;
+  padding-bottom: $space-4;
+  border-bottom: 1px solid $gold-border;
+
+  &:last-child { border-bottom: none; }
+
+  &__icon {
+    font-size: 0.9rem;
+    color: $gold;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    font-size: $text-sm;
+    color: $ivory-dim;
+    line-height: 1.65;
+
+    strong {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: $ivory;
+      margin-bottom: $space-1;
+    }
+  }
+}
+
+// ── ROOFTOP SECTION ──────────────────────────────────────────────
+.fullbleed-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba($black, 0.94) 0%,
+      rgba($black, 0.58) 55%,
+      rgba($black, 0.25) 100%
+    );
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    max-width: 580px;
+    padding: clamp(3rem, 6vw, 5rem) $side-pad;
+  }
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-8;
+  margin-top: $space-8;
+  padding-top: $space-8;
+  border-top: 1px solid $gold-border;
+}
+
+.stat {
+  &__number {
+    font-family: $font-serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: $gold;
+    line-height: 1;
+  }
+
+  &__label {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $ivory-muted;
+    margin-top: $space-1;
+  }
+}
+
+// ── STATS BAR ────────────────────────────────────────────────────
+.stats-bar {
+  background: $bg-secondary;
+  border-top: 1px solid $gold-border;
+  border-bottom: 1px solid $gold-border;
+  padding: $space-10 0;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-8;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $side-pad;
+    text-align: center;
+  }
+
+  &__item {
+    border-right: 1px solid $gold-border;
+    &:last-child { border-right: none; }
+  }
+
+  &__number {
+    font-family: $font-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: $gold;
+    line-height: 1;
+  }
+
+  &__label {
+    font-size: 0.58rem;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: $ivory-muted;
+    margin-top: $space-2;
+  }
+}
+
+// ── FOOTER ───────────────────────────────────────────────────────
+.footer {
+  background: $black;
+  border-top: 1px solid $gold-border;
+  padding: clamp(3.5rem, 7vw, 6rem) 0 $space-10;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: $space-12;
+  padding-bottom: $space-12;
+  margin-bottom: $space-8;
+  border-bottom: 1px solid $gold-border;
+}
+
+.footer__brand-name {
+  font-family: $font-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: $gold;
+  letter-spacing: 0.06em;
+  margin-bottom: $space-2;
+}
+
+.footer__brand-sub {
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: $ivory-muted;
+  margin-bottom: $space-5;
+}
+
+.footer__brand-desc {
+  font-size: $text-sm;
+  color: $ivory-muted;
+  line-height: 1.75;
+  max-width: 300px;
+}
+
+.footer__col-title {
+  font-size: 0.52rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $gold-dark;
+  margin-bottom: $space-5;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.footer__link {
+  font-size: $text-sm;
+  color: $ivory-muted;
+  transition: color $dur-base $ease;
+  line-height: 1.5;
+
+  &:hover {
+    color: $gold;
+  }
+
+  &.active,
+  &--active {
+    color: $gold;
+  }
+}
+
+.footer__social {
+  display: flex;
+  gap: $space-3;
+  margin-top: $space-6;
+}
+
+.footer__social-link {
+  width: 36px; height: 36px;
+  border: 1px solid $gold-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $ivory-muted;
+  transition: all $dur-base $ease;
+
+  &:hover {
+    border-color: $gold;
+    color: $gold;
+    transform: translateY(-2px);
+  }
+
+  svg { width: 15px; height: 15px; fill: currentColor; }
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $space-4;
+}
+
+.footer__copy {
+  font-size: $text-xs;
+  color: $ivory-muted;
+  line-height: 1.6;
+}
+
+.footer__legal {
+  display: flex;
+  gap: $space-5;
+  a {
+    font-size: $text-xs;
+    color: $ivory-muted;
+    transition: color $dur-base $ease;
+    &:hover { color: $gold; }
+  }
+}
+
+// ── WHATSAPP FLOAT ───────────────────────────────────────────────
+.whatsapp-float {
+  position: fixed;
+  bottom: 2.2rem;
+  right: 2.2rem;
+  z-index: $z-overlay;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: $white;
+  padding: 0.72rem 1.1rem;
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all $dur-base $ease;
+  box-shadow: 0 4px 28px rgba(37, 211, 102, 0.28);
+  border-radius: 2px;
+
+  &:hover {
+    background: #20bc5c;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(37, 211, 102, 0.40);
+  }
+
+  svg {
+    width: 20px; height: 20px;
+    fill: $white;
+    flex-shrink: 0;
+  }
+
+  &__text { display: none; }
+
+  @media (min-width: $bp-md) {
+    &__text { display: block; }
+  }
+}
+
+// ── SCROLL TO TOP ────────────────────────────────────────────────
+.scroll-top {
+  position: fixed;
+  bottom: 2.2rem;
+  left: 2.2rem;
+  z-index: $z-overlay - 1;
+  width: 42px;
+  height: 42px;
+  border: 1px solid $gold-border-m;
+  background: rgba($black, 0.92);
+  backdrop-filter: blur(12px);
+  color: $gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity $dur-base $ease,
+              transform $dur-base $ease,
+              background $dur-base $ease,
+              border-color $dur-base $ease,
+              color $dur-base $ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &:hover {
+    background: $gold;
+    color: $black;
+    border-color: $gold;
+    transform: translateY(-2px);
+  }
+}
+
+// ── PLACEHOLDER NOTICE ───────────────────────────────────────────
+.placeholder-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $gold-dark;
+  border: 1px solid rgba($gold, 0.18);
+  padding: $space-1 $space-3;
+}
+
+// ── MAP ──────────────────────────────────────────────────────────
+.map-frame {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid $gold-border;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(85%) invert(92%) contrast(85%);
+    opacity: 0.75;
+  }
+}
+
+// ── ABOUT PILLARS ────────────────────────────────────────────────
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-6;
+  margin-top: $space-10;
+}
+
+.pillar {
+  border-top: 1px solid $gold-border;
+  padding-top: $space-4;
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.15rem;
+    color: $gold-light;
+    margin-bottom: $space-2;
+  }
+
+  &__body {
+    font-size: 0.82rem;
+    color: $ivory-muted;
+    line-height: 1.65;
+  }
+}
+
+// ── IMAGE FRAME ──────────────────────────────────────────────────
+.img-frame {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid $gold-border;
+    pointer-events: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.85s $ease;
+  }
+
+  &:hover img { transform: scale(1.03); }
+}
+
+.img-accent {
+  position: absolute;
+  bottom: -$space-6;
+  right: -$space-6;
+  width: 110px;
+  height: 110px;
+  border: 1px solid $gold-border-m;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-1;
+  background: $bg-secondary;
+
+  &__num {
+    font-family: $font-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: $gold;
+    line-height: 1;
+  }
+
+  &__text {
+    font-size: 0.48rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: $ivory-muted;
+  }
+}
+
+// ── DIVIDER ──────────────────────────────────────────────────────
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $gold-border;
+
+  &--gold {
+    background: linear-gradient(90deg, transparent, $gold, transparent);
+    opacity: 0.5;
+  }
+}
+
+// ── EDITORIAL LUXURY COMPONENTS ──────────────────────────────────
+.editorial-quote {
+  font-family: $font-serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.45;
+  color: $ivory;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+
+  em {
+    font-style: italic;
+    color: $gold-light;
+  }
+}
+
+.editorial-eyebrow {
+  @extend .t-eyebrow;
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  margin-bottom: $space-4;
+
+  &--center {
+    justify-content: center;
+  }
+
+  &__line {
+    display: inline-block;
+    width: 36px;
+    height: 1px;
+    background: $gold;
+    opacity: 0.6;
+  }
+}
+
+.editorial-heading {
+  @extend .t-h2;
+  margin-bottom: $space-5;
+
+  em {
+    font-style: italic;
+    color: $gold-light;
+  }
+
+  &--center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.editorial-lead {
+  font-size: clamp(0.95rem, 1.4vw, 1.06rem);
+  line-height: 1.82;
+  color: rgba($ivory-dim, 0.92);
+  margin-bottom: $space-6;
+
+  &--center {
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// ── LUXURY CARD COMPONENT ────────────────────────────────────────
+.luxury-card {
+  background: $bg-card;
+  border: 1px solid $gold-border;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform $dur-base $ease,
+              border-color $dur-base $ease,
+              box-shadow $dur-base $ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $gold-border-m;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65),
+                0 0 24px rgba($gold, 0.08);
+  }
+
+  &__media {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.85s $ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba($black, 0.88) 0%, rgba($black, 0.08) 55%, transparent 100%);
+      pointer-events: none;
+    }
+  }
+
+  &:hover &__media img {
+    transform: scale(1.06);
+  }
+
+  &__badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    background: rgba($black, 0.88);
+    border: 1px solid $gold-border-m;
+    color: $gold;
+    font-size: 0.56rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    backdrop-filter: blur(10px);
+  }
+
+  &__body {
+    padding: clamp(1.8rem, 3vw, 2.5rem);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+    color: $ivory;
+    margin-bottom: $space-3;
+    line-height: 1.2;
+  }
+
+  &__text {
+    font-size: 0.88rem;
+    color: $ivory-dim;
+    line-height: 1.78;
+    margin-bottom: $space-6;
+  }
+}
+
+// ── FEATURE SPLIT COMPONENT ──────────────────────────────────────
+.feature-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 5.5vw, 6rem);
+  align-items: center;
+
+  // FIX: Use order/flex instead of RTL direction to avoid text issues
+  &--reverse {
+    .feature-split__text-col,
+    > div:first-child,
+    > div:nth-child(1) {
+      order: 2;
+    }
+    .feature-split__visual,
+    > div:last-child,
+    > div:nth-child(2) {
+      order: 1;
+    }
+  }
+
+  &__visual {
+    position: relative;
+  }
+
+  &__frame {
+    border: 1px solid $gold-border-m;
+    padding: 0.8rem;
+    background: $bg-secondary;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.85s $ease;
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+  }
+
+  &__tag {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    background: $black;
+    border: 1px solid $gold;
+    padding: 1.1rem 1.8rem;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.85);
+    z-index: 2;
+
+    &-eyebrow {
+      font-size: 0.52rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: $gold;
+      margin-bottom: 0.3rem;
+    }
+
+    &-title {
+      font-family: $font-serif;
+      font-size: 1.1rem;
+      color: $ivory;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+  }
+
+  &__bullets {
+    margin: $space-6 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+  }
+
+  &__bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    font-size: 0.92rem;
+    color: $ivory;
+    line-height: 1.65;
+
+    &-icon {
+      color: $gold;
+      font-size: 0.72rem;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+  }
+}
+
+// ── EDITORIAL MOSAIC GALLERY ─────────────────────────────────────
+.mosaic-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+
+  &__item {
+    position: relative;
+    height: 270px;
+    overflow: hidden;
+    border: 1px solid $gold-border;
+    background: $bg-secondary;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.75s $ease;
+    }
+
+    &:hover img {
+      transform: scale(1.07);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba($black, 0.78) 0%, transparent 55%);
+      opacity: 0.7;
+      transition: opacity $dur-base $ease;
+    }
+
+    &:hover::after {
+      opacity: 0.25;
+    }
+
+    &-label {
+      position: absolute;
+      bottom: 1rem;
+      left: 1.2rem;
+      z-index: 2;
+      font-size: 0.60rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: $ivory;
+      font-weight: 500;
+    }
+  }
+}
+
+// ── RESERVATION CALLOUT ──────────────────────────────────────────
+.reservation-callout {
+  background:
+    radial-gradient(ellipse at center, rgba($gold, 0.10) 0%, rgba($bg-secondary, 0.95) 55%, $black 100%);
+  border-top: 1px solid $gold-border-m;
+  border-bottom: 1px solid $gold-border-m;
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  // Subtle ambient glow
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($gold, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  &__inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// ── BRAND PILLARS ────────────────────────────────────────────────
+.pillar-card {
+  background: $bg-card;
+  border: 1px solid $gold-border;
+  padding: clamp(2rem, 4vw, 2.8rem);
+  position: relative;
+  transition: border-color $dur-base $ease,
+              transform $dur-base $ease,
+              box-shadow $dur-base $ease;
+
+  // Subtle top accent line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($gold, 0.4), transparent);
+    opacity: 0;
+    transition: opacity $dur-base $ease;
+  }
+
+  &:hover {
+    border-color: $gold-border-m;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+
+    &::before { opacity: 1; }
+  }
+
+  &__num {
+    font-family: $font-serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: rgba($gold, 0.32);
+    line-height: 1;
+    margin-bottom: $space-3;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.5rem;
+    color: $ivory;
+    margin-bottom: $space-3;
+    line-height: 1.2;
+  }
+
+  &__text {
+    font-size: 0.88rem;
+    color: $ivory-dim;
+    line-height: 1.78;
+  }
+}
+
+// ── LIGHTBOX (CSS version for gallery.html static markup) ─────────
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal + 200;
+  background: rgba($black, 0.97);
+  cursor: zoom-out;
+  backdrop-filter: blur(20px);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &.active { display: flex; }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    cursor: zoom-out;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+  &__img {
+    max-width: 88vw;
+    max-height: 78vh;
+    object-fit: contain;
+    border: 1px solid $gold-border;
+    box-shadow: $shadow-dark;
+    cursor: default;
+  }
+
+  &__caption {
+    margin-top: 1.2rem;
+    font-family: $font-serif;
+    font-size: 1rem;
+    color: rgba($ivory, 0.85);
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  &__close {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 46px; height: 46px;
+    border: 1px solid $gold-border-m;
+    background: rgba($black, 0.88);
+    color: $gold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all $dur-base $ease;
+    backdrop-filter: blur(8px);
+    z-index: 3;
+
+    &:hover {
+      background: $gold;
+      color: $black;
+      border-color: $gold;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px; height: 48px;
+    border: 1px solid $gold-border;
+    background: rgba($black, 0.75);
+    color: $gold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all $dur-base $ease;
+    z-index: 3;
+    backdrop-filter: blur(8px);
+
+    &:hover {
+      background: $gold;
+      color: $black;
+      border-color: $gold;
+    }
+
+    &.lightbox__prev { left: 1.5rem; }
+    &.lightbox__next { right: 1.5rem; }
+  }
+}
+
+// ── VARANASI COMING SOON ─────────────────────────────────────────
+.coming-soon {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: $black;
+  text-align: center;
+  padding: $side-pad;
+
+  &__badge {
+    @extend .t-eyebrow;
+    border: 1px solid $gold-border;
+    padding: $space-2 $space-5;
+    margin-bottom: $space-8;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: $ivory;
+    line-height: 1.05;
+    margin-bottom: $space-4;
+
+    em {
+      font-style: italic;
+      color: $gold-light;
+    }
+  }
+
+  &__desc {
+    @extend .t-body;
+    max-width: 480px;
+    margin-bottom: $space-10;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $space-4;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+// ── 404 PAGE ─────────────────────────────────────────────────────
+.error-page {
+  @extend .coming-soon;
+
+  &__code {
+    font-family: $font-serif;
+    font-size: clamp(5rem, 12vw, 10rem);
+    font-weight: 300;
+    color: rgba($gold, 0.14);
+    line-height: 1;
+    margin-bottom: $space-4;
+  }
+}

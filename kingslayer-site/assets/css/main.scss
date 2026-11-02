@@ -1,0 +1,50 @@
+---
+# Jekyll front matter — required for SCSS processing
+---
+// Import all partials directly — each handles its own variable imports
+@import "variables";
+@import "typography";
+@import "components";
+@import "animations";
+@import "responsive";
+
+// ── INLINE GRID UTILITIES (for reversed split sections) ─────────
+// These use display:grid inline but need responsive collapse
+.responsive-grid-2 {
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr !important;
+
+    > [style*="order:1"],
+    > [style*="order: 1"],
+    > [style*="order:2"],
+    > [style*="order: 2"] {
+      order: unset !important;
+    }
+  }
+}
+
+// ── ACTIVE FOOTER LINK ───────────────────────────────────────────
+.footer__link--active {
+  color: $gold !important;
+}
+
+// ── FORM SUCCESS STATE ───────────────────────────────────────────
+@keyframes fadeUpFormSuccess {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ── NAV JS READY STATE ───────────────────────────────────────────
+.nav.js-ready {
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.4s $ease,
+              border-color 0.4s $ease,
+              box-shadow 0.4s $ease;
+}
+
+// ── BODY READY STATE ─────────────────────────────────────────────
+// Prevent content flash before preloader completes
+body:not(.ready):not(.ks-no-preloader) {
+  // Opacity handled by preloader — body becomes visible after preloader exits
+}
+

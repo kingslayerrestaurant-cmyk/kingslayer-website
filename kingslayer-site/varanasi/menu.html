@@ -1,0 +1,151 @@
+---
+layout: page
+title: "Culinary Menu — Kingslayer Varanasi"
+description: "Explore the culinary offerings of Kingslayer Varanasi. Royal Awadhi biryanis, tandoori kebabs, slow-simmered gravies, artisanal breads, and exquisite desserts."
+branch: "varanasi"
+branch_name: "Varanasi"
+body_class: "menu-page"
+---
+
+<!-- ═══ MENU PAGE HERO ═══════════════════════════════════════════════ -->
+<section class="page-hero" aria-label="Kingslayer Varanasi Menu Hero">
+  <div class="page-hero__media">
+    <img src="{{ '/assets/images/varanasi/culinary_feast.jpg' | relative_url }}"
+         alt="Kingslayer Varanasi Gastronomic Offerings and Royal Feast"
+         loading="eager"
+         fetchpriority="high" />
+  </div>
+  <div class="page-hero__overlay"></div>
+
+  <div class="page-hero__content">
+    <div class="hero__eyebrow">
+      <span class="gold-line"></span>
+      <span class="t-eyebrow">Kingslayer Varanasi &nbsp;·&nbsp; Epicurean Repertoire</span>
+    </div>
+    <h1 class="hero__title">
+      The Culinary<br>
+      <em>Menu</em>
+    </h1>
+    <p class="hero__subtitle">
+      A celebration of regal Awadhi traditions, vibrant tandoori grills, and time-honoured North Indian delicacies.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ GUEST VERIFICATION NOTICE ════════════════════════════════════ -->
+<section style="background: #111111; border-bottom: 1px solid rgba(198, 167, 106, 0.2); padding: 1.2rem 0; text-align: center;">
+  <div class="container" style="max-width: 860px;">
+    <p style="font-size: 0.8rem; letter-spacing: 0.05em; color: #A49B8B; margin: 0; line-height: 1.6;">
+      <strong style="color: #C6A76A; text-transform: uppercase; letter-spacing: 0.15em;">Notice to Guests:</strong>
+      {{ site.data.menu.note }} For immediate seasonal specialties, chef's recommendations, or dietary requests, please contact our restaurant captain.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ MENU CONTENT & TABS ══════════════════════════════════════════ -->
+<section class="section section--dark" id="menu-section" aria-label="Food Menu Categories">
+  <div class="container">
+
+    <!-- Category Tabs Navigation -->
+    <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+      <button class="menu-tab active" data-tab="all" role="tab" aria-selected="true">
+        All Selections
+      </button>
+      {% for cat in site.data.menu.categories %}
+      <button class="menu-tab" data-tab="{{ cat.id }}" role="tab" aria-selected="false">
+        {{ cat.label }}
+      </button>
+      {% endfor %}
+    </div>
+
+    <!-- Category Panels -->
+    {% for cat in site.data.menu.categories %}
+    <div class="menu-panel active" id="panel-{{ cat.id }}" data-category="{{ cat.id }}" style="margin-bottom: 4rem;">
+
+      <div style="margin-bottom: 2rem;">
+        <div class="editorial-eyebrow">
+          <span class="editorial-eyebrow__line"></span>
+          <span>{{ cat.description }}</span>
+        </div>
+        <h2 class="editorial-heading" style="margin-bottom: 0;">
+          {{ cat.label }}
+        </h2>
+      </div>
+
+      <div class="menu-grid">
+        {% for item in cat.items %}
+        <article class="menu-item reveal">
+          <div class="menu-item__icon" aria-hidden="true">
+            {% if cat.id == 'starters' %}🍢
+            {% elsif cat.id == 'mains' %}🍲
+            {% elsif cat.id == 'breads' %}🫓
+            {% elsif cat.id == 'rice' %}🍚
+            {% elsif cat.id == 'desserts' %}🍨
+            {% elsif cat.id == 'beverages' %}🍹
+            {% else %}🍽️{% endif %}
+          </div>
+
+          <div class="menu-item__body">
+            {% if item.tags %}
+            <div class="menu-item__tags">
+              {% for tag in item.tags %}
+                {% if tag == 'veg' %}
+                <span class="menu-tag menu-tag--veg">Pure Veg</span>
+                {% elsif tag == 'signature' %}
+                <span class="menu-tag menu-tag--signature">Signature</span>
+                {% elsif tag == 'recommended' %}
+                <span class="menu-tag">Chef's Choice</span>
+                {% else %}
+                <span class="menu-tag">{{ tag | capitalize }}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            <h3 class="menu-item__name">{{ item.name }}</h3>
+            <p class="menu-item__desc">{{ item.description }}</p>
+            <div class="menu-item__price">{{ item.price }}</div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+
+    </div>
+    {% endfor %}
+
+    <!-- Chef's Dietary Commitment -->
+    <div class="pillar-card reveal" style="padding: 2.2rem; margin-top: 3rem; text-align: center;">
+      <p style="font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: #C6A76A; margin-bottom: 0.4rem;">Culinary Purity Standard</p>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: #EDE5D7; margin-bottom: 0.5rem;">
+        Prepared Fresh Daily Without Artificial Additives
+      </p>
+      <p style="font-size: 0.85rem; color: #A49B8B; max-width: 680px; margin: 0 auto; line-height: 1.7;">
+        All gravies are simmered slowly using cold-pressed oils, pure desi ghee, and whole spices ground in our kitchen. Please inform your server of any food allergies or specific dietary preferences upon seating.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ RESERVATION CALLOUT ════════════════════════════════════════════ -->
+<section class="reservation-callout" aria-label="Reserve a Table at Kingslayer Varanasi">
+  <div class="container">
+    <div class="reservation-callout__inner reveal">
+      <div class="editorial-eyebrow editorial-eyebrow--center">
+        <span class="editorial-eyebrow__line"></span>
+        <span>Savour the Royal Heritage</span>
+        <span class="editorial-eyebrow__line"></span>
+      </div>
+      <h2 class="editorial-heading editorial-heading--center">
+        Reserve Your Dining <em>Experience</em>
+      </h2>
+      <p class="editorial-lead editorial-lead--center">
+        Join us for lunch or dinner. Our culinary brigade prepares every order fresh to table.
+      </p>
+      <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <a href="{{ '/varanasi/contact/' | relative_url }}" class="btn btn--gold">Reserve a Table</a>
+        <a href="https://wa.me/{{ site.data.contact.varanasi.whatsapp }}" class="btn btn--outline" target="_blank" rel="noopener noreferrer">WhatsApp Guest Desk</a>
+      </div>
+    </div>
+  </div>
+</section>

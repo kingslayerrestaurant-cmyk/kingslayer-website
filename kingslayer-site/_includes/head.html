@@ -1,0 +1,130 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     KINGSLAYER NAVIGATION & PRELOADER LIFECYCLE ENGINE
+     Synchronous Zero-Flash Pre-Paint State Evaluator:
+     1. Refresh / Hard-Refresh anywhere: FULL RESET to location selection ('/')
+        where preloader replays from 0% and starts completely over.
+     2. First cold visit: Preloader plays, reveals location selection ('/').
+     3. Internal page navigation: Suppressed instantly (zero flash) once entered.
+     4. Browser Back/Forward: Page restored instantly without preloader replay.
+     ═══════════════════════════════════════════════════════════════ -->
+<script>
+  (function () {
+    try {
+      // 1. Resolve normalized root location selection path
+      var rootPath = "{{ '/' | relative_url }}";
+      if (!rootPath.endsWith('/')) rootPath += '/';
+
+      var curPath = window.location.pathname;
+      if (!curPath.endsWith('/') && !curPath.endsWith('.html')) curPath += '/';
+
+      var isRootPage = (curPath === rootPath) ||
+                       (curPath === rootPath + 'index.html') ||
+                       (curPath === '/' || curPath === '/index.html');
+
+      // 2. Detect navigation type across modern and legacy browser APIs
+      var navType = '';
+      if (window.performance) {
+        if (performance.getEntriesByType && performance.getEntriesByType('navigation').length) {
+          navType = performance.getEntriesByType('navigation')[0].type;
+        } else if (performance.navigation) {
+          if (performance.navigation.type === 1) navType = 'reload';
+          else if (performance.navigation.type === 2) navType = 'back_forward';
+        }
+      }
+
+      // 3. REFRESH / HARD-REFRESH
+      if (navType === 'reload') {
+        try {
+          sessionStorage.clear();
+          localStorage.removeItem('ks_branch');
+        } catch (e) {}
+
+        if (!isRootPage) {
+          window.location.replace(rootPath);
+          return;
+        }
+        return;
+      }
+
+      // 4. BROWSER HISTORY (Back / Forward buttons)
+      if (navType === 'back_forward') {
+        document.documentElement.classList.add('ks-no-preloader');
+        return;
+      }
+
+      // 5. INTERNAL NAVIGATION
+      if (sessionStorage.getItem('ks_internal_nav') === '1') {
+        document.documentElement.classList.add('ks-no-preloader');
+        sessionStorage.removeItem('ks_internal_nav');
+        return;
+      }
+
+      // 6. DIRECT URL ENTRY / COLD OPEN ON INTERNAL SUBPAGES
+      if (!isRootPage && !sessionStorage.getItem('ks_entered')) {
+        window.location.replace(rootPath);
+        return;
+      }
+    } catch (err) {
+      // Graceful fallback for strict storage environments
+    }
+  })();
+</script>
+
+<noscript>
+  <style>
+    .ks-preloader { display: none !important; }
+    body { opacity: 1 !important; }
+  </style>
+</noscript>
+
+<!-- ── PAGE TITLE & META DESCRIPTION ──────────────────────────── -->
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta name="keywords" content="Kingslayer Restaurant Ballia, fine dining Ballia, banquet hall Ballia, rooftop restaurant Ballia, North Indian restaurant UP, wedding venue Ballia, luxury restaurant Uttar Pradesh">
+<meta name="robots" content="index, follow">
+<meta name="author" content="{{ site.author.name | default: 'Kingslayer Restaurant Ballia' }}">
+<meta name="theme-color" content="#090909">
+
+<!-- ── OPEN GRAPH / SOCIAL SHARING ───────────────────────────── -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="{{ page.url | absolute_url }}">
+<meta property="og:title"       content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:image"       content="{{ '/assets/images/hero_restaurant.jpg' | absolute_url }}">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name"   content="Kingslayer Restaurant Ballia">
+<meta property="og:locale"      content="en_IN">
+
+<!-- ── TWITTER CARD ───────────────────────────────────────────── -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta name="twitter:image"       content="{{ '/assets/images/hero_restaurant.jpg' | absolute_url }}">
+
+<!-- ── CANONICAL URL ─────────────────────────────────────────── -->
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<!-- ── FONTS — Premium Typography Stack ──────────────────────── -->
+<!-- DNS Prefetch for faster resolution -->
+<link rel="dns-prefetch"  href="https://fonts.googleapis.com">
+<link rel="dns-prefetch"  href="https://fonts.gstatic.com">
+<link rel="preconnect"    href="https://fonts.googleapis.com">
+<link rel="preconnect"    href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Primary typefaces: Cormorant Garamond (serif) + Inter (sans) + Playfair Display (display) -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+<!-- ── STYLES ────────────────────────────────────────────────── -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+<!-- ── SEO PLUGIN ────────────────────────────────────────────── -->
+{% seo title=false %}
+
+<!-- ── FAVICON ────────────────────────────────────────────────── -->
+<link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon.ico' | relative_url }}">

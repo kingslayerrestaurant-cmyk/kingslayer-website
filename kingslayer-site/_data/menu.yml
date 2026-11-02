@@ -1,0 +1,175 @@
+# ═══════════════════════════════════════════════════════
+# KINGSLAYER BALLIA — Menu Data
+# ─────────────────────────────────────────────────────
+# IMPORTANT: All items below are ILLUSTRATIVE PLACEHOLDERS.
+# Replace with verified menu items, descriptions and prices
+# provided by the Kingslayer Ballia kitchen team before launch.
+# Set "confirmed: true" on each item once verified.
+# ═══════════════════════════════════════════════════════
+
+note: "This menu is illustrative. All items and pricing must be verified and confirmed by Kingslayer Ballia before publishing."
+
+categories:
+  - id: starters
+    label: "Starters"
+    description: "Begin your Kingslayer journey"
+    items:
+      - name: "Paneer Tikka Platter"
+        description: "Chunks of fresh paneer marinated in spiced yoghurt, charred in the tandoor. Served with mint and tamarind chutneys."
+        price: "₹ —"
+        tags: ["vegetarian", "recommended"]
+        confirmed: false
+
+      - name: "Chicken Malai Tikka"
+        description: "Tender chicken breast marinated overnight in a cashew cream and aromatic spice blend, slow-cooked in the tandoor."
+        price: "₹ —"
+        tags: ["non-vegetarian"]
+        confirmed: false
+
+      - name: "Galawati Kebab"
+        description: "The jewel of Awadhi cuisine — melt-in-the-mouth minced meat kebabs with whole spices, cooked on a tawa."
+        price: "₹ —"
+        tags: ["non-vegetarian", "signature"]
+        confirmed: false
+
+      - name: "Dahi Ke Sholay"
+        description: "Crispy golden parcels filled with seasoned hung curd, served with mint and tamarind chutneys."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Seekh Kebab"
+        description: "Minced lamb blended with fragrant spices and fresh herbs, shaped on skewers and grilled in the tandoor."
+        price: "₹ —"
+        tags: ["non-vegetarian"]
+        confirmed: false
+
+      - name: "Hara Bhara Kebab"
+        description: "Spinach, green peas and potato patties with fresh herbs, pan-fried until golden and crisp."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+  - id: mains
+    label: "Main Course"
+    description: "The heart of the Kingslayer table"
+    items:
+      - name: "Dal Makhani"
+        description: "Black lentils slow-cooked overnight with butter, cream and a carefully guarded spice recipe. Our most beloved dish."
+        price: "₹ —"
+        tags: ["vegetarian", "signature", "recommended"]
+        confirmed: false
+
+      - name: "Butter Chicken"
+        description: "Tender chicken in our signature velvety tomato and butter sauce. The Kingslayer interpretation of India's most celebrated dish."
+        price: "₹ —"
+        tags: ["non-vegetarian", "recommended"]
+        confirmed: false
+
+      - name: "Mutton Rogan Josh"
+        description: "Slow-braised mutton in Kashmiri red chilli and whole spice gravy. Deep, aromatic, unforgettable."
+        price: "₹ —"
+        tags: ["non-vegetarian"]
+        confirmed: false
+
+      - name: "Shahi Paneer"
+        description: "Cottage cheese in a rich, saffron-kissed Mughlai gravy finished with cream and cardamom."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Chicken Biryani"
+        description: "Aromatic dum biryani with marinated chicken, kewra water and fried onions. Served with raita and salan."
+        price: "₹ —"
+        tags: ["non-vegetarian", "recommended"]
+        confirmed: false
+
+      - name: "Vegetable Dum Biryani"
+        description: "Fragrant basmati layered with seasonal vegetables and whole spices, sealed and slow-cooked dum-style."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Navratan Korma"
+        description: "Nine vegetables and fruits cooked in a rich, mildly sweet Mughlai gravy with cream and whole spices."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+  - id: breads
+    label: "Breads & Rice"
+    description: "The perfect accompaniment"
+    items:
+      - name: "Butter Naan"
+        description: "Soft leavened flatbread baked in the tandoor, finished with cultured butter and fresh coriander."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Garlic Kulcha"
+        description: "Leavened bread stuffed with roasted garlic and herbs, baked in the tandoor with clarified butter."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Stuffed Paratha"
+        description: "Whole wheat flatbread filled with your choice of spiced potato, paneer or mixed vegetables."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Saffron Pulao"
+        description: "Steamed basmati scented with saffron and whole spices. A refined accompaniment for rich gravies."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+  - id: desserts
+    label: "Desserts"
+    description: "A sweet finale"
+    items:
+      - name: "Shahi Tukda"
+        description: "Fried bread soaked in saffron-infused rabdi, topped with pistachios and edible silver leaf. Royally indulgent."
+        price: "₹ —"
+        tags: ["vegetarian", "signature"]
+        confirmed: false
+
+      - name: "Kulfi Falooda"
+        description: "Traditional Indian frozen dessert with falooda noodles, rose syrup and basil seeds."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Gulab Jamun"
+        description: "Soft milk-solid dumplings in cardamom and saffron syrup, served warm with vanilla ice cream."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+  - id: beverages
+    label: "Beverages"
+    description: "Crafted drinks & refreshments"
+    items:
+      - name: "Mango Lassi"
+        description: "Thick chilled yoghurt blended with Alphonso mango pulp. Rich and refreshing."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Kahwa"
+        description: "Kashmiri green tea with saffron, cardamom, cinnamon and almonds. Warming and fragrant."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Rose Sharbat"
+        description: "Chilled rose sherbet with sabja seeds. A delicate cooling drink, beautifully presented."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false
+
+      - name: "Nimbu Shikanji"
+        description: "Freshly squeezed lime water with black salt, cumin and a hint of ginger."
+        price: "₹ —"
+        tags: ["vegetarian"]
+        confirmed: false

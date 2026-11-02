@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body class="{% if page.body_class %}{{ page.body_class }}{% endif %}{% if page.url == '/' or page.layout == 'landing' %} landing-page{% endif %}">
+  {% include preloader.html %}
+
+  {{ content }}
+
+  {% if page.whatsapp != false %}
+  {% include whatsapp-button.html %}
+  {% endif %}
+
+  {% include scroll-top.html %}
+
+  <script src="{{ '/assets/js/kingslayer.js' | relative_url }}"></script>
+</body>
+</html>

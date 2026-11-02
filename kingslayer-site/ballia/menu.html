@@ -1,0 +1,134 @@
+---
+layout: page
+title: "Culinary Menu — Kingslayer Ballia"
+description: "Explore the culinary offerings of Kingslayer Ballia. Tandoori kebabs, slow-cooked heritage gravies, royal biryanis, artisanal tandoor breads and exquisite desserts."
+branch: "ballia"
+branch_name: "Ballia"
+body_class: "menu-page"
+---
+
+<!-- ═══ MENU PAGE HERO ═══════════════════════════════════════════════ -->
+<section class="page-hero" aria-label="Kingslayer Menu Hero">
+  <div class="page-hero__media">
+    <img src="{{ '/assets/images/hero_food.jpg' | relative_url }}"
+         alt="Kingslayer Gastronomic Offerings"
+         loading="eager"
+         fetchpriority="high" />
+  </div>
+  <div class="page-hero__overlay"></div>
+
+  <div class="page-hero__content">
+    <div class="hero__eyebrow">
+      <span class="gold-line"></span>
+      <span class="t-eyebrow">Kingslayer Ballia &nbsp;·&nbsp; Epicurean Repertoire</span>
+    </div>
+    <h1 class="hero__title">
+      The Culinary<br>
+      <em>Menu</em>
+    </h1>
+    <p class="hero__subtitle">
+      A celebration of regal Awadhi traditions, vibrant tandoori grills, and time-honoured North Indian delicacies.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ GUEST VERIFICATION NOTICE ════════════════════════════════════ -->
+<section style="background: #111111; border-bottom: 1px solid rgba(198, 167, 106, 0.2); padding: 1.2rem 0; text-align: center;">
+  <div class="container" style="max-width: 860px;">
+    <p style="font-size: 0.8rem; letter-spacing: 0.05em; color: #A49B8B; margin: 0; line-height: 1.6;">
+      <strong style="color: #C6A76A; text-transform: uppercase; letter-spacing: 0.15em;">Notice to Guests:</strong>
+      {{ site.data.menu.note }} For immediate seasonal specialties, chef's recommendations, or dietary requests, please contact our restaurant captain.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ MENU CONTENT & TABS ══════════════════════════════════════════ -->
+<section class="section section--dark" id="menu-section" aria-label="Food Menu Categories">
+  <div class="container">
+
+    <!-- Category Tabs Navigation -->
+    <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+      <button class="menu-tab active" data-tab="all" role="tab" aria-selected="true">
+        All Selections
+      </button>
+      {% for cat in site.data.menu.categories %}
+      <button class="menu-tab" data-tab="{{ cat.id }}" role="tab" aria-selected="false">
+        {{ cat.label }}
+      </button>
+      {% endfor %}
+    </div>
+
+    <!-- Category Panels -->
+    {% for cat in site.data.menu.categories %}
+    <div class="menu-panel active" id="panel-{{ cat.id }}" data-category="{{ cat.id }}" style="margin-bottom: 4rem;">
+
+      <div style="margin-bottom: 2rem;">
+        <div class="editorial-eyebrow">
+          <span class="editorial-eyebrow__line"></span>
+          <span>{{ cat.description }}</span>
+        </div>
+        <h2 class="editorial-heading" style="margin-bottom: 0;">
+          {{ cat.label }}
+        </h2>
+      </div>
+
+      <div class="menu-grid">
+        {% for item in cat.items %}
+        <article class="menu-item reveal">
+          <div class="menu-item__icon" aria-hidden="true">
+            {% if cat.id == 'starters' %}🍢
+            {% elsif cat.id == 'mains' %}🍲
+            {% elsif cat.id == 'breads' %}🫓
+            {% elsif cat.id == 'rice' %}🍚
+            {% elsif cat.id == 'desserts' %}🍨
+            {% elsif cat.id == 'beverages' %}🍹
+            {% else %}🍽️{% endif %}
+          </div>
+
+          <div class="menu-item__body">
+            {% if item.tags %}
+            <div class="menu-item__tags">
+              {% for tag in item.tags %}
+              <span class="menu-tag{% if tag == 'vegetarian' %} menu-tag--veg{% elsif tag == 'signature' %} menu-tag--signature{% endif %}">
+                {{ tag }}
+              </span>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            <h3 class="menu-item__name">{{ item.name }}</h3>
+            <p class="menu-item__desc">{{ item.description }}</p>
+            <div class="menu-item__price">{{ item.price }}</div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+<!-- ═══ RESERVATION CALLOUT ════════════════════════════════════════════ -->
+<section class="reservation-callout" aria-label="Reserve Table">
+  <div class="container">
+    <div class="reservation-callout__inner reveal">
+      <div class="editorial-eyebrow editorial-eyebrow--center">
+        <span class="editorial-eyebrow__line"></span>
+        <span>A Culinary Journey</span>
+        <span class="editorial-eyebrow__line"></span>
+      </div>
+      <h2 class="editorial-heading editorial-heading--center">
+        Experience These Flavours at <em>Kingslayer</em>
+      </h2>
+      <p class="editorial-lead editorial-lead--center">
+        Reserve your dining table or request a banquet tasting consultation with our executive chef in Ballia.
+      </p>
+      <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <a href="{{ '/ballia/contact/' | relative_url }}" class="btn btn--gold">Book Your Table</a>
+        <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}" class="btn btn--outline" target="_blank" rel="noopener noreferrer">WhatsApp Guest Desk</a>
+      </div>
+    </div>
+  </div>
+</section>

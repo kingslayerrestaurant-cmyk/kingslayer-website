@@ -1,0 +1,63 @@
+# ═══════════════════════════════════════════════════════
+# KINGSLAYER BALLIA — Experiences & Facilities Data
+# ═══════════════════════════════════════════════════════
+
+experiences:
+  - id: restaurant
+    title: "Restaurant & Dining"
+    subtitle: "A Culinary Journey"
+    description: "Our main dining floor offers an immersive culinary journey through premium North Indian cuisine and contemporary selections, presented in an atmosphere of refined elegance."
+    image: "hero_restaurant.jpg"
+    cta_label: "Explore Dining"
+    cta_url: "/ballia/dining/"
+    icon: "🍽️"
+    confirmed: true
+
+  - id: rooftop
+    title: "The Rooftop"
+    subtitle: "Dine Above the City"
+    description: "An elevated open-air dining experience above Ballia. Evenings under the stars with a carefully considered rooftop menu and the cityscape below."
+    image: "hero_rooftop.jpg"
+    cta_label: "The Rooftop"
+    cta_url: "/ballia/rooftop/"
+    icon: "🌙"
+    confirmed: true
+    availability_note: "Rooftop availability subject to seasonal weather conditions."
+
+  - id: banquet
+    title: "Banquet & Events"
+    subtitle: "Celebrations Elevated"
+    description: "Premium banquet facilities for weddings, corporate events, private celebrations and social occasions of every scale, delivered with flawless hospitality."
+    image: "hero_banquet.jpg"
+    cta_label: "Plan Your Event"
+    cta_url: "/ballia/banquet/"
+    icon: "🎉"
+    confirmed: true
+
+# Banquet-specific details
+banquet:
+  capacity_note: "[Capacity to be confirmed by client]"
+  event_types:
+    - label: "Weddings & Receptions"
+      icon: "💒"
+      description: "Grand wedding ceremonies, receptions and mehendi functions customized for your vision."
+    - label: "Private Celebrations"
+      icon: "🎂"
+      description: "Birthday parties, anniversaries, engagements and intimate social gatherings."
+    - label: "Corporate Events"
+      icon: "💼"
+      description: "Conferences, award ceremonies, corporate dinners and professional gatherings."
+    - label: "Customized Catering"
+      icon: "🍽️"
+      description: "Full-service catering with menu planning tailored to your event and dietary requirements."
+  enquiry_note: "For banquet enquiries, please complete the contact form or call us directly. Our events team will respond within 24 hours."
+
+# Rooftop details
+rooftop:
+  description: "Our rooftop experience offers an open-air dining setting unlike any other in Ballia. Evening breezes, city lights below, and a curated menu that matches the elevation of the setting."
+  availability_note: "Available evenings only, subject to weather conditions."
+  highlights:
+    - "Open-air dining"
+    - "City panorama"
+    - "Evening service"
+    - "Curated rooftop menu"

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kingslayer Varanasi — Restaurant, Banquet &amp; Rooftop | Varanasi, UP</title>
+  <meta name="description" content="Kingslayer Varanasi — Premium restaurant dining, rooftop experience and banquet facilities in Varanasi, Uttar Pradesh. Reserve a table or enquire about events." />
+  <meta property="og:title" content="Kingslayer Varanasi — Premium Restaurant &amp; Banquet" />
+  <meta property="og:description" content="A landmark dining destination in India's most sacred city. Elevated hospitality. Kingslayer Varanasi, Uttar Pradesh." />
+  <meta name="theme-color" content="#090909" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/kingslayer.css" />
+  <style>
+    /* Varanasi-specific hero — deeper, more ancient/spiritual undertone */
+    .hero__bg {
+      background-image: url('assets/images/hero_rooftop.jpg');
+      background-position: center 25%;
+    }
+    /* Varanasi accent colour — slightly warmer gold */
+    :root { --varanasi-accent: #D4A84B; }
+
+    /* Stats bar */
+    .stats-bar {
+      background: var(--charcoal);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .stats-bar__inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--side-pad);
+    }
+    .stats-bar__item {
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stats-bar__item:last-child { border-right: none; }
+
+    /* Menu item placeholder icon */
+    .menu__item-img-placeholder {
+      width: 72px; height: 72px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      color: var(--ivory-muted);
+    }
+
+    /* Varanasi cultural marker */
+    .varanasi-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      border: 1px solid rgba(201,169,110,0.2);
+      padding: 0.35rem 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Announce bar */
+    .announce {
+      background: var(--charcoal-2);
+      color: var(--ivory-dim);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 0.55rem 1rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .announce a { color: var(--gold); transition: color 0.3s; }
+
+    /* City backdrop atmospheric tint on about visual */
+    .about__visual-varanasi::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9,9,9,0) 60%, rgba(9,9,9,0.5) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+      .stats-bar__inner { grid-template-columns: repeat(2, 1fr); }
+      .stats-bar__item:nth-child(2) { border-right: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announce" role="banner">
+    Kingslayer Varanasi — Now accepting banquet and event enquiries.
+    <a href="#reserve">Enquire Today ↗</a>
+  </div>
+
+  <!-- ═══ NAVIGATION ═══════════════════════════════════════════ -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+
+      <a href="index.html" class="nav__brand" aria-label="Kingslayer Home">
+        <span class="nav__brand-name">Kingslayer</span>
+        <span class="nav__brand-sub">Varanasi &nbsp;·&nbsp; Restaurant &nbsp;·&nbsp; Banquet &nbsp;·&nbsp; Rooftop</span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#about"   class="nav__link">About</a></li>
+        <li><a href="#dining"  class="nav__link">Dining</a></li>
+        <li><a href="#menu"    class="nav__link">Menu</a></li>
+        <li><a href="#rooftop" class="nav__link">Rooftop</a></li>
+        <li><a href="#banquet" class="nav__link">Banquet</a></li>
+        <li><a href="#gallery" class="nav__link">Gallery</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__right">
+        <a href="ballia.html" class="nav__branch-toggle" aria-label="Switch to Ballia">
+          <span class="dot" aria-hidden="true"></span>
+          Switch to Ballia
+        </a>
+        <a href="#reserve" class="btn btn--gold">Reserve</a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <ul class="nav__mobile-links" role="list">
+      <li><a href="#about"   class="nav__mobile-link">About</a></li>
+      <li><a href="#dining"  class="nav__mobile-link">Dining</a></li>
+      <li><a href="#menu"    class="nav__mobile-link">Menu</a></li>
+      <li><a href="#rooftop" class="nav__mobile-link">Rooftop</a></li>
+      <li><a href="#banquet" class="nav__mobile-link">Banquet</a></li>
+      <li><a href="#gallery" class="nav__mobile-link">Gallery</a></li>
+      <li><a href="#contact" class="nav__mobile-link">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+      <a href="#reserve"  class="btn btn--gold">Reserve a Table</a>
+      <a href="ballia.html" class="btn btn--outline">Visit Ballia</a>
+    </div>
+  </div>
+
+  <!-- ═══ HERO ═════════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Kingslayer Varanasi hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__overlay-top" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <div class="hero__eyebrow-line" aria-hidden="true"></div>
+        <span class="hero__eyebrow-text">Kingslayer &nbsp;·&nbsp; Varanasi, Uttar Pradesh</span>
+      </div>
+
+      <h1 class="hero__title">
+        Dining in the<br/>
+        <em>City of Eternity</em>
+      </h1>
+
+      <p class="hero__sub">
+        A landmark dining destination in India's most sacred city. 
+        Premium cuisine, an atmospheric rooftop, and timeless banquet experiences — all in the cultural capital of the world.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#reserve" class="btn btn--gold" id="hero-reserve-btn">
+          Reserve a Table
+          <svg width="14" height="7" viewBox="0 0 14 7" fill="none" aria-hidden="true">
+            <path d="M0 3.5H12M12 3.5L9 1M12 3.5L9 6" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </a>
+        <a href="#menu" class="btn btn--ghost" id="hero-menu-btn">Explore Menu</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+      <span class="hero__scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══ STATS BAR ════════════════════════════════════════════ -->
+  <div class="stats-bar" aria-label="Key highlights">
+    <div class="stats-bar__inner">
+      <div class="stats-bar__item reveal">
+        <div class="highlight-number">3</div>
+        <div class="highlight-label">Dining Experiences</div>
+      </div>
+      <div class="stats-bar__item reveal reveal--delay-1">
+        <div class="highlight-number">100<span style="font-size:1.5rem">+</span></div>
+        <div class="highlight-label">Menu Selections</div>
+      </div>
+      <div class="stats-bar__item reveal reveal--delay-2">
+        <div class="highlight-number">200<span style="font-size:1.5rem">+</span></div>
+        <div class="highlight-label">Banquet Capacity</div>
+      </div>
+      <div class="stats-bar__item reveal reveal--delay-3">
+        <div class="highlight-number" style="font-size:1.8rem;">Open</div>
+        <div class="highlight-label">7 Days a Week</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ BRAND STATEMENT ══════════════════════════════════════ -->
+  <section class="brand-statement" aria-label="Brand statement">
+    <div class="container">
+      <p class="brand-statement__quote reveal">
+        "In a city where time stands still, Kingslayer Varanasi offers an experience that <span class="highlight">transcends the ordinary</span> — 
+        where ancient hospitality meets <span class="highlight">contemporary excellence.</span>"
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ════════════════════════════════════════════════ -->
+  <section class="section section--dark" id="about" aria-label="About Kingslayer Varanasi">
+    <div class="container">
+      <div class="grid-2">
+
+        <div class="about__visual about__visual-varanasi reveal reveal--left" style="position:relative;">
+          <div class="about__img-frame" style="height: 540px;">
+            <img src="assets/images/hero_restaurant.jpg"
+                 alt="Kingslayer Varanasi — Premium restaurant interior" loading="lazy" />
+          </div>
+          <div class="about__img-accent">
+            <span class="about__img-accent-num">II</span>
+            <span class="about__img-accent-text">Varanasi</span>
+          </div>
+        </div>
+
+        <div class="about__text reveal reveal--right">
+          <div class="varanasi-badge">
+            <span>📍</span>
+            Varanasi, Uttar Pradesh
+          </div>
+          <div class="section-tag">
+            <div class="gold-rule"></div>
+            <span class="t-label">Our Story</span>
+          </div>
+          <h2 class="t-h2" style="color: var(--ivory); margin-top: 0.8rem;">
+            Kingslayer Varanasi —<br/>
+            <em style="color: var(--gold-light); font-style: italic;">Heritage Elevated</em>
+          </h2>
+          <p class="t-body">
+            Varanasi — the city of Shiva, of ghats, of ancient rhythms and timeless stories. Kingslayer Varanasi was established to offer this extraordinary city a dining experience worthy of its cultural stature. A space where the depth of Indian culinary heritage meets contemporary luxury.
+          </p>
+          <p class="t-body" style="margin-top: 1rem;">
+            From our elegant main dining floor to our rooftop that captures the spirit of the city, and our grand banquet facilities — every detail at Kingslayer Varanasi has been considered with the highest standards of hospitality in mind.
+          </p>
+
+          <div class="about__pillars">
+            <div class="about__pillar">
+              <h4 class="about__pillar-title">Cultural Dining</h4>
+              <p class="about__pillar-body">A menu rooted in the rich culinary traditions of Varanasi and the broader Awadhi heritage, elevated with contemporary refinement.</p>
+            </div>
+            <div class="about__pillar">
+              <h4 class="about__pillar-title">Rooftop Setting</h4>
+              <p class="about__pillar-body">Dine with the energy of Varanasi below. An open-air experience that captures the essence of this magnificent city.</p>
+            </div>
+            <div class="about__pillar">
+              <h4 class="about__pillar-title">Grand Banquets</h4>
+              <p class="about__pillar-body">From elaborate weddings to corporate affairs — Kingslayer Varanasi's banquet facilities are designed for grandeur.</p>
+            </div>
+            <div class="about__pillar">
+              <h4 class="about__pillar-title">Genuine Warmth</h4>
+              <p class="about__pillar-body">Hospitality is the soul of Varanasi. Our team reflects that deep tradition of warmth and genuine care in everything we do.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DINING EXPERIENCE ════════════════════════════════════ -->
+  <section class="section section--lifted" id="dining" aria-label="Dining experiences">
+    <div class="container">
+      <div class="section-intro reveal">
+        <div class="section-tag">
+          <div class="gold-rule"></div>
+          <span class="t-label">Dining at Kingslayer Varanasi</span>
+        </div>
+        <h2 class="t-h2" style="color: var(--ivory); margin-top: 0.8rem; max-width: 600px;">
+          Three Ways to<br/><em style="color: var(--gold-light); font-style:italic;">Experience Kingslayer</em>
+        </h2>
+      </div>
+
+      <div class="grid-3">
+        <article class="offering-card reveal reveal--delay-1" aria-label="Restaurant &amp; Dining">
+          <div class="offering-card__bg" style="background-image:url('assets/images/hero_restaurant.jpg');" aria-hidden="true"></div>
+          <div class="offering-card__overlay" aria-hidden="true"></div>
+          <div class="offering-card__content">
+            <div class="offering-card__icon">🍽️</div>
+            <h3 class="offering-card__title">Restaurant &amp; Dining</h3>
+            <p class="offering-card__desc">Our curated dining room offers an immersive culinary exploration of North Indian and Awadhi cuisine in an atmosphere of refined elegance befitting Varanasi's character.</p>
+            <a href="#menu" class="btn-arrow offering-card__arrow">View Menu <span></span></a>
+          </div>
+        </article>
+
+        <article class="offering-card reveal reveal--delay-2" aria-label="Rooftop Experience">
+          <div class="offering-card__bg" style="background-image:url('assets/images/hero_rooftop.jpg');" aria-hidden="true"></div>
+          <div class="offering-card__overlay" aria-hidden="true"></div>
+          <div class="offering-card__content">
+            <div class="offering-card__icon">🌙</div>
+            <h3 class="offering-card__title">Rooftop Experience</h3>
+            <p class="offering-card__desc">Varanasi from above. An intimate open-air dining experience that pairs exceptional food with the atmospheric energy of India's most sacred city.</p>
+            <a href="#rooftop" class="btn-arrow offering-card__arrow">Explore <span></span></a>
+          </div>
+        </article>
+
+        <article class="offering-card reveal reveal--delay-3" aria-label="Banquet &amp; Events">
+          <div class="offering-card__bg" style="background-image:url('assets/images/hero_banquet.jpg');" aria-hidden="true"></div>
+          <div class="offering-card__overlay" aria-hidden="true"></div>
+          <div class="offering-card__content">
+            <div class="offering-card__icon">🎉</div>
+            <h3 class="offering-card__title">Banquet &amp; Events</h3>
+            <p class="offering-card__desc">Grand celebrations deserve a grand setting. Our banquet facilities in Varanasi are designed to host your most meaningful occasions with impeccable service.</p>
+            <a href="#banquet" class="btn-arrow offering-card__arrow">Enquire <span></span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MENU ══════════════════════════════════════════════════ -->
+  <section class="section section--dark" id="menu" aria-label="Food menu">
+    <div class="container">
+      <div class="section-intro reveal">
+        <div class="section-tag">
+          <div class="gold-rule"></div>
+          <span class="t-label">Our Menu — Varanasi</span>
+        </div>
+        <h2 class="t-h2" style="color: var(--ivory); margin-top: 0.8rem;">
+          A Culinary Journey<br/><em style="color: var(--gold-light); font-style:italic;">Through Heritage</em>
+        </h2>
+        <p class="t-body" style="max-width: 520px; margin-top: 1rem;">
+          Our Varanasi menu celebrates the culinary traditions of the region — Awadhi slow-cooking, Banarasi street food elevated to fine dining, and the finest ingredients the season offers.
+        </p>
+        <p class="placeholder-notice">
+          <span>📋</span>
+          Illustrative menu — actual items &amp; pricing confirmed at the restaurant
+        </p>
+      </div>
+
+      <div class="menu__tabs" role="tablist" aria-label="Menu categories">
+        <button class="menu__tab active" role="tab" aria-selected="true"  data-tab="starters"  id="tab-starters">Starters</button>
+        <button class="menu__tab"        role="tab" aria-selected="false" data-tab="mains"     id="tab-mains">Main Course</button>
+        <button class="menu__tab"        role="tab" aria-selected="false" data-tab="breads"    id="tab-breads">Breads &amp; Rice</button>
+        <button class="menu__tab"        role="tab" aria-selected="false" data-tab="desserts"  id="tab-desserts">Desserts</button>
+        <button class="menu__tab"        role="tab" aria-selected="false" data-tab="beverages" id="tab-beverages">Beverages</button>
+      </div>
+
+      <!-- Starters (Varanasi flavour) -->
+      <div class="menu__panel active" id="panel-starters" role="tabpanel" aria-labelledby="tab-starters">
+        <div class="menu__grid">
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🥘</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span><span class="menu__tag menu__tag--recommended">Banarasi Special</span></div>
+              <h4 class="menu__item-name">Tamatar Chaat</h4>
+              <p class="menu__item-desc">The legendary Banarasi tamatar ki chaat — a fiery, tangy and deeply satisfying street food elevated to a refined presentation.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🍗</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag">Non-Veg</span><span class="menu__tag menu__tag--recommended">Signature</span></div>
+              <h4 class="menu__item-name">Galawati Kebab</h4>
+              <p class="menu__item-desc">The jewel of Awadhi cuisine — melt-in-the-mouth minced meat kebabs with over a dozen whole spices, cooked on a tawa.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🧀</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Paneer Achari Tikka</h4>
+              <p class="menu__item-desc">Cottage cheese in a pungent pickle spice marinade, grilled in the tandoor. A bold and confident starter.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🍤</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag">Non-Veg</span></div>
+              <h4 class="menu__item-name">Boti Kebab</h4>
+              <p class="menu__item-desc">Succulent mutton pieces marinated in raw papaya paste and aromatic spices, charred over live fire. A Varanasi classic.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🌿</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Hara Bhara Kebab</h4>
+              <p class="menu__item-desc">Spinach, green peas and potato patties with fresh herbs, pan-fried until crisp. Verdant, wholesome and elegant.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🦐</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag">Non-Veg</span></div>
+              <h4 class="menu__item-name">Ajwaini Fish Tikka</h4>
+              <p class="menu__item-desc">Fresh river fish marinated with carom seeds, mustard and yoghurt, cooked to perfection in the tandoor.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+        </div>
+        <p class="menu__note">This is an illustrative menu. Actual dishes, descriptions and pricing will be confirmed at the restaurant. Menu changes seasonally.</p>
+      </div>
+
+      <!-- Mains (Varanasi flavour) -->
+      <div class="menu__panel" id="panel-mains" role="tabpanel" aria-labelledby="tab-mains">
+        <div class="menu__grid">
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🍛</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span><span class="menu__tag menu__tag--recommended">Signature</span></div>
+              <h4 class="menu__item-name">Dum Aloo Banarasi</h4>
+              <p class="menu__item-desc">Baby potatoes slow-cooked in the dum style with Banarasi masalas and finished with fresh cream. A regional masterpiece.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🍗</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag">Non-Veg</span><span class="menu__tag menu__tag--recommended">Must Try</span></div>
+              <h4 class="menu__item-name">Awadhi Dum Chicken</h4>
+              <p class="menu__item-desc">Whole chicken marinated in saffron, kewra and warm spices, sealed and slow-cooked dum-style. The essence of Lucknowi cuisine.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🥩</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag">Non-Veg</span></div>
+              <h4 class="menu__item-name">Shahi Mutton Korma</h4>
+              <p class="menu__item-desc">Mutton in a velvety Mughal-era korma sauce with almonds, saffron and cardamom. Rich, aromatic and deeply satisfying.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🫕</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Navratan Korma</h4>
+              <p class="menu__item-desc">Nine vegetables and fruits cooked in a rich, mildly sweet Mughlai gravy with cream and whole spices. Celebratory and luxurious.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🍚</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag">Non-Veg</span><span class="menu__tag menu__tag--recommended">Signature</span></div>
+              <h4 class="menu__item-name">Lucknowi Biryani</h4>
+              <p class="menu__item-desc">The Pukka dum biryani of the Nawabs — layered basmati with marinated meat, saffron milk and caramelized onions. Sealed and slow-cooked.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🍛</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Dal Makhani</h4>
+              <p class="menu__item-desc">Our overnight slow-cooked black lentils with butter and cream. A dish that defines Kingslayer across both our locations.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+        </div>
+        <p class="menu__note">This is an illustrative menu. Actual dishes, descriptions and pricing will be confirmed at the restaurant.</p>
+      </div>
+
+      <!-- Breads -->
+      <div class="menu__panel" id="panel-breads" role="tabpanel" aria-labelledby="tab-breads">
+        <div class="menu__grid">
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🫓</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span><span class="menu__tag menu__tag--recommended">Recommended</span></div>
+              <h4 class="menu__item-name">Bakarkhani</h4>
+              <p class="menu__item-desc">The traditional thick, layered Nawabi flatbread — slightly sweet, rich with ghee and fennel seeds. A Varanasi heritage bread.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🫓</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Butter Naan</h4>
+              <p class="menu__item-desc">Soft tandoor-baked flatbread finished with cultured butter and fresh herbs. Our kitchen standard.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🌾</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Kesar Pulao</h4>
+              <p class="menu__item-desc">Saffron-scented basmati rice with whole spices and toasted nuts. The perfect accompaniment for rich Awadhi gravies.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+        </div>
+        <p class="menu__note">Illustrative menu — actual items and pricing confirmed at the restaurant.</p>
+      </div>
+
+      <!-- Desserts (Varanasi specialties) -->
+      <div class="menu__panel" id="panel-desserts" role="tabpanel" aria-labelledby="tab-desserts">
+        <div class="menu__grid">
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🍦</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span><span class="menu__tag menu__tag--recommended">Banarasi Special</span></div>
+              <h4 class="menu__item-name">Banarasi Malaiyo</h4>
+              <p class="menu__item-desc">The legendary winter dessert of Varanasi — airy, cloud-like whipped cream infused with saffron and rose. A true local treasure.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🍮</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span><span class="menu__tag menu__tag--recommended">Signature</span></div>
+              <h4 class="menu__item-name">Shahi Tukda</h4>
+              <p class="menu__item-desc">Fried bread soaked in saffron rabdi, garnished with pistachios and edible silver leaf. Royally indulgent.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🍨</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Rabdi Kheer</h4>
+              <p class="menu__item-desc">Slow-reduced whole milk rice pudding with cardamom, saffron and crushed rose petals. Warm, deeply nourishing.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+        </div>
+        <p class="menu__note">Illustrative dessert menu — actual items and pricing confirmed at the restaurant.</p>
+      </div>
+
+      <!-- Beverages (Varanasi) -->
+      <div class="menu__panel" id="panel-beverages" role="tabpanel" aria-labelledby="tab-beverages">
+        <div class="menu__grid">
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🌿</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span><span class="menu__tag menu__tag--recommended">Varanasi Special</span></div>
+              <h4 class="menu__item-name">Banarasi Thandai</h4>
+              <p class="menu__item-desc">The festive drink of Varanasi — chilled milk blended with almonds, fennel, black pepper and rose petals. Refreshing and aromatic.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">☕</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Ganga Ghaat Chai</h4>
+              <p class="menu__item-desc">Our signature masala chai — strong, ginger-forward, with a blend of whole spices that reflect the essence of Varanasi's morning ghats.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🥭</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Aam Panna Cooler</h4>
+              <p class="menu__item-desc">Raw mango and mint cooler with black salt and cumin. A cooling classic that celebrates the Indian summer.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu__item-img-placeholder">🌹</div>
+            <div class="menu__item-body">
+              <div class="menu__item-tags"><span class="menu__tag menu__tag--veg">Veg</span></div>
+              <h4 class="menu__item-name">Rose Lychee Sharbat</h4>
+              <p class="menu__item-desc">Chilled lychee juice with rose water, fresh lime and sabja seeds. Fragrant, delicate and beautifully presented.</p>
+              <span class="menu__item-price">₹ On Request</span>
+            </div>
+          </div>
+        </div>
+        <p class="menu__note">Illustrative beverage list — actual items and pricing confirmed at the restaurant.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ ROOFTOP ═══════════════════════════════════════════════ -->
+  <section class="rooftop" id="rooftop" aria-label="Rooftop experience">
+    <div class="rooftop__bg" style="background-image:url('assets/images/hero_rooftop.jpg');" aria-hidden="true"></div>
+    <div class="rooftop__overlay" aria-hidden="true"></div>
+
+    <div class="rooftop__content reveal reveal--left">
+      <div class="section-tag">
+        <div class="gold-rule"></div>
+        <span class="t-label">The Rooftop</span>
+      </div>
+      <h2 class="t-h2" style="color: var(--ivory); margin-top: 0.8rem;">
+        Varanasi,<br/>
+        <em style="color: var(--gold-light); font-style:italic;">from Above</em>
+      </h2>
+      <p class="t-body" style="margin-top: 1rem; max-width: 460px;">
+        Few experiences in the world can match dining on a Varanasi rooftop as the evening descends and the city comes alive below. Our rooftop setting is designed to make that moment unforgettable.
+      </p>
+
+      <div class="rooftop__stats">
+        <div>
+          <div class="rooftop__stat-num">Open</div>
+          <div class="rooftop__stat-label">Air Terrace</div>
+        </div>
+        <div>
+          <div class="rooftop__stat-num">Eve.</div>
+          <div class="rooftop__stat-label">Dining Service</div>
+        </div>
+        <div>
+          <div class="rooftop__stat-num">City</div>
+          <div class="rooftop__stat-label">Panoramic View</div>
+        </div>
+      </div>
+
+      <p style="margin-top:1.5rem;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dark);border:1px solid rgba(201,169,110,0.18);padding:0.45rem 0.9rem;display:inline-flex;align-items:center;gap:0.5rem;">
+        <span>ℹ</span>
+        Availability subject to weather &amp; seasonal conditions — enquire when booking
+      </p>
+
+      <div style="margin-top: 2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="#reserve" class="btn btn--gold">Reserve Rooftop Table</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BANQUET ═══════════════════════════════════════════════ -->
+  <section class="section--lifted" id="banquet" aria-label="Banquet &amp; events">
+    <div class="banquet__split">
+      <div class="banquet__visual">
+        <img src="assets/images/hero_banquet.jpg" alt="Kingslayer Varanasi — Banquet hall" loading="lazy" />
+        <div class="banquet__visual-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="banquet__content">
+        <div class="section-tag">
+          <div class="gold-rule"></div>
+          <span class="t-label">Banquet &amp; Events — Varanasi</span>
+        </div>
+        <h2 class="t-h2" style="color: var(--ivory); margin-top: 0.8rem;">
+          Celebrations Worthy of<br/>
+          <em style="color: var(--gold-light); font-style:italic;">This Sacred City</em>
+        </h2>
+        <p class="t-body" style="margin-top: 1rem;">
+          Varanasi has always been the setting for life's most momentous occasions. Kingslayer Varanasi's banquet facilities honour that tradition — providing a space of grandeur, elegance and impeccable service for your most important events.
+        </p>
+
+        <div class="banquet__features">
+          <div class="banquet__feature">
+            <span class="banquet__feature-icon">💒</span>
+            <div class="banquet__feature-text">
+              <strong>Weddings &amp; Receptions</strong>
+              Celebrate your union in the city of eternal blessings. We create wedding experiences as extraordinary as the occasion itself.
+            </div>
+          </div>
+          <div class="banquet__feature">
+            <span class="banquet__feature-icon">🎂</span>
+            <div class="banquet__feature-text">
+              <strong>Private Celebrations</strong>
+              Anniversaries, birthdays, engagements and family milestones — every celebration curated with care and warmth.
+            </div>
+          </div>
+          <div class="banquet__feature">
+            <span class="banquet__feature-icon">💼</span>
+            <div class="banquet__feature-text">
+              <strong>Corporate &amp; Professional</strong>
+              Corporate dinners, conferences, award functions and professional gatherings in a setting that commands respect.
+            </div>
+          </div>
+          <div class="banquet__feature">
+            <span class="banquet__feature-icon">🛕</span>
+            <div class="banquet__feature-text">
+              <strong>Cultural &amp; Religious Events</strong>
+              Post-puja celebrations, cultural events and community gatherings — honouring the spirit of Varanasi's traditions.
+            </div>
+          </div>
+        </div>
+
+        <a href="#reserve" class="btn btn--gold" style="margin-top:1rem;">
+          Submit a Banquet Enquiry
+          <svg width="14" height="7" viewBox="0 0 14 7" fill="none" aria-hidden="true">
+            <path d="M0 3.5H12M12 3.5L9 1M12 3.5L9 6" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GALLERY ═══════════════════════════════════════════════ -->
+  <section class="section section--dark" id="gallery" aria-label="Photo gallery">
+    <div class="container">
+      <div class="section-intro reveal">
+        <div class="section-tag">
+          <div class="gold-rule"></div>
+          <span class="t-label">Gallery</span>
+        </div>
+        <h2 class="t-h2" style="color: var(--ivory); margin-top: 0.8rem;">
+          Through the<br/><em style="color: var(--gold-light); font-style:italic;">Lens of Kingslayer</em>
+        </h2>
+        <p class="placeholder-notice">
+          <span>📷</span>
+          Illustrative photography — actual Kingslayer Varanasi photography to be supplied by the client
+        </p>
+      </div>
+
+      <div class="gallery__grid reveal">
+        <div class="gallery__item">
+          <img src="assets/images/hero_rooftop.jpg" alt="Kingslayer Varanasi rooftop dining" loading="lazy" />
+          <div class="gallery__item-overlay" aria-hidden="true"><span class="gallery__item-icon">+</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="assets/images/hero_restaurant.jpg" alt="Restaurant interior" loading="lazy" />
+          <div class="gallery__item-overlay" aria-hidden="true"><span class="gallery__item-icon">+</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="assets/images/hero_food.jpg" alt="Signature Varanasi cuisine" loading="lazy" />
+          <div class="gallery__item-overlay" aria-hidden="true"><span class="gallery__item-icon">+</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="assets/images/hero_banquet.jpg" alt="Banquet hall Varanasi" loading="lazy" />
+          <div class="gallery__item-overlay" aria-hidden="true"><span class="gallery__item-icon">+</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="assets/images/hero_restaurant.jpg" alt="Dining ambience" loading="lazy" />
+          <div class="gallery__item-overlay" aria-hidden="true"><span class="gallery__item-icon">+</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="assets/images/hero_food.jpg" alt="Heritage cuisine presentation" loading="lazy" />
+          <div class="gallery__item-overlay" aria-hidden="true"><span class="gallery__item-icon">+</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RESERVATION & ENQUIRY ════════════════════════════════ -->
+  <section class="section form-section" id="reserve" aria-label="Reservations and enquiries">
+    <div class="container">
+      <div class="form-section__inner">
+
+        <div class="form-section__info reveal reveal--left">
+          <div class="section-tag">
+            <div class="gold-rule"></div>
+            <span class="t-label">Reservations &amp; Enquiries</span>
+          </div>
+          <h2 class="t-h2" style="color: var(--ivory); margin-top: 0.8rem;">
+            Reserve or<br/>
+            <em style="color: var(--gold-light); font-style:italic;">Begin Planning</em>
+          </h2>
+          <p class="t-body" style="margin-top: 1rem;">
+            Complete the form below and our Varanasi team will respond promptly. For immediate assistance, please contact us directly.
+          </p>
+
+          <div class="form-section__info-items">
+            <div class="info-item">
+              <div class="info-item__icon">📞</div>
+              <div class="info-item__body">
+                <div class="info-item__label">Phone (Varanasi)</div>
+                <div class="info-item__value">
+                  <a href="tel:+91XXXXXXXXXX" style="color:var(--ivory);">+91 XXXXX XXXXX</a>
+                  <span class="placeholder-notice" style="display:inline-flex;margin-top:0.4rem;font-size:0.55rem;">Contact to be confirmed</span>
+                </div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-item__icon">📍</div>
+              <div class="info-item__body">
+                <div class="info-item__label">Location</div>
+                <div class="info-item__value">Varanasi, Uttar Pradesh</div>
+                <span class="placeholder-notice" style="display:inline-flex;margin-top:0.4rem;font-size:0.55rem;">Exact address to be confirmed</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-item__icon">🕐</div>
+              <div class="info-item__body">
+                <div class="info-item__label">Opening Hours</div>
+                <div class="info-item__value">
+                  <span class="placeholder-notice" style="font-size:0.55rem;">Hours to be confirmed</span>
+                </div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-item__icon">💬</div>
+              <div class="info-item__body">
+                <div class="info-item__label">WhatsApp</div>
+                <div class="info-item__value">
+                  <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer"
+                     style="color: #25D366;">Message on WhatsApp ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal reveal--right">
+          <form class="form" id="reservation-form" novalidate aria-label="Reservation and banquet enquiry form">
+
+            <div class="form__row">
+              <div class="form__field">
+                <label class="form__label" for="name">Full Name *</label>
+                <input class="form__input" type="text" id="name" name="name" required placeholder="Your full name" autocomplete="name" />
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="phone">Phone Number *</label>
+                <input class="form__input" type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__field">
+                <label class="form__label" for="email">Email Address</label>
+                <input class="form__input" type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" />
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="enquiry-type">Enquiry Type *</label>
+                <select class="form__select" id="enquiry-type" name="enquiry_type" required>
+                  <option value="">Select type</option>
+                  <option value="table">Table Reservation</option>
+                  <option value="rooftop">Rooftop Table</option>
+                  <option value="wedding">Wedding / Reception</option>
+                  <option value="birthday">Birthday / Celebration</option>
+                  <option value="corporate">Corporate Event</option>
+                  <option value="cultural">Cultural / Religious Event</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__field">
+                <label class="form__label" for="date">Preferred Date *</label>
+                <input class="form__input" type="date" id="date" name="date" required />
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="guests">Number of Guests *</label>
+                <select class="form__select" id="guests" name="guests" required>
+                  <option value="">Select guests</option>
+                  <option value="1-2">1 – 2</option>
+                  <option value="3-6">3 – 6</option>
+                  <option value="7-15">7 – 15</option>
+                  <option value="16-30">16 – 30</option>
+                  <option value="31-50">31 – 50</option>
+                  <option value="51-100">51 – 100</option>
+                  <option value="100+">100+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form__field form__full">
+              <label class="form__label" for="message">Special Requirements or Message</label>
+              <textarea class="form__textarea" id="message" name="message" placeholder="Share any specific requirements, dietary needs or event details…"></textarea>
+            </div>
+
+            <button type="submit" class="form__submit" id="submit-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M1 9H16M16 9L11 4M16 9L11 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Send Enquiry
+            </button>
+
+            <p style="font-size:0.68rem;color:var(--ivory-muted);margin-top:0.8rem;padding:0 1.2rem;">
+              This is a reservation <em>request</em>. Our Varanasi team will confirm availability within 24 hours.
+            </p>
+          </form>
+
+          <div id="form-success" style="display:none;padding:2rem 1.5rem;border:1px solid rgba(201,169,110,0.3);text-align:center;">
+            <p style="font-size:1.5rem;margin-bottom:0.5rem;">✓</p>
+            <h4 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--gold);margin-bottom:0.5rem;">Enquiry Received</h4>
+            <p style="font-size:0.88rem;color:var(--ivory-dim);">Thank you. Our Varanasi team will contact you within 24 hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══════════════════════════════════════════════ -->
+  <section class="section section--dark" id="contact" aria-label="Contact and location">
+    <div class="container">
+      <div class="section-intro reveal">
+        <div class="section-tag">
+          <div class="gold-rule"></div>
+          <span class="t-label">Find Us</span>
+        </div>
+        <h2 class="t-h2" style="color: var(--ivory); margin-top: 0.8rem;">
+          Kingslayer<br/><em style="color: var(--gold-light); font-style:italic;">Varanasi</em>
+        </h2>
+      </div>
+
+      <div class="contact__grid">
+        <div class="contact__map reveal reveal--left">
+          <iframe
+            src="https://maps.google.com/maps?q=Varanasi+Uttar+Pradesh+India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Kingslayer Varanasi — Map Location"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="contact__details reveal reveal--right">
+          <div class="contact__group">
+            <p class="contact__group-label">Location</p>
+            <p class="contact__group-value">Varanasi, Uttar Pradesh</p>
+            <p class="placeholder-notice" style="margin-top:0.5rem;">Exact address pending client confirmation</p>
+          </div>
+          <div class="contact__group">
+            <p class="contact__group-label">Contact</p>
+            <p class="contact__group-value">
+              <a href="tel:+91XXXXXXXXXX" style="color:var(--ivory);">+91 XXXXX XXXXX</a>
+            </p>
+            <p class="placeholder-notice" style="margin-top:0.3rem;">Phone number pending client confirmation</p>
+          </div>
+          <div class="contact__group">
+            <p class="contact__group-label">Opening Hours</p>
+            <p class="contact__group-value">
+              <span class="placeholder-notice">Hours pending client confirmation</span>
+            </p>
+          </div>
+          <div class="contact__quick">
+            <a href="tel:+91XXXXXXXXXX"  class="btn btn--gold"    id="call-varanasi-btn">📞 Call Us</a>
+            <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer"
+               class="btn btn--outline" id="whatsapp-varanasi-btn">💬 WhatsApp</a>
+            <a href="https://maps.google.com/maps?q=Varanasi+Uttar+Pradesh" target="_blank" rel="noopener noreferrer"
+               class="btn btn--ghost"   id="maps-varanasi-btn">🗺 Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <div class="footer__brand-name">Kingslayer</div>
+          <div class="footer__brand-sub">Varanasi &nbsp;·&nbsp; Uttar Pradesh</div>
+          <p class="footer__brand-desc">
+            A premium restaurant, rooftop and banquet destination in Varanasi — where the richness of the city's heritage meets contemporary hospitality excellence.
+          </p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.52 1.56-1.36 1.88-2.35-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98-3.56-.18-6.73-1.89-8.84-4.48-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <ul class="footer__links">
+            <li><a href="#about"   class="footer__link">About Kingslayer</a></li>
+            <li><a href="#dining"  class="footer__link">Dining Experiences</a></li>
+            <li><a href="#menu"    class="footer__link">Our Menu</a></li>
+            <li><a href="#rooftop" class="footer__link">The Rooftop</a></li>
+            <li><a href="#banquet" class="footer__link">Banquet &amp; Events</a></li>
+            <li><a href="#gallery" class="footer__link">Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__col-title">Visit Us</h4>
+          <ul class="footer__links">
+            <li><a href="#reserve" class="footer__link">Reserve a Table</a></li>
+            <li><a href="#reserve" class="footer__link">Banquet Enquiry</a></li>
+            <li><a href="#contact" class="footer__link">Location &amp; Map</a></li>
+            <li><a href="tel:+91XXXXXXXXXX" class="footer__link">Call Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__col-title">Our Locations</h4>
+          <ul class="footer__links">
+            <li><a href="ballia.html"   class="footer__link">Kingslayer Ballia</a></li>
+            <li><a href="varanasi.html" class="footer__link" style="color:var(--gold);">Kingslayer Varanasi</a></li>
+            <li><a href="index.html"    class="footer__link">Select Location</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; 2024 Kingslayer Restaurant, Banquet &amp; Rooftop. Varanasi, Uttar Pradesh. All rights reserved.
+        </p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+     id="whatsapp-float-btn" aria-label="Chat with Kingslayer Varanasi on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="js/kingslayer.js"></script>
+  <script>
+    localStorage.setItem('ks_branch', 'varanasi');
+  </script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+---
+layout: page
+title: "Reservations & Contact — Kingslayer Ballia"
+description: "Reserve a dining table, inquire about banquet events, or reach the guest concierge at Kingslayer Ballia, Uttar Pradesh. Instant confirmation via WhatsApp or telephone."
+branch: "ballia"
+branch_name: "Ballia"
+body_class: "contact-page"
+---
+
+<!-- ═══ CONTACT & RESERVATION HERO ═══════════════════════════════════ -->
+<section class="page-hero" aria-label="Kingslayer Reservations Hero">
+  <div class="page-hero__media">
+    <img src="{{ '/assets/images/ballia/dining_ballia_cinematic.jpg' | relative_url }}"
+         alt="Kingslayer Ballia Guest Concierge Desk"
+         loading="eager"
+         fetchpriority="high" />
+  </div>
+  <div class="page-hero__overlay"></div>
+
+  <div class="page-hero__content">
+    <div class="hero__eyebrow">
+      <span class="gold-line"></span>
+      <span class="t-eyebrow">Kingslayer Ballia &nbsp;·&nbsp; Concierge Desk</span>
+    </div>
+    <h1 class="hero__title">
+      Reservations &amp;<br>
+      <em>Contact</em>
+    </h1>
+    <p class="hero__subtitle">
+      We look forward to curating an exceptional dining or celebratory experience for you and your guests.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ RESERVATION FORM & CONTACT DETAILS ═══════════════════════════ -->
+<section class="section section--dark" id="booking-suite" aria-label="Reservation Suite">
+  <div class="container">
+
+    <div class="grid-2" style="align-items: flex-start;">
+
+      <!-- Left Column: Table & Event Reservation Form -->
+      <div class="reveal">
+        <div class="pillar-card" style="padding: clamp(2rem, 4vw, 3rem);">
+
+          <div style="margin-bottom: 2rem;">
+            <div class="editorial-eyebrow">
+              <span class="editorial-eyebrow__line"></span>
+              <span>Direct Concierge</span>
+            </div>
+            <h2 class="editorial-heading" style="margin-bottom: 0.5rem;">
+              Reserve Your <em>Table</em>
+            </h2>
+            <p style="font-size: 0.85rem; color: #A49B8B; line-height: 1.6; margin: 0;">
+              Please provide your preferred details below. Your reservation request will open directly in WhatsApp for immediate confirmation with our guest desk.
+            </p>
+          </div>
+
+          <form id="reservation-form" data-whatsapp="{{ site.data.contact.ballia.whatsapp }}">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="res-name">Full Name *</label>
+                <input type="text" id="res-name" class="form-input" required placeholder="Your Name" />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="res-phone">Contact Number *</label>
+                <input type="tel" id="res-phone" class="form-input" required placeholder="+91 XXXXX XXXXX" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="res-date">Date *</label>
+                <input type="date" id="res-date" class="form-input" required />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="res-time">Preferred Time Slot *</label>
+                <select id="res-time" class="form-select" required>
+                  <option value="">Select Time</option>
+                  <option value="Lunch: 12:30 PM">Lunch: 12:30 PM</option>
+                  <option value="Lunch: 1:30 PM">Lunch: 1:30 PM</option>
+                  <option value="Lunch: 2:30 PM">Lunch: 2:30 PM</option>
+                  <option value="Dinner: 7:30 PM">Dinner: 7:30 PM</option>
+                  <option value="Dinner: 8:30 PM">Dinner: 8:30 PM</option>
+                  <option value="Dinner: 9:30 PM">Dinner: 9:30 PM</option>
+                  <option value="Dinner: 10:30 PM">Dinner: 10:30 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="res-guests">Number of Guests *</label>
+                <select id="res-guests" class="form-select" required>
+                  <option value="2 Guests">2 Guests (Couple)</option>
+                  <option value="3-4 Guests">3–4 Guests (Small Family)</option>
+                  <option value="5-8 Guests">5–8 Guests (Family Table)</option>
+                  <option value="9-15 Guests">9–15 Guests (Large Gathering)</option>
+                  <option value="15+ Guests (Banquet Inquiry)">15+ Guests (Banquet Inquiry)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="res-experience">Preferred Dimension *</label>
+                <select id="res-experience" class="form-select" required>
+                  <option value="Main Dining Room">Main Dining Hall (AC)</option>
+                  <option value="The Rooftop Lounge">The Rooftop Lounge (Open Sky)</option>
+                  <option value="Private Banquet Hall">Imperial Banquet Hall</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-label" for="res-notes">Special Requests / Occasion</label>
+              <textarea id="res-notes" class="form-textarea" placeholder="Birthday, anniversary, floral preferences, high chair, or specific dietary requirements..."></textarea>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <button type="submit" class="btn btn--gold btn--lg" style="width: 100%; justify-content: center;">
+                Submit Reservation via WhatsApp
+              </button>
+              <p style="font-size: 0.72rem; color: #736860; text-align: center; margin-top: 0.8rem;">
+                No upfront payment required. Instant confirmation via WhatsApp concierge.
+              </p>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Location & Contact Information -->
+      <div class="reveal">
+
+        <!-- Address Card -->
+        <article class="pillar-card" style="margin-bottom: 1.5rem;">
+          <div class="editorial-eyebrow" style="margin-bottom: 0.8rem;">
+            <span class="editorial-eyebrow__line"></span>
+            <span>Establishment Address</span>
+          </div>
+          <h3 class="pillar-card__title">{{ site.data.contact.ballia.name }}</h3>
+          <p class="pillar-card__text" style="margin-bottom: 1rem;">
+            {{ site.data.contact.ballia.address_line1 }}, {{ site.data.contact.ballia.address_line2 }}<br>
+            {{ site.data.contact.ballia.city }}, {{ site.data.contact.ballia.state }} {{ site.data.contact.ballia.pincode }}<br>
+            {{ site.data.contact.ballia.country }}
+          </p>
+          <a href="{{ site.data.contact.ballia.google_maps_link }}" class="btn-arrow" target="_blank" rel="noopener noreferrer">
+            <span>Open in Google Maps</span>
+            <span class="btn-arrow__line"></span>
+          </a>
+        </article>
+
+        <!-- Direct Contact Methods Card -->
+        <article class="pillar-card" style="margin-bottom: 1.5rem;">
+          <div class="editorial-eyebrow" style="margin-bottom: 0.8rem;">
+            <span class="editorial-eyebrow__line"></span>
+            <span>Telephone &amp; Digital</span>
+          </div>
+          <div class="feature-list" style="margin: 0;">
+            <div class="feature-item" style="padding-bottom: 0.8rem;">
+              <span class="feature-item__icon">📞</span>
+              <div class="feature-item__text">
+                <strong>Telephone Reservations</strong>
+                <a href="tel:{{ site.data.contact.ballia.phone_primary | remove: ' ' | remove: '[' | remove: ']' }}" style="color: #C6A76A;">{{ site.data.contact.ballia.phone_display }}</a>
+              </div>
+            </div>
+            <div class="feature-item" style="padding-bottom: 0.8rem;">
+              <span class="feature-item__icon">💬</span>
+              <div class="feature-item__text">
+                <strong>Instant WhatsApp Concierge</strong>
+                <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}" style="color: #C6A76A;" target="_blank" rel="noopener noreferrer">Message Concierge Desk</a>
+              </div>
+            </div>
+            <div class="feature-item" style="border-bottom: none; padding-bottom: 0;">
+              <span class="feature-item__icon">✉️</span>
+              <div class="feature-item__text">
+                <strong>Email Enquiries</strong>
+                <span style="color: #A49B8B;">{{ site.data.contact.ballia.email }}</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Operating Hours Card -->
+        <article class="pillar-card">
+          <div class="editorial-eyebrow" style="margin-bottom: 0.8rem;">
+            <span class="editorial-eyebrow__line"></span>
+            <span>Hours of Hospitality</span>
+          </div>
+          <div class="feature-list" style="margin: 0;">
+            <div class="feature-item" style="padding-bottom: 0.8rem;">
+              <span class="feature-item__icon">⏰</span>
+              <div class="feature-item__text">
+                <strong>Monday – Friday</strong>
+                <span>{{ site.data.contact.ballia.hours.monday_friday }}</span>
+              </div>
+            </div>
+            <div class="feature-item" style="border-bottom: none; padding-bottom: 0;">
+              <span class="feature-item__icon">🌟</span>
+              <div class="feature-item__text">
+                <strong>Saturday – Sunday &amp; Holidays</strong>
+                <span>{{ site.data.contact.ballia.hours.saturday_sunday }}</span>
+                <p style="font-size: 0.75rem; color: #736860; margin-top: 0.3rem;">
+                  {{ site.data.contact.ballia.hours.note }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ MAP & ENTRANCE SECTION ════════════════════════════════════════ -->
+<section class="section section--elevated" id="directions" aria-label="Directions and Architecture">
+  <div class="container">
+    <div class="feature-split">
+
+      <div class="reveal">
+        <div class="editorial-eyebrow">
+          <span class="editorial-eyebrow__line"></span>
+          <span>Arrival &amp; Access</span>
+        </div>
+        <h2 class="editorial-heading">
+          Arriving at <em>Kingslayer</em><br>
+          Ballia
+        </h2>
+        <div class="gold-line" style="margin-bottom: 1.8rem;"></div>
+
+        <p class="editorial-lead">
+          Conveniently situated in Ballia with dedicated entrance steps, easy accessibility, and close proximity to key landmarks.
+        </p>
+
+        <p class="t-body" style="margin-bottom: 1.5rem;">
+          Whether joining us for lunch or a grand evening celebration, our staff is prepared to welcome you with prompt, gracious service the moment you step through our doors.
+        </p>
+
+        <div style="margin-top: 2rem;">
+          <a href="{{ site.data.contact.ballia.google_maps_link }}" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Open Navigation in Google Maps</a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="feature-split__visual">
+          <div class="feature-split__frame">
+            <img src="{{ '/assets/images/ballia/entrance_day.jpg' | relative_url }}"
+                 alt="Kingslayer Ballia Grand Red-Carpet Entrance Stairs"
+                 loading="lazy" />
+          </div>
+          <div class="feature-split__tag">
+            <p class="feature-split__tag-eyebrow">Grand Entrance</p>
+            <p class="feature-split__tag-title">Kingslayer Ballia</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

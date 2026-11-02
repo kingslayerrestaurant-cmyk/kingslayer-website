@@ -1,0 +1,7 @@
+﻿/kingslayer-site/_site/
+/kingslayer-site/.jekyll-cache/
+.bundle/
+.sass-cache/
+.DS_Store
+Thumbs.db
+*.log

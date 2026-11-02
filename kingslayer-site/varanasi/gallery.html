@@ -1,0 +1,179 @@
+---
+layout: page
+title: "Visual Gallery — Kingslayer Varanasi"
+description: "Explore high-resolution photography of Kingslayer Varanasi. Luxury royal dining rooms, starlit rooftop sky terrace, imperial banquet ballroom, and culinary art."
+branch: "varanasi"
+branch_name: "Varanasi"
+body_class: "gallery-page"
+---
+
+<!-- ═══ GALLERY HERO ═════════════════════════════════════════════════ -->
+<section class="page-hero" aria-label="Kingslayer Varanasi Gallery Hero">
+  <div class="page-hero__media">
+    <img src="{{ '/assets/images/varanasi/hero_varanasi.jpg' | relative_url }}"
+         alt="Kingslayer Varanasi Visual Gallery and Luxury Interior Ambience"
+         loading="eager"
+         fetchpriority="high" />
+  </div>
+  <div class="page-hero__overlay"></div>
+
+  <div class="page-hero__content">
+    <div class="hero__eyebrow">
+      <span class="gold-line"></span>
+      <span class="t-eyebrow">Kingslayer Varanasi &nbsp;·&nbsp; Visual Moments</span>
+    </div>
+    <h1 class="hero__title">
+      The Visual<br>
+      <em>Gallery</em>
+    </h1>
+    <p class="hero__subtitle">
+      Authentic glimpses into our spaces, royal dining appointments, celebratory milestones, and culinary craftsmanship.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ GALLERY FILTER BAR & CONTENT ═════════════════════════════════ -->
+<section class="section section--dark" id="gallery-container" aria-label="Photo Gallery">
+  <div class="container">
+
+    <!-- Category filter buttons -->
+    <div class="menu-tabs" style="justify-content: center; margin-bottom: 3.5rem;" role="tablist" aria-label="Gallery categories">
+      <button class="menu-tab active gallery-filter__btn" data-filter="all" role="tab">All Photographs</button>
+      <button class="menu-tab gallery-filter__btn" data-filter="dining" role="tab">Main Dining</button>
+      <button class="menu-tab gallery-filter__btn" data-filter="rooftop" role="tab">The Rooftop</button>
+      <button class="menu-tab gallery-filter__btn" data-filter="banquet" role="tab">Banquets &amp; Events</button>
+      <button class="menu-tab gallery-filter__btn" data-filter="cuisine" role="tab">Culinary Art</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="gallery-grid">
+
+      <!-- 1. Authentic Dining Room Interior (Featured double item) -->
+      <article class="gallery-item reveal" data-category="dining" tabindex="0" role="button" aria-label="View Royal Dining Room">
+        <img src="{{ '/assets/images/varanasi/dining_interior.jpg' | relative_url }}"
+             alt="Kingslayer Varanasi Royal Dining Hall with Tiered Chandeliers and Gold Lattice"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 2. Celestial Sky Terrace at Sunset -->
+      <article class="gallery-item reveal" data-category="rooftop" tabindex="0" role="button" aria-label="View Rooftop Sky Terrace">
+        <img src="{{ '/assets/images/varanasi/rooftop_terrace.jpg' | relative_url }}"
+             alt="Kingslayer Varanasi Celestial Rooftop Sky Terrace at Sunset Over River"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 3. Imperial Banquet Ballroom -->
+      <article class="gallery-item reveal" data-category="banquet" tabindex="0" role="button" aria-label="View Imperial Banquet Ballroom">
+        <img src="{{ '/assets/images/varanasi/banquet_ballroom.jpg' | relative_url }}"
+             alt="Kingslayer Varanasi Imperial Banquet Ballroom Prepared for Wedding Gala"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 4. Royal Awadhi Culinary Feast -->
+      <article class="gallery-item reveal" data-category="cuisine" tabindex="0" role="button" aria-label="View Awadhi Culinary Feast">
+        <img src="{{ '/assets/images/varanasi/culinary_feast.jpg' | relative_url }}"
+             alt="Royal Awadhi Feast with Dum Biryani, Galawati Kebabs, and Dal Makhani"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 5. Twilight Sky Lounge Perspective (Featured double item) -->
+      <article class="gallery-item reveal" data-category="rooftop" tabindex="0" role="button" aria-label="View Twilight Sky Lounge">
+        <img src="{{ '/assets/images/varanasi/hero_varanasi.jpg' | relative_url }}"
+             alt="Kingslayer Varanasi Luxury Dining Hall and Starlit Sky Terrace at Dusk"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 6. Royal Table Setting -->
+      <article class="gallery-item reveal" data-category="dining" tabindex="0" role="button" aria-label="View Dining Table Ambience">
+        <img src="{{ '/assets/images/hero_restaurant.jpg' | relative_url }}"
+             alt="Kingslayer Fine Dining Table Service and Ambient Lighting"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 7. Celebratory Event Atmosphere -->
+      <article class="gallery-item reveal" data-category="banquet" tabindex="0" role="button" aria-label="View Celebratory Banquet Hall">
+        <img src="{{ '/assets/images/hero_banquet.jpg' | relative_url }}"
+             alt="Kingslayer Grand Celebratory Banquet Hall Setup"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 8. Artisanal Culinary Creation -->
+      <article class="gallery-item reveal" data-category="cuisine" tabindex="0" role="button" aria-label="View Gourmet Dish">
+        <img src="{{ '/assets/images/hero_food.jpg' | relative_url }}"
+             alt="Gourmet Awadhi Specialty at Kingslayer"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+      <!-- 9. Starlit Evening Lounge -->
+      <article class="gallery-item reveal" data-category="rooftop" tabindex="0" role="button" aria-label="View Starlit Rooftop Lounge">
+        <img src="{{ '/assets/images/hero_rooftop.jpg' | relative_url }}"
+             alt="Kingslayer Open-Air Rooftop Under the Stars"
+             loading="lazy" />
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__icon" aria-hidden="true">✦</div>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ LIGHTBOX MODAL CONTAINER ═════════════════════════════════════ -->
+<div id="lightbox" class="lightbox" role="dialog" aria-hidden="true" aria-label="Enlarged photo preview">
+  <div class="lightbox__backdrop"></div>
+  <div class="lightbox__container">
+    <button class="lightbox__close" aria-label="Close photo preview">✕</button>
+    <img class="lightbox__img" src="" alt="Enlarged Kingslayer Varanasi Photo" />
+    <div class="lightbox__caption"></div>
+    <button class="lightbox__prev lightbox__nav" aria-label="Previous photo">‹</button>
+    <button class="lightbox__next lightbox__nav" aria-label="Next photo">›</button>
+  </div>
+</div>
+
+<!-- ═══ RESERVATION CALLOUT ════════════════════════════════════════════ -->
+<section class="reservation-callout" aria-label="Visit Kingslayer Varanasi">
+  <div class="container">
+    <div class="reservation-callout__inner reveal">
+      <div class="editorial-eyebrow editorial-eyebrow--center">
+        <span class="editorial-eyebrow__line"></span>
+        <span>Experience It in Person</span>
+        <span class="editorial-eyebrow__line"></span>
+      </div>
+      <h2 class="editorial-heading editorial-heading--center">
+        Step Inside <em>Kingslayer</em> Varanasi
+      </h2>
+      <p class="editorial-lead editorial-lead--center">
+        Photography only hints at the atmosphere. Join us for lunch, an evening on the rooftop, or your family celebration.
+      </p>
+      <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <a href="{{ '/varanasi/contact/' | relative_url }}" class="btn btn--gold">Reserve a Table</a>
+        <a href="{{ '/varanasi/dining/' | relative_url }}" class="btn btn--outline">Dining Experience</a>
+      </div>
+    </div>
+  </div>
+</section>

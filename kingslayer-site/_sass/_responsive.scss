@@ -1,0 +1,288 @@
+// ═══════════════════════════════════════════════════════════════
+// KINGSLAYER — Responsive Styles
+// v2.1 — Final Premium Refinement
+// ═══════════════════════════════════════════════════════════════
+// Variables available via main.scss @import chain
+
+// ── XL BREAKPOINT (1280px) ──────────────────────────────────────
+@media (max-width: $bp-xl) {
+  .footer__top { grid-template-columns: 1fr 1fr 1fr; }
+  .stats-bar__inner { grid-template-columns: repeat(4, 1fr); }
+}
+
+// ── LG BREAKPOINT (1024px) ──────────────────────────────────────
+@media (max-width: $bp-lg) {
+
+  // Nav
+  .nav__links    { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav-mobile    { display: block; }
+  .nav__branch-pill { display: none; }
+
+  // Grids
+  .grid-2 { grid-template-columns: 1fr; gap: $space-10; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+
+  // Location cards
+  .loc-cards    { grid-template-columns: 1fr; min-height: auto; }
+  .loc-separator { display: none; }
+  .loc-card     { min-height: 55vw; }
+  .loc-card__pills { opacity: 1; transform: none; }
+  .loc-card__desc  { opacity: 1; transform: none; }
+
+  // Split layout — stacked
+  .split { grid-template-columns: 1fr; }
+  .split__visual { min-height: 320px; }
+
+  // Feature split — reset reverse ordering
+  .feature-split {
+    grid-template-columns: 1fr;
+    gap: $space-8;
+
+    &--reverse {
+      > div:first-child { order: unset; }
+      > div:last-child  { order: unset; }
+    }
+
+    &__frame img { height: 380px; }
+  }
+
+  // Footer
+  .footer__top { grid-template-columns: 1fr 1fr; gap: $space-8; }
+
+  // Gallery
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 260px;
+  }
+
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .gallery-item:nth-child(5) { grid-column: span 1; }
+
+  // About pillars
+  .pillars { grid-template-columns: 1fr; }
+
+  // Stats bar
+  .stats-bar__inner { grid-template-columns: repeat(2, 1fr); }
+  .stats-bar__item:nth-child(2) { border-right: none; }
+
+  // Mosaic
+  .mosaic-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Forms
+  .form-row { grid-template-columns: 1fr; }
+  .form-field--full { grid-column: span 1; }
+}
+
+// ── MD BREAKPOINT (768px) ───────────────────────────────────────
+@media (max-width: $bp-md) {
+
+  // Hero
+  .hero {
+    min-height: 620px;
+    align-items: center;
+  }
+
+  .hero__content {
+    padding-bottom: $space-16;
+    text-align: left;
+  }
+
+  .hero__scroll { display: none; }
+
+  // Page Hero
+  .page-hero {
+    height: 50vh;
+    min-height: 360px;
+  }
+
+  // Grids
+  .grid-3 { grid-template-columns: 1fr; }
+
+  // Experience card
+  .experience-card {
+    aspect-ratio: 16/9;
+    min-height: 260px;
+
+    .experience-card__desc { max-height: none; opacity: 1; margin-top: $space-2; }
+    .experience-card__cta  { opacity: 1; transform: none; }
+  }
+
+  // Fullbleed
+  .fullbleed-section {
+    min-height: auto;
+    &__overlay { background: rgba($black, 0.88); }
+    &__content { max-width: none; padding: $space-16 $side-pad; }
+  }
+
+  // Stats
+  .stat-grid { grid-template-columns: repeat(3, 1fr); gap: $space-4; }
+
+  // Gallery nav hidden on touch
+  .lightbox__nav { display: none; }
+
+  // Section padding
+  .section {
+    padding-top: clamp(3.5rem, 8vw, $section-y);
+    padding-bottom: clamp(3.5rem, 8vw, $section-y);
+  }
+
+  // Menu tabs — scrollable
+  .menu-tabs {
+    padding-bottom: 0.5rem;
+  }
+
+  // Mosaic
+  .mosaic-gallery {
+    grid-template-columns: repeat(2, 1fr);
+
+    &__item { height: 200px; }
+  }
+
+  // Stats bar columns
+  .stats-bar__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-4;
+    text-align: left;
+    padding-left: $space-6;
+  }
+
+  .stats-bar__item {
+    border-right: none;
+    border-bottom: 1px solid $gold-border;
+    padding-bottom: $space-4;
+
+    &:last-child { border-bottom: none; }
+  }
+
+  // Feature split tag
+  .feature-split__tag {
+    bottom: -0.5rem;
+    right: -0.5rem;
+    padding: 0.75rem 1.2rem;
+  }
+}
+
+// ── SM BREAKPOINT (640px) ───────────────────────────────────────
+@media (max-width: $bp-sm) {
+
+  // Hero actions stacked
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__actions .btn {
+    text-align: center;
+    justify-content: center;
+  }
+
+  // Footer stacked
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: $space-6;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  // Gallery — single column
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+
+  .gallery-item:nth-child(1) { grid-column: span 1; }
+  .gallery-item:nth-child(5) { grid-column: span 1; }
+
+  // Menu grid — single column
+  .menu-grid { grid-template-columns: 1fr; }
+
+  // Location card
+  .loc-card { min-height: 50vh; }
+  .loc-card__name { font-size: clamp(2rem, 10vw, 3.5rem); }
+
+  // Stats
+  .stat-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .stats-bar__inner { grid-template-columns: 1fr 1fr; }
+
+  // Coming soon actions
+  .coming-soon__actions { flex-direction: column; align-items: stretch; }
+
+  // Pillar cards
+  .pillars { grid-template-columns: 1fr; }
+
+  // Mosaic gallery — single column on very small screens
+  .mosaic-gallery { grid-template-columns: 1fr; }
+
+  // WhatsApp float — icon only
+  .whatsapp-float {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.75rem;
+  }
+
+  .scroll-top {
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+
+  // Navigation mobile — ensure full overlay
+  .nav-mobile__inner {
+    padding-top: calc(#{$nav-height} + 1.5rem);
+  }
+
+  // Feature split — compact
+  .feature-split__frame img {
+    height: 280px;
+  }
+
+  // Reservation callout
+  .reservation-callout {
+    padding: clamp(3.5rem, 7vw, 5rem) 0;
+  }
+}
+
+// ── TOUCH DEVICES — Remove hover states that don't work ──────────
+@media (hover: none) and (pointer: coarse) {
+  .experience-card__desc {
+    max-height: 80px;
+    margin-top: $space-2;
+    opacity: 1;
+  }
+
+  .experience-card__cta {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gallery-item__overlay {
+    opacity: 0.65;
+  }
+
+  // Keep touch targets large enough
+  .btn, .menu-tab, .nav__link, .footer__link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+// ── PRINT STYLES ─────────────────────────────────────────────────
+@media print {
+  .nav, .nav-mobile, .whatsapp-float, .scroll-top,
+  .ks-preloader, .hero__scroll, .hero__actions { display: none !important; }
+
+  .hero, .page-hero { min-height: 40vh; }
+  .hero__overlay, .page-hero__overlay { background: rgba(0,0,0,0.5) !important; }
+
+  .section { padding-top: 2rem; padding-bottom: 2rem; }
+
+  body { background: white; color: black; }
+  .t-body, .editorial-lead, .pillar-card__text, .pillar__body { color: #333; }
+  .editorial-heading, .hero__title, .section-header__title { color: #000; }
+}

@@ -1,0 +1,13 @@
+---
+layout: default
+---
+{% assign branch = page.branch | default: "ballia" %}
+{% assign branch_name = page.branch_name | default: "Ballia" %}
+
+{% include header.html branch=branch branch_name=branch_name %}
+
+<main id="main-content" class="page-content" role="main">
+  {{ content }}
+</main>
+
+{% include footer.html branch=branch branch_name=branch_name %}

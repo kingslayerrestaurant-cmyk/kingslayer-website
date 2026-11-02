@@ -1,0 +1,220 @@
+---
+layout: page
+title: "Reservations & Contact — Kingslayer Varanasi"
+description: "Reserve a dining table, inquire about banquet events, or reach the guest concierge at Kingslayer Varanasi, Uttar Pradesh. Instant confirmation via WhatsApp or telephone."
+branch: "varanasi"
+branch_name: "Varanasi"
+body_class: "contact-page"
+---
+
+<!-- ═══ CONTACT & RESERVATION HERO ═══════════════════════════════════ -->
+<section class="page-hero" aria-label="Kingslayer Varanasi Reservations Hero">
+  <div class="page-hero__media">
+    <img src="{{ '/assets/images/varanasi/dining_interior.jpg' | relative_url }}"
+         alt="Kingslayer Varanasi Guest Concierge Desk"
+         loading="eager"
+         fetchpriority="high" />
+  </div>
+  <div class="page-hero__overlay"></div>
+
+  <div class="page-hero__content">
+    <div class="hero__eyebrow">
+      <span class="gold-line"></span>
+      <span class="t-eyebrow">Kingslayer Varanasi &nbsp;·&nbsp; Concierge Desk</span>
+    </div>
+    <h1 class="hero__title">
+      Reservations &amp;<br>
+      <em>Contact</em>
+    </h1>
+    <p class="hero__subtitle">
+      We look forward to curating an exceptional dining or celebratory experience for you and your guests.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ RESERVATION FORM & CONTACT DETAILS ═══════════════════════════ -->
+<section class="section section--dark" id="booking-suite" aria-label="Reservation Suite">
+  <div class="container">
+
+    <div class="grid-2" style="align-items: flex-start;">
+
+      <!-- Left Column: Table Reservation Form -->
+      <div class="reveal">
+        <div class="pillar-card" style="padding: clamp(2rem, 4vw, 3rem);">
+
+          <div style="margin-bottom: 2rem;">
+            <div class="editorial-eyebrow">
+              <span class="editorial-eyebrow__line"></span>
+              <span>Direct Concierge</span>
+            </div>
+            <h2 class="editorial-heading" style="margin-bottom: 0.5rem;">
+              Reserve Your <em>Table</em>
+            </h2>
+            <p style="font-size: 0.85rem; color: #A49B8B; line-height: 1.6; margin: 0;">
+              Please provide your preferred details below. Your reservation request will open directly in WhatsApp for immediate confirmation with our Varanasi guest desk.
+            </p>
+          </div>
+
+          <form id="reservation-form" data-branch="Varanasi" data-whatsapp="{{ site.data.contact.varanasi.whatsapp }}">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="res-name">Full Name *</label>
+                <input type="text" id="res-name" class="form-input" required placeholder="Your Name" />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="res-phone">Contact Number *</label>
+                <input type="tel" id="res-phone" class="form-input" required placeholder="+91 XXXXX XXXXX" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="res-date">Date *</label>
+                <input type="date" id="res-date" class="form-input" required />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="res-time">Preferred Time Slot *</label>
+                <select id="res-time" class="form-select" required>
+                  <option value="">Select Time</option>
+                  <option value="Lunch: 12:30 PM">Lunch: 12:30 PM</option>
+                  <option value="Lunch: 1:30 PM">Lunch: 1:30 PM</option>
+                  <option value="Lunch: 2:30 PM">Lunch: 2:30 PM</option>
+                  <option value="Dinner: 7:30 PM">Dinner: 7:30 PM</option>
+                  <option value="Dinner: 8:30 PM">Dinner: 8:30 PM</option>
+                  <option value="Dinner: 9:30 PM">Dinner: 9:30 PM</option>
+                  <option value="Dinner: 10:30 PM">Dinner: 10:30 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="res-guests">Number of Guests *</label>
+                <select id="res-guests" class="form-select" required>
+                  <option value="2 Guests">2 Guests (Couple)</option>
+                  <option value="3-4 Guests">3–4 Guests (Small Family)</option>
+                  <option value="5-8 Guests">5–8 Guests (Family Table)</option>
+                  <option value="9-15 Guests">9–15 Guests (Large Gathering)</option>
+                  <option value="15+ Guests (Banquet Inquiry)">15+ Guests (Banquet Inquiry)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="res-experience">Preferred Dimension</label>
+                <select id="res-experience" class="form-select">
+                  <option value="The Royal Dining Room (Indoor AC)">The Royal Dining Room (Indoor AC)</option>
+                  <option value="Celestial Rooftop Sky Lounge">Celestial Rooftop Sky Lounge (Open Air)</option>
+                  <option value="Imperial Banquet Consultation">Imperial Banquet Consultation</option>
+                  <option value="Any Available Luxury Seating">Any Available Luxury Seating</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-label" for="res-notes">Special Occasion or Dietary Notes</label>
+              <textarea id="res-notes" class="form-textarea" placeholder="Celebrating an anniversary, birthday, or dietary preferences? Let our concierge know..."></textarea>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <button type="submit" class="btn btn--gold btn--lg" style="width: 100%; justify-content: center;">
+                Confirm Reservation via WhatsApp Desk
+              </button>
+              <p style="font-size: 0.72rem; color: #736860; text-align: center; margin-top: 0.8rem;">
+                No pre-payment required. Your table will be confirmed directly with our guest team.
+              </p>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Direct Contact & Hours -->
+      <div class="reveal">
+
+        <!-- Operating Hours Card -->
+        <div class="pillar-card" style="margin-bottom: 2rem;">
+          <div class="editorial-eyebrow">
+            <span class="editorial-eyebrow__line"></span>
+            <span>Operating Schedule</span>
+          </div>
+          <h3 class="pillar-card__title" style="margin-bottom: 1.5rem;">Service Hours</h3>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(198,167,106,0.12); padding-bottom: 0.75rem;">
+              <span style="color: #EDE5D7; font-size: 0.9rem;">Lunch Service</span>
+              <span style="color: #C6A76A; font-size: 0.9rem; font-weight: 500;">12:00 PM – 3:30 PM (Daily)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(198,167,106,0.12); padding-bottom: 0.75rem;">
+              <span style="color: #EDE5D7; font-size: 0.9rem;">Dinner Service</span>
+              <span style="color: #C6A76A; font-size: 0.9rem; font-weight: 500;">7:00 PM – 11:30 PM (Daily)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-bottom: 0.25rem;">
+              <span style="color: #EDE5D7; font-size: 0.9rem;">Celestial Rooftop</span>
+              <span style="color: #C6A76A; font-size: 0.9rem; font-weight: 500;">5:00 PM – 12:00 AM (Daily)</span>
+            </div>
+          </div>
+          <p style="font-size: 0.75rem; color: #736860; margin: 1rem 0 0; line-height: 1.6;">
+            Open 7 days a week. Prior reservations are recommended for evening dinner service and rooftop cabana tables.
+          </p>
+        </div>
+
+        <!-- Direct Contact Card -->
+        <div class="pillar-card" style="margin-bottom: 2rem;">
+          <div class="editorial-eyebrow">
+            <span class="editorial-eyebrow__line"></span>
+            <span>Direct Access</span>
+          </div>
+          <h3 class="pillar-card__title" style="margin-bottom: 1.5rem;">Guest Concierge</h3>
+
+          <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="color: #C6A76A; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">📍</span>
+              <div>
+                <strong style="color: #EDE5D7; font-size: 0.9rem; display: block;">Address</strong>
+                <span style="color: #A49B8B; font-size: 0.85rem; line-height: 1.6;">
+                  Kingslayer Restaurant, Banquet &amp; Rooftop<br>
+                  Varanasi, Uttar Pradesh 221001, India
+                </span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="color: #C6A76A; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">💬</span>
+              <div>
+                <strong style="color: #EDE5D7; font-size: 0.9rem; display: block;">WhatsApp Concierge</strong>
+                <a href="https://wa.me/{{ site.data.contact.varanasi.whatsapp }}" target="_blank" rel="noopener noreferrer" style="color: #25D366; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.2rem;">
+                  Chat with Varanasi Desk &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="color: #C6A76A; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">✉️</span>
+              <div>
+                <strong style="color: #EDE5D7; font-size: 0.9rem; display: block;">Email Inquiries</strong>
+                <a href="mailto:{{ site.data.contact.varanasi.email }}" style="color: #A49B8B; font-size: 0.85rem;">
+                  {{ site.data.contact.varanasi.email }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banquet Callout Box -->
+        <div class="pillar-card" style="background: rgba(198,167,106,0.04); border-color: rgba(198,167,106,0.25);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <p style="font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C6A76A; margin: 0 0 0.3rem;">Planning an Event?</p>
+              <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #EDE5D7; margin: 0;">Imperial Banquet Consultations</h4>
+            </div>
+            <a href="{{ '/varanasi/banquet/#banquet-consultation' | relative_url }}" class="btn btn--outline btn--sm">Event Details</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

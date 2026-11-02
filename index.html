@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kingslayer — Restaurant, Banquet &amp; Rooftop</title>
+  <meta name="description" content="Kingslayer Restaurant, Banquet &amp; Rooftop — A premium dining experience across two iconic locations in Uttar Pradesh. Ballia &amp; Varanasi." />
+  <meta property="og:title" content="Kingslayer — Restaurant, Banquet &amp; Rooftop" />
+  <meta property="og:description" content="Premium dining. Exclusive rooftop. Timeless banquets. Two locations. One extraordinary brand." />
+  <meta name="theme-color" content="#090909" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/kingslayer.css" />
+  <style>
+    /* Entry-page specific overrides */
+    body { overflow: hidden; }
+    body.ready { overflow: auto; }
+
+    /* Location card backgrounds */
+    .loc__card--ballia .loc__card-bg {
+      background-image: url('assets/images/hero_restaurant.jpg');
+    }
+    .loc__card--varanasi .loc__card-bg {
+      background-image: url('assets/images/hero_rooftop.jpg');
+    }
+
+    /* Decorative corner ornament */
+    .loc__ornament {
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      z-index: 2;
+      opacity: 0.35;
+    }
+    .loc__ornament svg { width: 60px; height: 60px; }
+
+    /* Card number */
+    .loc__card-number {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      z-index: 2;
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      font-weight: 300;
+      color: rgba(201,169,110,0.06);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Facilities strip */
+    .loc__card-facilities {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.5s var(--ease) 0.15s, transform 0.5s var(--ease) 0.15s;
+    }
+    .loc__card:hover .loc__card-facilities { opacity: 1; transform: translateY(0); }
+    .loc__fac-pill {
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ivory-muted);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.6rem;
+    }
+
+    /* Separator line */
+    .loc__separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1px;
+      background: var(--border);
+      position: relative;
+    }
+    .loc__separator-text {
+      background: var(--black);
+      padding: 1rem 0;
+      font-family: var(--font-serif);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--ivory-muted);
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+    }
+
+    /* Footer mini */
+    .loc__footer {
+      padding: 1.5rem var(--side-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      background: var(--black);
+    }
+    .loc__footer-copy {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: var(--ivory-muted);
+    }
+    .loc__footer-socials {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .loc__footer-social {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ivory-muted);
+      transition: color var(--dur) var(--ease);
+    }
+    .loc__footer-social:hover { color: var(--gold); }
+
+    /* Scroll hint arrow */
+    @media (max-width: 600px) {
+      .loc__separator { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ PRELOADER ═══════════════════════════════════════════ -->
+  <div id="preloader" role="status" aria-label="Loading Kingslayer">
+    <div class="preloader__inner">
+      <div class="preloader__line-top"></div>
+      <h1 class="preloader__wordmark">
+        <em>K</em>ingslayer
+      </h1>
+      <div class="preloader__line-bottom"></div>
+      <p class="preloader__sub">Restaurant &nbsp;·&nbsp; Banquet &nbsp;·&nbsp; Rooftop</p>
+      <div class="preloader__dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ LOCATION SELECTION ══════════════════════════════════ -->
+  <div id="location-select" aria-label="Select your Kingslayer location">
+
+    <header class="loc__header">
+      <p class="loc__eyebrow">Welcome to Kingslayer</p>
+      <h2 class="loc__title">Select Your Destination</h2>
+      <p class="loc__subtitle">Two Locations &nbsp;·&nbsp; One Extraordinary Brand</p>
+    </header>
+
+    <div class="loc__cards">
+
+      <!-- BALLIA -->
+      <a href="ballia.html"
+         id="card-ballia"
+         class="loc__card loc__card--ballia"
+         aria-label="Enter Kingslayer Ballia">
+
+        <div class="loc__card-bg" aria-hidden="true"></div>
+        <div class="loc__card-overlay" aria-hidden="true"></div>
+        <div class="loc__card-number" aria-hidden="true">01</div>
+
+        <!-- Corner ornament -->
+        <div class="loc__ornament" aria-hidden="true">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0 L60 0 L60 1 L1 1 L1 60 L0 60 Z" fill="#C9A96E"/>
+          </svg>
+        </div>
+
+        <div class="loc__card-content">
+          <div class="loc__card-divider"></div>
+          <p class="loc__card-eyebrow">Kingslayer &nbsp;·&nbsp; Uttar Pradesh</p>
+          <h3 class="loc__card-name">Ballia</h3>
+
+          <div class="loc__card-facilities">
+            <span class="loc__fac-pill">Restaurant</span>
+            <span class="loc__fac-pill">Banquet</span>
+            <span class="loc__fac-pill">Rooftop</span>
+          </div>
+
+          <p class="loc__card-desc">
+            An immersive dining experience in the heart of Ballia — where premium hospitality meets timeless culinary tradition.
+          </p>
+
+          <span class="loc__card-cta">
+            Enter Ballia
+            <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M0 4H14M14 4L11 1M14 4L11 7" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Separator -->
+      <div class="loc__separator" aria-hidden="true">
+        <span class="loc__separator-text">or</span>
+      </div>
+
+      <!-- VARANASI -->
+      <a href="varanasi.html"
+         id="card-varanasi"
+         class="loc__card loc__card--varanasi"
+         aria-label="Enter Kingslayer Varanasi">
+
+        <div class="loc__card-bg" aria-hidden="true"></div>
+        <div class="loc__card-overlay" aria-hidden="true"></div>
+        <div class="loc__card-number" aria-hidden="true">02</div>
+
+        <!-- Corner ornament -->
+        <div class="loc__ornament" aria-hidden="true">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60 0 L0 0 L0 1 L59 1 L59 60 L60 60 Z" fill="#C9A96E"/>
+          </svg>
+        </div>
+
+        <div class="loc__card-content">
+          <div class="loc__card-divider"></div>
+          <p class="loc__card-eyebrow">Kingslayer &nbsp;·&nbsp; Uttar Pradesh</p>
+          <h3 class="loc__card-name">Varanasi</h3>
+
+          <div class="loc__card-facilities">
+            <span class="loc__fac-pill">Restaurant</span>
+            <span class="loc__fac-pill">Banquet</span>
+            <span class="loc__fac-pill">Rooftop</span>
+          </div>
+
+          <p class="loc__card-desc">
+            A landmark dining destination in India's most sacred city — elevated hospitality in the cultural capital of the world.
+          </p>
+
+          <span class="loc__card-cta">
+            Enter Varanasi
+            <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M0 4H14M14 4L11 1M14 4L11 7" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Footer mini -->
+    <footer class="loc__footer">
+      <span class="loc__footer-copy">
+        &copy; 2024 Kingslayer Restaurant, Banquet &amp; Rooftop. All rights reserved.
+      </span>
+      <div class="loc__footer-socials">
+        <a href="#" class="loc__footer-social" aria-label="Instagram">Instagram</a>
+        <a href="#" class="loc__footer-social" aria-label="Facebook">Facebook</a>
+        <a href="#" class="loc__footer-social" aria-label="WhatsApp">WhatsApp</a>
+      </div>
+    </footer>
+
+  </div><!-- /location-select -->
+
+  <script>
+    (function() {
+      const preloader     = document.getElementById('preloader');
+      const locationSelect = document.getElementById('location-select');
+
+      // Check for returning visitor preference
+      const savedBranch = localStorage.getItem('ks_branch');
+      if (savedBranch) {
+        // Show location select but with a "continue to your branch" hint
+        const header = document.querySelector('.loc__header');
+        const hint = document.createElement('p');
+        hint.style.cssText = 'font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:0.5rem;';
+        hint.textContent = 'Your last visit: Kingslayer ' + (savedBranch === 'ballia' ? 'Ballia' : 'Varanasi');
+        header.appendChild(hint);
+      }
+
+      // Track branch selection
+      document.querySelectorAll('.loc__card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          const branch = card.id === 'card-ballia' ? 'ballia' : 'varanasi';
+          localStorage.setItem('ks_branch', branch);
+        });
+      });
+
+      // Preloader sequence
+      const totalDuration = 2400; // ms
+      setTimeout(function() {
+        preloader.classList.add('exit');
+        setTimeout(function() {
+          preloader.style.display = 'none';
+          document.body.classList.add('ready');
+          locationSelect.classList.add('visible');
+        }, 700);
+      }, totalDuration);
+    })();
+  </script>
+
+</body>
+</html>

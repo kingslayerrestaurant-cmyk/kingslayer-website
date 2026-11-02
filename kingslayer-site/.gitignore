@@ -1,0 +1,14 @@
+# Jekyll output and cache
+_site/
+.jekyll-cache/
+
+# Ruby / Bundler
+.bundle/
+vendor/
+.sass-cache/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+*.log
+

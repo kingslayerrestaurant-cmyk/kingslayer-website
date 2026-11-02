@@ -1,7 +1,15 @@
-﻿/kingslayer-site/_site/
-/kingslayer-site/.jekyll-cache/
+# Jekyll output and cache
+_site/
+kingslayer-site/_site/
+.jekyll-cache/
+kingslayer-site/.jekyll-cache/
+
+# Ruby / Bundler
 .bundle/
+vendor/
 .sass-cache/
+
+# OS artifacts
 .DS_Store
 Thumbs.db
 *.log

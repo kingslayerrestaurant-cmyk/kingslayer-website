@@ -475,6 +475,15 @@ html.ks-no-preloader {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__badges {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
   }
 
   &__num {
@@ -502,6 +511,11 @@ html.ks-no-preloader {
     &--live {
       color: #EDE5D7;
       border: 1px solid rgba(76, 175, 111, 0.40);
+    }
+
+    &--rating {
+      color: #C6A76A;
+      border: 1px solid rgba(198, 167, 106, 0.40);
     }
 
     &--preview {

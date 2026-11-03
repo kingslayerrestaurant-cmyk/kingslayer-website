@@ -132,6 +132,25 @@ body_class: "contact-page"
       <!-- Right Column: Direct Contact & Hours -->
       <div class="reveal">
 
+        <!-- Google Rating & Reviews Card -->
+        <div class="pillar-card" style="margin-bottom: 2rem; border-color: rgba(198, 167, 106, 0.35); background: rgba(198, 167, 106, 0.03);">
+          <div class="editorial-eyebrow" style="margin-bottom: 0.6rem;">
+            <span class="editorial-eyebrow__line"></span>
+            <span>Google Business Profile</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.5rem;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #C6A76A; font-weight: 600;">4.6 ★</span>
+            <span style="font-size: 0.85rem; color: #EDE5D7; letter-spacing: 0.05em;">1,452 Google Reviews</span>
+          </div>
+          <p style="font-size: 0.8rem; color: #A49B8B; margin-bottom: 1rem; line-height: 1.5;">
+            Varanasi’s highly acclaimed family dining and party destination in Lanka, renowned for birthdays, celebrations, and royal dining.
+          </p>
+          <a href="{{ site.data.contact.varanasi.google_business_link }}" class="btn-arrow" target="_blank" rel="noopener noreferrer">
+            <span>Read 1,452 Google Reviews</span>
+            <span class="btn-arrow__line"></span>
+          </a>
+        </div>
+
         <!-- Operating Hours Card -->
         <div class="pillar-card" style="margin-bottom: 2rem;">
           <div class="editorial-eyebrow">
@@ -142,20 +161,16 @@ body_class: "contact-page"
 
           <div style="display: flex; flex-direction: column; gap: 1rem;">
             <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(198,167,106,0.12); padding-bottom: 0.75rem;">
-              <span style="color: #EDE5D7; font-size: 0.9rem;">Lunch Service</span>
-              <span style="color: #C6A76A; font-size: 0.9rem; font-weight: 500;">12:00 PM – 3:30 PM (Daily)</span>
+              <span style="color: #EDE5D7; font-size: 0.9rem;">Daily Dining &amp; Parties</span>
+              <span style="color: #C6A76A; font-size: 0.9rem; font-weight: 500;">11:00 AM – 11:00 PM</span>
             </div>
             <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(198,167,106,0.12); padding-bottom: 0.75rem;">
-              <span style="color: #EDE5D7; font-size: 0.9rem;">Dinner Service</span>
-              <span style="color: #C6A76A; font-size: 0.9rem; font-weight: 500;">7:00 PM – 11:30 PM (Daily)</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; padding-bottom: 0.25rem;">
-              <span style="color: #EDE5D7; font-size: 0.9rem;">Celestial Rooftop</span>
-              <span style="color: #C6A76A; font-size: 0.9rem; font-weight: 500;">5:00 PM – 12:00 AM (Daily)</span>
+              <span style="color: #EDE5D7; font-size: 0.9rem;">Celebration Party Hall</span>
+              <span style="color: #C6A76A; font-size: 0.9rem; font-weight: 500;">Open All 7 Days</span>
             </div>
           </div>
           <p style="font-size: 0.75rem; color: #736860; margin: 1rem 0 0; line-height: 1.6;">
-            Open 7 days a week. Prior reservations are recommended for evening dinner service and rooftop cabana tables.
+            Open 7 days a week from 11:00 AM to 11:00 PM. Prior booking recommended for party celebrations and birthday setups.
           </p>
         </div>
 
@@ -173,9 +188,23 @@ body_class: "contact-page"
               <div>
                 <strong style="color: #EDE5D7; font-size: 0.9rem; display: block;">Address</strong>
                 <span style="color: #A49B8B; font-size: 0.85rem; line-height: 1.6;">
-                  Kingslayer Restaurant, Banquet &amp; Rooftop<br>
-                  Varanasi, Uttar Pradesh 221001, India
+                  {{ site.data.contact.varanasi.name }}<br>
+                  {{ site.data.contact.varanasi.address_line1 }}<br>
+                  {{ site.data.contact.varanasi.address_line2 }}, {{ site.data.contact.varanasi.city }}, {{ site.data.contact.varanasi.state }} {{ site.data.contact.varanasi.pincode }}
                 </span>
+                <div style="margin-top: 0.4rem;">
+                  <a href="{{ site.data.contact.varanasi.google_maps_link }}" target="_blank" rel="noopener noreferrer" style="color: #C6A76A; font-size: 0.8rem; text-decoration: underline;">Open in Google Maps &rarr;</a>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="color: #C6A76A; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">📞</span>
+              <div>
+                <strong style="color: #EDE5D7; font-size: 0.9rem; display: block;">Telephone Reservations</strong>
+                <a href="tel:{{ site.data.contact.varanasi.phone_primary | remove: ' ' }}" style="color: #C6A76A; font-size: 0.88rem; font-weight: 500;">
+                  {{ site.data.contact.varanasi.phone_display }}
+                </a>
               </div>
             </div>
 
@@ -183,8 +212,8 @@ body_class: "contact-page"
               <span style="color: #C6A76A; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;">💬</span>
               <div>
                 <strong style="color: #EDE5D7; font-size: 0.9rem; display: block;">WhatsApp Concierge</strong>
-                <a href="https://wa.me/{{ site.data.contact.varanasi.whatsapp }}" target="_blank" rel="noopener noreferrer" style="color: #25D366; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.2rem;">
-                  Chat with Varanasi Desk &rarr;
+                <a href="https://wa.me/{{ site.data.contact.varanasi.whatsapp }}?text=Hello%20Kingslayer%20Varanasi%2C%20I%20would%20like%20to%20enquire%20about%20a%20table%20reservation" target="_blank" rel="noopener noreferrer" style="color: #25D366; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.2rem;">
+                  Chat on WhatsApp &rarr;
                 </a>
               </div>
             </div>
@@ -206,9 +235,9 @@ body_class: "contact-page"
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
             <div>
               <p style="font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C6A76A; margin: 0 0 0.3rem;">Planning an Event?</p>
-              <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #EDE5D7; margin: 0;">Imperial Banquet Consultations</h4>
+              <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #EDE5D7; margin: 0;">Celebration &amp; Party Hall</h4>
             </div>
-            <a href="{{ '/varanasi/banquet/#banquet-consultation' | relative_url }}" class="btn btn--outline btn--sm">Event Details</a>
+            <a href="{{ '/varanasi/banquet/#banquet-consultation' | relative_url }}" class="btn btn--outline btn--sm">Party Packages</a>
           </div>
         </div>
 

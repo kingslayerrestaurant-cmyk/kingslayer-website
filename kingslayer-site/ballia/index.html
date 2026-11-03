@@ -194,19 +194,19 @@ body_class: "ballia-home"
 </section>
 
 <!-- ═══ SECTION 04: STATS BAR ══════════════════════════════════════ -->
-<div class="stats-bar" aria-label="Kingslayer at a glance">
+<div class="stats-bar" aria-label="Kingslayer Ballia at a glance">
   <div class="stats-bar__inner">
     <div class="stats-bar__item">
-      <div class="stats-bar__number" data-count="500" data-suffix="+">500+</div>
-      <div class="stats-bar__label">Covers Served Daily</div>
+      <div class="stats-bar__number" data-count="4" data-suffix=".6★">4.6★</div>
+      <div class="stats-bar__label">Google Rating (94 Reviews)</div>
     </div>
     <div class="stats-bar__item">
       <div class="stats-bar__number" data-count="3">3</div>
       <div class="stats-bar__label">Premium Dimensions</div>
     </div>
     <div class="stats-bar__item">
-      <div class="stats-bar__number" data-count="100" data-suffix="+">100+</div>
-      <div class="stats-bar__label">Events Hosted</div>
+      <div class="stats-bar__number" data-count="300" data-suffix="+">300+</div>
+      <div class="stats-bar__label">Banquet Capacity</div>
     </div>
     <div class="stats-bar__item">
       <div class="stats-bar__number" data-count="1">1</div>
@@ -509,6 +509,15 @@ body_class: "ballia-home"
           </div>
 
           <div class="feature-item">
+            <span class="feature-item__icon">⭐</span>
+            <div class="feature-item__text">
+              <strong>Google Verified Rating</strong>
+              <span style="color: #C6A76A; font-weight: 600;">4.6 ★</span> · 94 Google Reviews
+              (<a href="{{ site.data.contact.ballia.google_business_link }}" target="_blank" rel="noopener noreferrer" style="color: #C6A76A; text-decoration: underline;">View Profile</a>)
+            </div>
+          </div>
+
+          <div class="feature-item">
             <span class="feature-item__icon">📞</span>
             <div class="feature-item__text">
               <strong>Reservations &amp; Enquiries</strong>
@@ -520,15 +529,15 @@ body_class: "ballia-home"
             <span class="feature-item__icon">⏰</span>
             <div class="feature-item__text">
               <strong>Operating Hours</strong>
-              Monday – Friday: {{ site.data.contact.ballia.hours.monday_friday }}<br>
-              Saturday – Sunday: {{ site.data.contact.ballia.hours.saturday_sunday }}<br>
+              {{ site.data.contact.ballia.hours.daily }} (Open 7 Days)<br>
               <em style="color: #736860; font-size: 0.8rem;">{{ site.data.contact.ballia.hours.note }}</em>
             </div>
           </div>
         </div>
 
-        <div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
           <a href="{{ site.data.contact.ballia.google_maps_link }}" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Get Driving Directions</a>
+          <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a>
         </div>
       </div>
 

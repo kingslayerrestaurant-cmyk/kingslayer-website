@@ -1,7 +1,117 @@
 # ═══════════════════════════════════════════════════════
-# KINGSLAYER BALLIA — Experiences & Facilities Data
+# KINGSLAYER — Experiences & Facilities Data
 # ═══════════════════════════════════════════════════════
 
+ballia:
+  experiences:
+    - id: restaurant
+      title: "Restaurant & Fine Dining"
+      subtitle: "Royal Awadhi & Multi-Cuisine"
+      description: "Our signature air-conditioned dining hall features plush crown seating, marble appointments, and royal ambient lighting. A culinary sanctuary serving slow-cooked gravies, royal biryanis, and tandoori charcoal grills."
+      image: "hero_restaurant.jpg"
+      cta_label: "Explore Dining"
+      cta_url: "/ballia/dining/"
+      icon: "🍽️"
+      confirmed: true
+
+    - id: banquet
+      title: "Imperial Banquet Hall"
+      subtitle: "Grand Celebrations Elevated"
+      description: "Ballia's premier celebration ballroom accommodating up to 300+ guests. Ideal for weddings, engagement ceremonies, birthday galas, anniversaries, and corporate banquets with bespoke catering."
+      image: "hero_banquet.jpg"
+      cta_label: "Plan Your Event"
+      cta_url: "/ballia/banquet/"
+      icon: "🎉"
+      confirmed: true
+
+    - id: rooftop
+      title: "The Sky Rooftop"
+      subtitle: "Dine Beneath the Stars"
+      description: "An open-air terrace dining haven high above Ballia. Enjoy refreshing evening breezes, illuminated skyline panoramas, live barbecue skewers, and handcrafted mocktails."
+      image: "hero_rooftop.jpg"
+      cta_label: "The Rooftop"
+      cta_url: "/ballia/rooftop/"
+      icon: "🌙"
+      confirmed: true
+      availability_note: "Open daily 11:00 AM – 11:00 PM. Evening service recommended for open-air ambiance."
+
+  banquet:
+    capacity_note: "Grand Ballroom accommodates up to 300+ guests"
+    event_types:
+      - label: "Weddings & Receptions"
+        icon: "💒"
+        description: "Regal wedding ceremonies, sangeet functions, and reception galas with custom stage decor and silver-service catering."
+      - label: "Milestone Birthdays & Anniversaries"
+        icon: "🎂"
+        description: "Intimate and grand birthday parties, family anniversaries, and celebratory gatherings with custom decor."
+      - label: "Corporate Meets & Seminars"
+        icon: "💼"
+        description: "Executive conferences, corporate dinners, and business presentations with audio-visual setups."
+      - label: "Custom Banquet Catering"
+        icon: "🍽️"
+        description: "Lavish multi-course buffet spreads customized to your event theme and dietary preferences."
+    enquiry_note: "For banquet dates and bookings, connect directly with our events concierge via WhatsApp (+91 88811 43141)."
+
+  rooftop:
+    description: "Ballia's signature open-air rooftop dining experience. Panoramic skyline vistas, gentle evening breezes, and a dedicated rooftop menu crafted for lingering conversations."
+    availability_note: "Open daily from 11:00 AM to 11:00 PM. Best experienced at sunset and starlit evenings."
+    highlights:
+      - "Panoramic Ballia Skyline Views"
+      - "Open-Air Breezy Terrace Seating"
+      - "Evening Starlit Ambience"
+      - "Live Tandoor Skewers & Mocktails"
+
+varanasi:
+  experiences:
+    - id: dining
+      title: "Family Restaurant & Dining"
+      subtitle: "Multi-Cuisine Culinary Harmony"
+      description: "Located in the lively heart of Lanka, our air-conditioned family restaurant features comfortable seating and warm ambient lighting. Serving rich North Indian gravies, authentic biryanis, Chinese platters, and pizzas."
+      image: "varanasi/dining_interior.jpg"
+      cta_label: "Explore Dining"
+      cta_url: "/varanasi/dining/"
+      icon: "🍽️"
+      confirmed: true
+
+    - id: celebrations
+      title: "Private Party Spot & Lounge"
+      subtitle: "Varanasi's Top Celebration Venue"
+      description: "Over 1,450+ 5-star Google reviews praise our dedicated celebration floor. Complete with music, dance floor, and custom balloon and floral decor for birthday parties, anniversaries, and student reunions."
+      image: "varanasi/banquet_ballroom.jpg"
+      cta_label: "Plan a Celebration"
+      cta_url: "/varanasi/banquet/"
+      icon: "🎉"
+      confirmed: true
+
+    - id: rooftop
+      title: "Terrace & Evening Lounge"
+      subtitle: "Lively Gatherings in Lanka"
+      description: "A welcoming terrace space for group hangouts, casual meals, and evening coolers near BHU and Ravidas Gate."
+      image: "varanasi/rooftop_terrace.jpg"
+      cta_label: "Explore Terrace"
+      cta_url: "/varanasi/rooftop/"
+      icon: "🌙"
+      confirmed: true
+      availability_note: "Open daily 11:00 AM – 11:00 PM."
+
+  banquet:
+    capacity_note: "Comfortable private party space for gatherings of 20 to 150+ guests"
+    event_types:
+      - label: "Birthday Bashes & Cake Ceremonies"
+        icon: "🎂"
+        description: "Varanasi's favorite birthday spot with customized balloon themes, floral backdrops, and celebration music."
+      - label: "Anniversary & Couple Celebrations"
+        icon: "💍"
+        description: "Intimate dining appointments, couple tables, and milestone anniversary dinners with candlelight decor."
+      - label: "Student Reunions & Youth Hangouts"
+        icon: "🎓"
+        description: "Popular with BHU students and youth groups for farewells, fresher welcomes, and group celebrations."
+      - label: "Kitty Parties & Family Feasts"
+        icon: "👭"
+        description: "Spacious private seating, customized party platters, mocktails, and attentive table service."
+    enquiry_note: "For party spot reservations, connect directly with our WhatsApp concierge (+91 88811 43141) or call +91 96286 69974."
+
+# Legacy aliases for backward compatibility with existing templates
 experiences:
   - id: restaurant
     title: "Restaurant & Dining"
@@ -22,25 +132,23 @@ experiences:
     cta_url: "/ballia/rooftop/"
     icon: "🌙"
     confirmed: true
-    availability_note: "Rooftop availability subject to seasonal weather conditions."
 
   - id: banquet
     title: "Banquet & Events"
     subtitle: "Celebrations Elevated"
-    description: "Premium banquet facilities for weddings, corporate events, private celebrations and social occasions of every scale, delivered with flawless hospitality."
+    description: "Premium banquet facilities for weddings, corporate events, private celebrations and social occasions, delivered with flawless hospitality."
     image: "hero_banquet.jpg"
     cta_label: "Plan Your Event"
     cta_url: "/ballia/banquet/"
     icon: "🎉"
     confirmed: true
 
-# Banquet-specific details
 banquet:
-  capacity_note: "[Capacity to be confirmed by client]"
+  capacity_note: "Accommodates up to 300+ guests"
   event_types:
     - label: "Weddings & Receptions"
       icon: "💒"
-      description: "Grand wedding ceremonies, receptions and mehendi functions customized for your vision."
+      description: "Grand wedding ceremonies, receptions and sangeet functions customized for your vision."
     - label: "Private Celebrations"
       icon: "🎂"
       description: "Birthday parties, anniversaries, engagements and intimate social gatherings."
@@ -50,12 +158,11 @@ banquet:
     - label: "Customized Catering"
       icon: "🍽️"
       description: "Full-service catering with menu planning tailored to your event and dietary requirements."
-  enquiry_note: "For banquet enquiries, please complete the contact form or call us directly. Our events team will respond within 24 hours."
+  enquiry_note: "For banquet enquiries, connect with our events team on WhatsApp (+91 88811 43141)."
 
-# Rooftop details
 rooftop:
   description: "Our rooftop experience offers an open-air dining setting unlike any other in Ballia. Evening breezes, city lights below, and a curated menu that matches the elevation of the setting."
-  availability_note: "Available evenings only, subject to weather conditions."
+  availability_note: "Open daily from 11:00 AM to 11:00 PM."
   highlights:
     - "Open-air dining"
     - "City panorama"

@@ -3,18 +3,12 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <!-- ═══════════════════════════════════════════════════════════════
-     KINGSLAYER NAVIGATION & PRELOADER LIFECYCLE ENGINE
-     Synchronous Zero-Flash Pre-Paint State Evaluator:
-     1. Refresh / Hard-Refresh anywhere: FULL RESET to location selection ('/')
-        where preloader replays from 0% and starts completely over.
-     2. First cold visit: Preloader plays, reveals location selection ('/').
-     3. Internal page navigation: Suppressed instantly (zero flash) once entered.
-     4. Browser Back/Forward: Page restored instantly without preloader replay.
+     KINGSLAYER NAVIGATION & PRELOADER LIFECYCLE
+     Ensures smooth transitions without blocking direct URLs or reloads
      ═══════════════════════════════════════════════════════════════ -->
 <script>
   (function () {
     try {
-      // 1. Resolve normalized root location selection path
       var rootPath = "{{ '/' | relative_url }}";
       if (!rootPath.endsWith('/')) rootPath += '/';
 
@@ -25,7 +19,7 @@
                        (curPath === rootPath + 'index.html') ||
                        (curPath === '/' || curPath === '/index.html');
 
-      // 2. Detect navigation type across modern and legacy browser APIs
+      // Check navigation type
       var navType = '';
       if (window.performance) {
         if (performance.getEntriesByType && performance.getEntriesByType('navigation').length) {
@@ -36,41 +30,15 @@
         }
       }
 
-      // 3. REFRESH / HARD-REFRESH
-      if (navType === 'reload') {
-        try {
-          sessionStorage.clear();
-          localStorage.removeItem('ks_branch');
-        } catch (e) {}
-
-        if (!isRootPage) {
-          window.location.replace(rootPath);
-          return;
-        }
-        return;
-      }
-
-      // 4. BROWSER HISTORY (Back / Forward buttons)
-      if (navType === 'back_forward') {
+      // Suppress preloader on internal page transitions, back/forward, and reloads
+      if (navType === 'back_forward' || navType === 'reload' || sessionStorage.getItem('ks_internal_nav') === '1' || sessionStorage.getItem('ks_entered')) {
         document.documentElement.classList.add('ks-no-preloader');
-        return;
+        try { sessionStorage.removeItem('ks_internal_nav'); } catch (e) {}
       }
 
-      // 5. INTERNAL NAVIGATION
-      if (sessionStorage.getItem('ks_internal_nav') === '1') {
-        document.documentElement.classList.add('ks-no-preloader');
-        sessionStorage.removeItem('ks_internal_nav');
-        return;
-      }
-
-      // 6. DIRECT URL ENTRY / COLD OPEN ON INTERNAL SUBPAGES
-      if (!isRootPage && !sessionStorage.getItem('ks_entered')) {
-        window.location.replace(rootPath);
-        return;
-      }
-    } catch (err) {
-      // Graceful fallback for strict storage environments
-    }
+      // Mark user as having entered the digital experience
+      try { sessionStorage.setItem('ks_entered', '1'); } catch (e) {}
+    } catch (err) {}
   })();
 </script>
 
@@ -82,48 +50,201 @@
 </noscript>
 
 <!-- ── PAGE TITLE & META DESCRIPTION ──────────────────────────── -->
-<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+{% assign cur_branch = page.branch | default: "ballia" %}
+{% assign cur_contact = site.data.contact[cur_branch] %}
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }} — {{ cur_contact.name | default: site.tagline }}{% endif %}</title>
 <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta name="keywords" content="Kingslayer Restaurant Ballia, fine dining Ballia, banquet hall Ballia, rooftop restaurant Ballia, North Indian restaurant UP, wedding venue Ballia, luxury restaurant Uttar Pradesh">
-<meta name="robots" content="index, follow">
-<meta name="author" content="{{ site.author.name | default: 'Kingslayer Restaurant Ballia' }}">
+<meta name="keywords" content="{% if cur_branch == 'varanasi' %}Kingslayer Varanasi, Kingslayer Family Restaurant Lanka, party spot Varanasi, birthday party venue Varanasi, restaurant near BHU, celebration lounge Lanka, multi cuisine restaurant Varanasi{% else %}Kingslayer Restaurant Ballia, fine dining Ballia, banquet hall Ballia, rooftop restaurant Ballia, wedding venue Ballia, North Indian restaurant UP, luxury restaurant Ballia{% endif %}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="{{ cur_contact.name | default: 'Kingslayer' }}">
 <meta name="theme-color" content="#090909">
 
 <!-- ── OPEN GRAPH / SOCIAL SHARING ───────────────────────────── -->
 <meta property="og:type"        content="website">
 <meta property="og:url"         content="{{ page.url | absolute_url }}">
-<meta property="og:title"       content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:title"       content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }} — {{ cur_contact.name }}{% endif %}">
 <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta property="og:image"       content="{{ '/assets/images/hero_restaurant.jpg' | absolute_url }}">
+<meta property="og:image"       content="{% if cur_branch == 'varanasi' %}{{ '/assets/images/varanasi/hero_varanasi.jpg' | absolute_url }}{% else %}{{ '/assets/images/hero_restaurant.jpg' | absolute_url }}{% endif %}">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:site_name"   content="Kingslayer Restaurant Ballia">
+<meta property="og:site_name"   content="{{ cur_contact.name | default: 'Kingslayer' }}">
 <meta property="og:locale"      content="en_IN">
 
 <!-- ── TWITTER CARD ───────────────────────────────────────────── -->
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta name="twitter:image"       content="{{ '/assets/images/hero_restaurant.jpg' | absolute_url }}">
+<meta name="twitter:image"       content="{% if cur_branch == 'varanasi' %}{{ '/assets/images/varanasi/hero_varanasi.jpg' | absolute_url }}{% else %}{{ '/assets/images/hero_restaurant.jpg' | absolute_url }}{% endif %}">
 
 <!-- ── CANONICAL URL ─────────────────────────────────────────── -->
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 
 <!-- ── FONTS — Premium Typography Stack ──────────────────────── -->
-<!-- DNS Prefetch for faster resolution -->
 <link rel="dns-prefetch"  href="https://fonts.googleapis.com">
 <link rel="dns-prefetch"  href="https://fonts.gstatic.com">
 <link rel="preconnect"    href="https://fonts.googleapis.com">
 <link rel="preconnect"    href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Primary typefaces: Cormorant Garamond (serif) + Inter (sans) + Playfair Display (display) -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
 <!-- ── STYLES ────────────────────────────────────────────────── -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-<!-- ── SEO PLUGIN ────────────────────────────────────────────── -->
-{% seo title=false %}
+<!-- ── STRUCTURED DATA (JSON-LD) — Verified Google Business Profiles ── -->
+{% if page.url == "/" or page.url == "/index.html" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kingslayer Restaurant, Banquet & Rooftop",
+  "url": "{{ '/' | absolute_url }}",
+  "logo": "{{ '/assets/images/ballia/signage_glow.jpg' | absolute_url }}",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+91-88811-43141",
+      "contactType": "reservations",
+      "areaServed": "Ballia",
+      "availableLanguage": ["English", "Hindi"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+91-96286-69974",
+      "contactType": "reservations",
+      "areaServed": "Varanasi",
+      "availableLanguage": ["English", "Hindi"]
+    }
+  ],
+  "department": [
+    {
+      "@type": "Restaurant",
+      "name": "Kingslayer Restaurant Banquet RoofTop",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Toll Tax Bairiya, Jeep Stand, near Kadam Chauraha, NH-31, Ring Bandh",
+        "addressLocality": "Ballia",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "277001",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91 88811 43141",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "94",
+        "bestRating": "5"
+      }
+    },
+    {
+      "@type": "Restaurant",
+      "name": "Kingslayer Family Restaurant & Party Spot",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B 30/2, Plot No. 29, Beside PNB Bank Building, Prafulla Nagar, Lanka",
+        "addressLocality": "Varanasi",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "221005",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91 96286 69974",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "1452",
+        "bestRating": "5"
+      }
+    }
+  ]
+}
+</script>
+{% elsif cur_branch == "varanasi" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Kingslayer Family Restaurant & Party Spot",
+  "alternateName": "Kingslayers Restaurant & Lounge Varanasi",
+  "image": "{{ '/assets/images/varanasi/hero_varanasi.jpg' | absolute_url }}",
+  "@id": "{{ '/varanasi/' | absolute_url }}",
+  "url": "{{ page.url | absolute_url }}",
+  "telephone": "+91 96286 69974",
+  "priceRange": "₹₹",
+  "servesCuisine": ["North Indian", "Chinese", "Mughlai", "Biryani", "Fast Food", "Italian"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "B 30/2, Plot No. 29, Beside PNB Bank Building, Prafulla Nagar, Lanka",
+    "addressLocality": "Varanasi",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "221005",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.2801,
+    "longitude": 82.9984
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "1452",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "11:00",
+      "closes": "23:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.google.com/search?q=kingslayer+varanasi"
+  ]
+}
+</script>
+{% else %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Kingslayer Restaurant Banquet RoofTop",
+  "alternateName": "Kingslayer Ballia",
+  "image": "{{ '/assets/images/ballia/dining_ballia_cinematic.jpg' | absolute_url }}",
+  "@id": "{{ '/ballia/' | absolute_url }}",
+  "url": "{{ page.url | absolute_url }}",
+  "telephone": "+91 88811 43141",
+  "priceRange": "₹₹",
+  "servesCuisine": ["North Indian", "Awadhi", "Tandoori", "Biryani", "Chinese"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Toll Tax Bairiya, Jeep Stand, near Kadam Chauraha, NH-31, Ring Bandh",
+    "addressLocality": "Ballia",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "277001",
+    "addressCountry": "IN"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "94",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "11:00",
+      "closes": "23:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.google.com/search?q=kingslayer+ballia"
+  ]
+}
+</script>
+{% endif %}
 
 <!-- ── FAVICON ────────────────────────────────────────────────── -->
 <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">

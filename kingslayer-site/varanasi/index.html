@@ -68,20 +68,20 @@ body_class: "varanasi-home"
 <div class="stats-bar" aria-label="Kingslayer Varanasi at a glance">
   <div class="stats-bar__inner">
     <div class="stats-bar__item">
-      <div class="stats-bar__number" data-count="500" data-suffix="+">500+</div>
-      <div class="stats-bar__label">Covers Served Daily</div>
+      <div class="stats-bar__number" data-count="4" data-suffix=".6★">4.6★</div>
+      <div class="stats-bar__label">Google Rating (1,452 Reviews)</div>
     </div>
     <div class="stats-bar__item">
       <div class="stats-bar__number" data-count="3">3</div>
       <div class="stats-bar__label">Regal Dimensions</div>
     </div>
     <div class="stats-bar__item">
-      <div class="stats-bar__number" data-count="150" data-suffix="+">150+</div>
-      <div class="stats-bar__label">Celebrations Hosted</div>
+      <div class="stats-bar__number" data-count="500" data-suffix="+">500+</div>
+      <div class="stats-bar__label">Celebration Capacity</div>
     </div>
     <div class="stats-bar__item">
-      <div class="stats-bar__number" data-count="5" data-suffix="★">5★</div>
-      <div class="stats-bar__label">Five-Star Standard</div>
+      <div class="stats-bar__number" data-count="1">1</div>
+      <div class="stats-bar__label">Uncompromised Standard</div>
     </div>
   </div>
 </div>
@@ -420,5 +420,80 @@ body_class: "varanasi-home"
         <a href="https://wa.me/{{ site.data.contact.varanasi.whatsapp }}" class="btn btn--outline" target="_blank" rel="noopener noreferrer">WhatsApp Concierge</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 10: LOCATION & CONTACT ═════════════════════════════════ -->
+<section class="section section--dark" id="contact-info" aria-label="Location and Contact">
+  <div class="container">
+
+    <div class="grid-2" style="align-items: stretch;">
+
+      <!-- Contact Details -->
+      <div class="reveal" style="display: flex; flex-direction: column; justify-content: center;">
+        <div class="editorial-eyebrow">
+          <span class="editorial-eyebrow__line"></span>
+          <span>Find Us in Lanka, Varanasi</span>
+        </div>
+        <h2 class="editorial-heading">
+          Visit <em>Kingslayer</em> Varanasi
+        </h2>
+        <div class="gold-line" style="margin-bottom: 2rem;"></div>
+
+        <div class="feature-list" style="margin: 0 0 2rem 0;">
+          <div class="feature-item">
+            <span class="feature-item__icon">📍</span>
+            <div class="feature-item__text">
+              <strong>Address</strong>
+              {{ site.data.contact.varanasi.address_line1 }}<br>
+              {{ site.data.contact.varanasi.address_line2 }}, {{ site.data.contact.varanasi.city }}, {{ site.data.contact.varanasi.state }} {{ site.data.contact.varanasi.pincode }}
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-item__icon">⭐</span>
+            <div class="feature-item__text">
+              <strong>Google Verified Rating</strong>
+              <span style="color: #C6A76A; font-weight: 600;">4.6 ★</span> · 1,452 Google Reviews
+              (<a href="{{ site.data.contact.varanasi.google_business_link }}" target="_blank" rel="noopener noreferrer" style="color: #C6A76A; text-decoration: underline;">View Profile</a>)
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-item__icon">📞</span>
+            <div class="feature-item__text">
+              <strong>Reservations &amp; Enquiries</strong>
+              <a href="tel:{{ site.data.contact.varanasi.phone_primary | remove: ' ' }}" style="color: #C6A76A;">{{ site.data.contact.varanasi.phone_display }}</a>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span class="feature-item__icon">⏰</span>
+            <div class="feature-item__text">
+              <strong>Operating Hours</strong>
+              {{ site.data.contact.varanasi.hours.daily }} (Open 7 Days)<br>
+              <em style="color: #736860; font-size: 0.8rem;">{{ site.data.contact.varanasi.hours.note }}</em>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="{{ site.data.contact.varanasi.google_maps_link }}" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Get Driving Directions</a>
+          <a href="https://wa.me/{{ site.data.contact.varanasi.whatsapp }}" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Varanasi Ambiance Visual -->
+      <div class="reveal">
+        <div class="feature-split__frame" style="height: 100%; min-height: 420px;">
+          <img src="{{ '/assets/images/varanasi/dining_interior.jpg' | relative_url }}"
+               alt="Kingslayer Varanasi Dining Atmosphere and Warm Lighting"
+               style="height: 100%; object-fit: cover;"
+               loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>

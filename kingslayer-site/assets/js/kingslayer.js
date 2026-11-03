@@ -658,7 +658,9 @@
         }
 
         const branch = (reservationForm.dataset.branch || 'Ballia').toUpperCase();
-        const whatsappNumber = reservationForm.dataset.whatsapp || '91XXXXXXXXXX';
+        const whatsappNumber = (reservationForm.dataset.whatsapp && reservationForm.dataset.whatsapp.indexOf('X') === -1)
+          ? reservationForm.dataset.whatsapp
+          : '918881143141';
         const msg = encodeURIComponent(
           `*KINGSLAYER ${branch} — TABLE RESERVATION*\n\n` +
           `• Name: ${name}\n` +
@@ -699,7 +701,9 @@
         }
 
         const branch = (banquetForm.dataset.branch || 'Ballia').toUpperCase();
-        const whatsappNumber = banquetForm.dataset.whatsapp || '91XXXXXXXXXX';
+        const whatsappNumber = (banquetForm.dataset.whatsapp && banquetForm.dataset.whatsapp.indexOf('X') === -1)
+          ? banquetForm.dataset.whatsapp
+          : '918881143141';
         const msg = encodeURIComponent(
           `*KINGSLAYER ${branch} — BANQUET & EVENT ENQUIRY*\n\n` +
           `• Name: ${name}\n` +

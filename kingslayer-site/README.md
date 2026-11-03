@@ -7,7 +7,7 @@ Midnight Black × Champagne Gold × Editorial Luxury Hospitality Experience.
 
 ### 🏛️ Project Overview
 This repository contains the complete, production-ready Jekyll static website for **Kingslayer Restaurant, Banquet & Rooftop**, featuring:
-- **Cinematic Entry Flow**: Branded preloader followed by photographic split-screen location selection (Ballia vs. Varanasi) with returning visitor persistence (`localStorage`).
+- **Cinematic Entry Flow**: Branded preloader followed by photographic split-screen location selection (Ballia vs. Varanasi), returning visitors to the Location Selection portal on page refresh without persistent branch locks.
 - **Kingslayer Ballia**: An independent, comprehensive 8-page luxury digital experience:
   1. `Homepage` (`/ballia/`) — Grand cinematic hero, brand essence, three experience gateways, culinary craft spotlight, rooftop and banquet highlights, visual gallery teaser, and reservation banner.
   2. `About` (`/ballia/about/`) — The Kingslayer genesis, the four pillars of hospitality, and executive leadership profiles.

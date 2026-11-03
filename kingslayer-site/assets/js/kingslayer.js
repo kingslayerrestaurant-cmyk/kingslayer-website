@@ -40,6 +40,51 @@
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const dismissPreloader = (instant = false) => {
+      // 1. Determine if this view is a reload on an inner/branch page
+      let isReload = false;
+      if (typeof window.__KS_IS_RELOAD === 'boolean') {
+        isReload = window.__KS_IS_RELOAD;
+      } else {
+        try {
+          if (window.performance) {
+            const entries = window.performance.getEntriesByType && window.performance.getEntriesByType('navigation');
+            if (entries && entries.length > 0) {
+              isReload = (entries[0].type === 'reload');
+            } else if (typeof window.performance.navigation !== 'undefined') {
+              isReload = (window.performance.navigation.type === 1);
+            }
+          }
+        } catch (e) {}
+      }
+
+      const rootPath = window.__KS_ROOT_PATH || (function () {
+        const rootMeta = $('meta[name="root-url"]');
+        let r = (rootMeta && rootMeta.getAttribute('content')) || '/';
+        if (!r.endsWith('/')) r += '/';
+        return r;
+      })();
+
+      const isRoot = (typeof window.__KS_IS_ROOT === 'boolean') ? window.__KS_IS_ROOT : (function () {
+        const curPath = window.location.pathname || '/';
+        const curNorm = curPath.endsWith('/') || curPath.endsWith('.html') ? curPath : curPath + '/';
+        const rootNorm = rootPath.endsWith('/') ? rootPath : rootPath + '/';
+        const rootTrimmed = rootNorm.replace(/\/+$/, '');
+        return (curNorm === rootNorm) ||
+               (curNorm === rootNorm + 'index.html') ||
+               (curNorm === '/' || curNorm === '/index.html') ||
+               (rootTrimmed && (curNorm === rootTrimmed || window.location.pathname === rootTrimmed));
+      })();
+
+      // REQUIREMENT 4: If visitor refreshes ANY page, restart premium preloader from beginning,
+      // and AFTER the preloader completes, redirect to Location Selection page.
+      if (isReload && !isRoot) {
+        try {
+          sessionStorage.setItem('ks_from_inner_reload', '1');
+        } catch (e) {}
+        window.location.replace(rootPath);
+        return;
+      }
+
       if (instant || prefersReducedMotion) {
         preloader.classList.add('ks-exit');
         setTimeout(() => {
@@ -85,7 +130,7 @@
   }
 
   /* ═══════════════════════════════════════════════════════════
-     2. NAVIGATION STATE ENGINE (Session Storage Transit Tracking)
+     2. NAVIGATION STATE ENGINE & REFRESH REDIRECT GUARD
      ═══════════════════════════════════════════════════════════ */
   function initNavigationState() {
     // Intercept clicks on links for same-origin internal navigation
@@ -124,14 +169,13 @@
         return;
       }
 
-      // Legitimate internal navigation: set transit and session entered flags
+      // Legitimate internal navigation: mark internal transit
       try {
-        sessionStorage.setItem('ks_internal_nav', '1');
-        sessionStorage.setItem('ks_entered', '1');
+        sessionStorage.setItem('ks_internal_transit', '1');
       } catch (err) {}
     }, true);
 
-    // BFCache page restoration listener
+    // BFCache page restoration listener (supports normal back/forward navigation)
     window.addEventListener('pageshow', function (event) {
       if (event.persisted) {
         document.documentElement.classList.add('ks-no-preloader');
@@ -146,40 +190,27 @@
       }
     });
 
+    // Strictly ensure no sessionStorage/localStorage remembers the selected branch
     try {
-      sessionStorage.removeItem('ks_internal_nav');
+      localStorage.removeItem('ks_branch');
+      sessionStorage.removeItem('ks_branch');
+      sessionStorage.removeItem('ks_entered');
     } catch (e) {}
   }
 
   /* ═══════════════════════════════════════════════════════════
-     3. LOCATION SELECTOR INTERACTION & PERSISTENCE
+     3. LOCATION SELECTOR INTERACTION
      ═══════════════════════════════════════════════════════════ */
   function initLocationSelector() {
-    const entrance   = $('#ks-entrance') || $('#location-select');
-    const returnPill = $('#ks-return-pill');
-    const destPanels = $$('.ks-dest-panel, .loc__card');
+    const entrance = $('#ks-entrance') || $('#location-select');
     if (!entrance) return;
 
-    // Detect previously visited branch
+    // Strictly ensure no sessionStorage/localStorage remembers the selected branch
     try {
-      const savedBranch = localStorage.getItem('ks_branch');
-      if (savedBranch && returnPill) {
-        const branchName = savedBranch === 'ballia' ? 'Ballia' : 'Varanasi';
-        returnPill.innerHTML = `✦ &nbsp; Welcome Back &nbsp;·&nbsp; Last Visited: Kingslayer ${branchName}`;
-        returnPill.style.display = 'inline-flex';
-      }
+      localStorage.removeItem('ks_branch');
+      sessionStorage.removeItem('ks_branch');
+      sessionStorage.removeItem('ks_entered');
     } catch (e) {}
-
-    // Store user destination choice
-    destPanels.forEach(panel => {
-      on(panel, 'click', () => {
-        const href = panel.getAttribute('href') || '';
-        const branch = href.includes('ballia') || panel.id.includes('ballia') ? 'ballia' : 'varanasi';
-        try {
-          localStorage.setItem('ks_branch', branch);
-        } catch (e) {}
-      });
-    });
   }
 
   /* ═══════════════════════════════════════════════════════════

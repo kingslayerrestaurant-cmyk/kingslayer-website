@@ -3,41 +3,103 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <!-- ═══════════════════════════════════════════════════════════════
-     KINGSLAYER NAVIGATION & PRELOADER LIFECYCLE
-     Ensures smooth transitions without blocking direct URLs or reloads
+     KINGSLAYER NAVIGATION & REFRESH RESTART ENGINE
+     1. Initial visit to site: Show premium preloader -> Location Selection.
+     2. Select Ballia or Varanasi: Open branch normally without delay.
+     3. Refresh ANY page (branch, menu, banquet, contact, or root):
+        Restart premium preloader from beginning -> redirect to Location Selection.
+     4. Back/forward navigation: Instant restore without preloader.
+     5. No branch persistence stored across sessions or reloads.
      ═══════════════════════════════════════════════════════════════ -->
+<meta name="root-url" content="{{ '/' | relative_url }}">
 <script>
   (function () {
     try {
+      // 1. Resolve canonical root path for Location Selection page
       var rootPath = "{{ '/' | relative_url }}";
       if (!rootPath.endsWith('/')) rootPath += '/';
 
-      var curPath = window.location.pathname;
+      var curPath = window.location.pathname || '/';
       if (!curPath.endsWith('/') && !curPath.endsWith('.html')) curPath += '/';
 
+      // 2. Identify if current view is the Location Selection portal
+      var rootTrimmed = rootPath.replace(/\/+$/, '');
       var isRootPage = (curPath === rootPath) ||
                        (curPath === rootPath + 'index.html') ||
-                       (curPath === '/' || curPath === '/index.html');
+                       (curPath === '/' || curPath === '/index.html') ||
+                       (rootTrimmed && (curPath === rootTrimmed || window.location.pathname === rootTrimmed));
 
-      // Check navigation type
+      window.__KS_ROOT_PATH = rootPath;
+      window.__KS_IS_ROOT   = isRootPage;
+
+      // 3. Detect browser navigation type (Web Standards Performance API)
       var navType = '';
       if (window.performance) {
-        if (performance.getEntriesByType && performance.getEntriesByType('navigation').length) {
-          navType = performance.getEntriesByType('navigation')[0].type;
-        } else if (performance.navigation) {
-          if (performance.navigation.type === 1) navType = 'reload';
-          else if (performance.navigation.type === 2) navType = 'back_forward';
+        var navEntries = window.performance.getEntriesByType && window.performance.getEntriesByType('navigation');
+        if (navEntries && navEntries.length > 0) {
+          navType = navEntries[0].type;
+        } else if (typeof window.performance.navigation !== 'undefined') {
+          if (window.performance.navigation.type === 1) navType = 'reload';
+          else if (window.performance.navigation.type === 2) navType = 'back_forward';
+          else if (window.performance.navigation.type === 0) navType = 'navigate';
         }
       }
 
-      // Suppress preloader on internal page transitions, back/forward, and reloads
-      if (navType === 'back_forward' || navType === 'reload' || sessionStorage.getItem('ks_internal_nav') === '1' || sessionStorage.getItem('ks_entered')) {
-        document.documentElement.classList.add('ks-no-preloader');
-        try { sessionStorage.removeItem('ks_internal_nav'); } catch (e) {}
+      var isReload = (navType === 'reload');
+      var isBackForward = (navType === 'back_forward');
+      window.__KS_IS_RELOAD = isReload;
+
+      // Purge any legacy branch selection persistence from storage
+      try {
+        localStorage.removeItem('ks_branch');
+        sessionStorage.removeItem('ks_branch');
+        sessionStorage.removeItem('ks_entered');
+      } catch (e) {}
+
+      // 4. ON BROWSER REFRESH (any page or branch):
+      //    "Never skip the preloader on refresh."
+      //    "Restart the premium preloader from the beginning."
+      //    Never add ks-no-preloader. Clear any leftover transit flags.
+      //    If refreshed on an inner/branch page, kingslayer.js will redirect to rootPath
+      //    AFTER the preloader completes its signature opening sequence.
+      if (isReload) {
+        try {
+          sessionStorage.removeItem('ks_internal_transit');
+          sessionStorage.removeItem('ks_from_inner_reload');
+        } catch (e) {}
+        return;
       }
 
-      // Mark user as having entered the digital experience
-      try { sessionStorage.setItem('ks_entered', '1'); } catch (e) {}
+      // 5. LANDED ON ROOT AFTER INNER-PAGE RELOAD PRELOADER COMPLETED:
+      var fromInnerReload = false;
+      try {
+        fromInnerReload = (sessionStorage.getItem('ks_from_inner_reload') === '1');
+        if (fromInnerReload) {
+          sessionStorage.removeItem('ks_from_inner_reload');
+        }
+      } catch (e) {}
+
+      if (fromInnerReload) {
+        // Preloader already ran to full completion right before the redirect
+        document.documentElement.classList.add('ks-no-preloader');
+        return;
+      }
+
+      // 6. INTERNAL LINK NAVIGATION OR BROWSER BACK/FORWARD:
+      var internalTransit = false;
+      try {
+        internalTransit = (sessionStorage.getItem('ks_internal_transit') === '1');
+        if (internalTransit) {
+          sessionStorage.removeItem('ks_internal_transit');
+        }
+      } catch (e) {}
+
+      if (internalTransit || isBackForward) {
+        document.documentElement.classList.add('ks-no-preloader');
+        return;
+      }
+
+      // 7. INITIAL VISIT: Preloader plays from 0% on initial root visit.
     } catch (err) {}
   })();
 </script>

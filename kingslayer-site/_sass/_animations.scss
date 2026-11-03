@@ -64,8 +64,8 @@ html.ks-no-preloader {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem;
-    max-width: 540px;
+    padding: clamp(1.25rem, 4vw, 2rem);
+    max-width: min(90vw, 540px);
     width: 100%;
     margin: 0 auto;
     transform: translateY(0);
@@ -78,7 +78,7 @@ html.ks-no-preloader {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.6rem;
+    margin-bottom: clamp(1rem, 2.5vh, 1.6rem);
     opacity: 0;
     transform: scale(0.90) translateY(-6px);
     animation: ksEmblemReveal 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
@@ -90,8 +90,13 @@ html.ks-no-preloader {
       filter: drop-shadow(0 0 28px rgba(198, 167, 106, 0.22));
 
       @media (max-width: 576px) {
-        width: 68px;
-        height: 68px;
+        width: 62px;
+        height: 62px;
+      }
+
+      @media (max-width: 380px) {
+        width: 50px;
+        height: 50px;
       }
     }
   }
@@ -101,6 +106,7 @@ html.ks-no-preloader {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     opacity: 0;
     transform: translateY(8px);
     animation: ksFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s forwards;
@@ -108,23 +114,25 @@ html.ks-no-preloader {
 
   &__wordmark {
     font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+    font-size: clamp(1.2rem, 5.5vw, 2.1rem);
     font-weight: 400;
-    letter-spacing: 0.36em;
+    letter-spacing: clamp(0.18em, 0.8vw, 0.36em);
     color: #EDE5D7;
     text-transform: uppercase;
     margin: 0 0 0.55rem;
     line-height: 1.1;
+    white-space: nowrap;
+    overflow-wrap: normal;
   }
 
   &__descriptor {
     font-family: 'Inter', -apple-system, sans-serif;
-    font-size: 0.50rem;
+    font-size: clamp(0.42rem, 1.4vw, 0.50rem);
     font-weight: 500;
-    letter-spacing: 0.44em;
+    letter-spacing: clamp(0.22em, 0.8vw, 0.44em);
     color: rgba(164, 155, 139, 0.80);
     text-transform: uppercase;
-    margin: 0 0 2rem;
+    margin: 0 0 clamp(1.2rem, 3vh, 2rem);
     line-height: 1.5;
   }
 
@@ -138,7 +146,7 @@ html.ks-no-preloader {
   }
 
   &__track {
-    width: clamp(140px, 30vw, 188px);
+    width: clamp(110px, 35vw, 188px);
     height: 1px;
     background: rgba(198, 167, 106, 0.18);
     position: relative;
@@ -157,12 +165,12 @@ html.ks-no-preloader {
   // Destination metadata
   &__meta {
     font-family: 'Inter', sans-serif;
-    font-size: 0.48rem;
+    font-size: clamp(0.42rem, 1.2vw, 0.48rem);
     font-weight: 600;
-    letter-spacing: 0.38em;
+    letter-spacing: clamp(0.22em, 0.8vw, 0.38em);
     color: rgba(164, 155, 139, 0.55);
     text-transform: uppercase;
-    margin-top: 1.4rem;
+    margin-top: 1.2rem;
     opacity: 0;
     animation: ksFade 0.5s ease 0.52s forwards;
   }
@@ -773,24 +781,141 @@ html.ks-no-preloader {
 
 @media (max-width: 480px) {
   .ks-entrance {
+    &__header {
+      padding: clamp(1.2rem, 2.5vh, 1.8rem) 1rem 1rem;
+    }
+
     &__brand-crest svg {
-      width: 32px;
-      height: auto;
+      width: 28px;
+      height: 28px;
+    }
+
+    &__title {
+      font-size: clamp(1.05rem, 4.2vw, 1.35rem);
+      letter-spacing: clamp(0.08em, 1.2vw, 0.14em);
+    }
+
+    &__stage {
+      padding: 0 0.85rem 1.8rem;
+      gap: 1.2rem;
     }
   }
 
   .ks-dest-panel {
-    min-height: 360px;
-    padding: 1.35rem 1.1rem;
+    min-height: 350px;
+    padding: 1.25rem 1rem;
+
+    &__top {
+      gap: 0.4rem;
+    }
+
+    &__badge {
+      font-size: 0.48rem;
+      padding: 0.22rem 0.55rem;
+    }
 
     &__title {
-      font-size: clamp(1.5rem, 6vw, 1.85rem);
-      margin-bottom: 0.65rem;
+      font-size: clamp(1.4rem, 5.5vw, 1.75rem);
+      margin-bottom: 0.5rem;
     }
 
     &__narrative {
-      font-size: 0.76rem;
-      margin-bottom: 1.2rem;
+      font-size: 0.74rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .ks-entrance {
+    &__header {
+      padding: 1rem 0.65rem 0.75rem;
+    }
+
+    &__brand-name {
+      font-size: 1.1rem;
+      letter-spacing: 0.26em;
+    }
+
+    &__title {
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+    }
+
+    &__subtitle {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+    }
+
+    &__stage {
+      padding: 0 0.65rem 1.25rem;
+      gap: 1rem;
+    }
+
+    &__footer {
+      padding: 1rem 0.65rem;
+    }
+
+    &__copyright {
+      font-size: 0.50rem;
+    }
+
+    &__socials {
+      gap: 0.5rem;
+      font-size: 0.52rem;
+    }
+  }
+
+  .ks-dest-panel {
+    min-height: 320px;
+    padding: 1rem 0.75rem;
+
+    &__top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.3rem;
+    }
+
+    &__num {
+      font-size: 0.50rem;
+    }
+
+    &__badge {
+      font-size: 0.45rem;
+      padding: 0.18rem 0.45rem;
+    }
+
+    &__kicker {
+      font-size: 0.50rem;
+      letter-spacing: 0.20em;
+    }
+
+    &__title {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    &__facilities {
+      gap: 0.25rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .ks-pill {
+      font-size: 0.42rem;
+      padding: 0.16rem 0.45rem;
+    }
+
+    &__narrative {
+      font-size: 0.70rem;
+      line-height: 1.45;
+      margin-bottom: 0.85rem;
+    }
+
+    &__cta {
+      min-height: 44px;
+      font-size: 0.56rem;
+      padding: 0.75rem 1rem;
     }
   }
 }

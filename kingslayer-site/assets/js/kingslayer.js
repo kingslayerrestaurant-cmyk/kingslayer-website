@@ -250,9 +250,11 @@
         if (locked) {
           document.body.style.overflow = 'hidden';
           document.documentElement.style.overflow = 'hidden';
+          document.body.classList.add('menu-open');
         } else {
           document.body.style.overflow = '';
           document.documentElement.style.overflow = '';
+          document.body.classList.remove('menu-open');
         }
       };
 

@@ -439,6 +439,11 @@ ul, ol { list-style: none; }
 }
 
 // ── MOBILE NAVIGATION ────────────────────────────────────────────
+body.menu-open {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
 .nav-mobile {
   display: none;
   position: fixed;

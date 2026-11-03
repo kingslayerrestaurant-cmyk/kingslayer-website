@@ -37,7 +37,8 @@
           {% endif %}
           <!-- WhatsApp social link -->
           {% if contact.whatsapp %}
-          <a href="https://wa.me/{{ contact.whatsapp }}"
+          {% assign ft_wa_text = "Hello Kingslayer " | append: branch_name | append: ", I would like to make an enquiry." %}
+          <a href="https://wa.me/{{ contact.whatsapp }}?text={{ ft_wa_text | url_encode }}"
              class="footer__social-link"
              aria-label="Message Kingslayer {{ branch_name }} on WhatsApp"
              target="_blank"
@@ -49,7 +50,7 @@
         <!-- WhatsApp quick contact -->
         {% if contact.whatsapp %}
         <div style="margin-top: 1.5rem;">
-          <a href="https://wa.me/{{ contact.whatsapp }}"
+          <a href="https://wa.me/{{ contact.whatsapp }}?text={{ ft_wa_text | url_encode }}"
              style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:#25D366; transition:color 0.3s ease;"
              target="_blank"
              rel="noopener noreferrer">

@@ -52,8 +52,20 @@ body_class: "entrance-experience"
        class="ks-dest-panel ks-dest-panel--ballia"
        aria-label="Enter Kingslayer Ballia Destination">
 
-      <!-- Photographic Hero Canvas (Always visible & cinematic) -->
-      <div class="ks-dest-panel__media" style="background-image: url('{{ '/assets/images/hero_restaurant.jpg' | relative_url }}');" aria-hidden="true"></div>
+      <!-- Photographic Hero Canvas (Real Semantic LCP Image) -->
+      <div class="ks-dest-panel__media">
+        <picture>
+          <source srcset="{{ '/assets/images/hero_restaurant.webp' | relative_url }}" type="image/webp">
+          <img src="{{ '/assets/images/hero_restaurant.jpg' | relative_url }}"
+               alt="Kingslayer Ballia Fine Dining, Banquet and Rooftop Destination"
+               class="ks-dest-panel__media-img"
+               loading="eager"
+               fetchpriority="high"
+               decoding="async"
+               width="1376"
+               height="768" />
+        </picture>
+      </div>
 
       <!-- Rich Multi-Layer Dark Obsidian Scrim -->
       <div class="ks-dest-panel__scrim" aria-hidden="true"></div>
@@ -124,8 +136,20 @@ body_class: "entrance-experience"
        class="ks-dest-panel ks-dest-panel--varanasi"
        aria-label="Explore Kingslayer Varanasi Destination">
 
-      <!-- Photographic Hero Canvas (Always visible & cinematic) -->
-      <div class="ks-dest-panel__media" style="background-image: url('{{ '/assets/images/varanasi/hero_varanasi.jpg' | relative_url }}');" aria-hidden="true"></div>
+      <!-- Photographic Hero Canvas (Real Semantic LCP Image) -->
+      <div class="ks-dest-panel__media">
+        <picture>
+          <source srcset="{{ '/assets/images/varanasi/hero_varanasi.webp' | relative_url }}" type="image/webp">
+          <img src="{{ '/assets/images/varanasi/hero_varanasi.jpg' | relative_url }}"
+               alt="Kingslayer Varanasi Family Restaurant & Party Spot Celebration Lounge"
+               class="ks-dest-panel__media-img"
+               loading="eager"
+               fetchpriority="high"
+               decoding="async"
+               width="1376"
+               height="768" />
+        </picture>
+      </div>
 
       <!-- Rich Multi-Layer Dark Obsidian Scrim -->
       <div class="ks-dest-panel__scrim" aria-hidden="true"></div>
@@ -199,11 +223,11 @@ body_class: "entrance-experience"
     </span>
 
     <div class="ks-entrance__socials">
-      <a href="https://instagram.com" class="ks-entrance__social-link" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+      <a href="https://instagram.com" class="ks-entrance__social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Kingslayer on Instagram">INSTAGRAM</a>
       <span class="ks-dot-sep">·</span>
-      <a href="https://facebook.com" class="ks-entrance__social-link" target="_blank" rel="noopener noreferrer">FACEBOOK</a>
+      <a href="https://facebook.com" class="ks-entrance__social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Kingslayer on Facebook">FACEBOOK</a>
       <span class="ks-dot-sep">·</span>
-      <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}?text={{ 'Hello Kingslayer Concierge, I would like to enquire about your destinations.' | url_encode }}" class="ks-entrance__social-link" target="_blank" rel="noopener noreferrer">CONCIERGE</a>
+      <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}?text={{ 'Hello Kingslayer Concierge, I would like to enquire about your destinations.' | url_encode }}" class="ks-entrance__social-link" target="_blank" rel="noopener noreferrer" aria-label="Chat with Kingslayer Concierge on WhatsApp">CONCIERGE</a>
     </div>
   </footer>
 

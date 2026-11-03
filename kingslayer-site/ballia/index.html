@@ -10,13 +10,16 @@ body_class: "ballia-home"
 <!-- ═══ SECTION 01: CINEMATIC HERO ═════════════════════════════════════ -->
 <section class="hero" aria-label="Kingslayer Ballia Welcome Hero">
   <div class="hero__media">
-    <img src="{{ '/assets/images/ballia/hero_ballia.jpg' | relative_url }}"
-         alt="Kingslayer Ballia Opulent Fine Dining Restaurant Interior at Night"
-         loading="eager"
-         fetchpriority="high"
-         width="1376"
-         height="768"
-         decoding="async" />
+    <picture>
+      <source srcset="{{ '/assets/images/ballia/hero_ballia.webp' | relative_url }}" type="image/webp">
+      <img src="{{ '/assets/images/ballia/hero_ballia.jpg' | relative_url }}"
+           alt="Kingslayer Ballia Opulent Fine Dining Restaurant Interior at Night"
+           loading="eager"
+           fetchpriority="high"
+           width="1376"
+           height="768"
+           decoding="async" />
+    </picture>
   </div>
   <div class="hero__overlay"></div>
   <div class="hero__overlay-nav"></div>

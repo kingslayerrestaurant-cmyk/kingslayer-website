@@ -7,7 +7,7 @@
 title: "Kingslayer"
 tagline: "Restaurant, Banquet & Rooftop"
 description: "A premium dining, rooftop and banquet destination. Kingslayer — where exceptional hospitality, memorable flavours and remarkable moments come together."
-url: ""  # Set to your domain when deploying, e.g. https://kingslayerrestaurant.com
+url: "https://kingslayer.in"  # Official production domain
 baseurl: ""
 
 # Brand

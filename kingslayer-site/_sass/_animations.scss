@@ -159,7 +159,7 @@ html.ks-no-preloader {
     background: linear-gradient(90deg, #7A5E35 0%, #C6A76A 55%, #F0DFB8 100%);
     transform: scaleX(0);
     transform-origin: left center;
-    animation: ksProgressBar 1.45s cubic-bezier(0.60, 0, 0.35, 1) 0.30s forwards;
+    animation: ksProgressBar 1.0s cubic-bezier(0.60, 0, 0.35, 1) 0.10s forwards;
   }
 
   // Destination metadata
@@ -257,8 +257,7 @@ html.ks-no-preloader {
   justify-content: space-between;
   position: relative;
   overflow-x: hidden;
-  opacity: 0;
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1; // Real, visible content immediately available for layout, paint, and LCP
 
   &.is-visible {
     opacity: 1;
@@ -379,24 +378,29 @@ html.ks-no-preloader {
 
   &__copyright {
     font-family: 'Inter', sans-serif;
-    font-size: 0.56rem;
-    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
     color: rgba(164, 155, 139, 0.70);
   }
 
   &__socials {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
   &__social-link {
     font-family: 'Inter', sans-serif;
-    font-size: 0.56rem;
-    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(164, 155, 139, 0.75);
+    color: rgba(164, 155, 139, 0.80);
     transition: color 0.3s ease;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.65rem;
 
     &:hover {
       color: #C6A76A;
@@ -430,15 +434,24 @@ html.ks-no-preloader {
   &__media {
     position: absolute;
     inset: 0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.78;
+    overflow: hidden;
+    opacity: 0.82;
     transform: scale(1);
     transition: transform 1.3s cubic-bezier(0.16, 1, 0.3, 1),
                 opacity 0.85s ease,
                 filter 0.65s ease;
-    filter: brightness(0.90) contrast(1.06) saturate(0.92);
+    filter: brightness(0.92) contrast(1.06) saturate(0.95);
     will-change: transform;
+
+    picture,
+    img,
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
   }
 
   // Multi-layer scrim

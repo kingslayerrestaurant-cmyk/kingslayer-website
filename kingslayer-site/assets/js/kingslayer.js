@@ -359,11 +359,20 @@
         }
       });
     }, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -30px 0px'
+      threshold: 0.02,
+      rootMargin: '0px 0px 40px 0px'
     });
 
-    revealItems.forEach(el => observer.observe(el));
+    // Elements already in or touching initial viewport are made visible immediately
+    // to prevent blank empty areas on above-the-fold or peeking section content.
+    revealItems.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add('visible');
+      } else {
+        observer.observe(el);
+      }
+    });
   }
 
   /* ═══════════════════════════════════════════════════════════

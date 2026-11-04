@@ -442,6 +442,14 @@ ul, ol { list-style: none; }
 body.menu-open {
   overflow: hidden !important;
   touch-action: none !important;
+
+  .whatsapp-float,
+  .scroll-top {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(20px) !important;
+  }
 }
 
 .nav-mobile {
@@ -2401,9 +2409,10 @@ body.menu-open {
 
   &__close {
     position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 46px; height: 46px;
+    top: max(1.25rem, calc(1rem + env(safe-area-inset-top, 0px)));
+    right: max(1.25rem, calc(1rem + env(safe-area-inset-right, 0px)));
+    width: 48px; height: 48px;
+    min-width: 44px; min-height: 44px;
     border: 1px solid $gold-border-m;
     background: rgba($black, 0.88);
     color: $gold;
@@ -2415,6 +2424,8 @@ body.menu-open {
     transition: all $dur-base $ease;
     backdrop-filter: blur(8px);
     z-index: 3;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 
     &:hover {
       background: $gold;

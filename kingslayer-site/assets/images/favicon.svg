@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient: Deep Obsidian -->
+    <radialGradient id="obsidianGlow" cx="50%" cy="46%" r="68%">
+      <stop offset="0%" stop-color="#1A1A1A" />
+      <stop offset="55%" stop-color="#0B0B0B" />
+      <stop offset="100%" stop-color="#030303" />
+    </radialGradient>
+
+    <!-- Master Champagne Gold Gradient -->
+    <linearGradient id="champagneGold" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5E0" />
+      <stop offset="18%" stop-color="#E9CCA2" />
+      <stop offset="48%" stop-color="#C6A76A" />
+      <stop offset="78%" stop-color="#A58447" />
+      <stop offset="100%" stop-color="#6E5325" />
+    </linearGradient>
+
+    <!-- Hairline Bezel Gold Border -->
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9CCA2" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#C6A76A" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#8E6F33" stop-opacity="0.6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Obsidian Canvas (Rounded Squircle) -->
+  <rect x="8" y="8" width="496" height="496" rx="108" fill="url(#obsidianGlow)" />
+  <rect x="8" y="8" width="496" height="496" rx="108" fill="none" stroke="url(#goldBorder)" stroke-width="2.5" />
+  <rect x="24" y="24" width="464" height="464" rx="92" fill="none" stroke="#C6A76A" stroke-width="1" stroke-opacity="0.12" />
+
+  <!-- Optically Tuned Crown (Centered, 72% visual width) -->
+  <g id="crownEmblem" transform="translate(256, 260) scale(1.22) translate(-256, -260)">
+    <!-- Main Crown Body -->
+    <path d="M 112 216
+             L 156 270
+             L 192 184
+             L 228 252
+             L 256 132
+             L 284 252
+             L 320 184
+             L 356 270
+             L 400 216
+             L 374 344
+             L 138 344 Z"
+          fill="url(#champagneGold)"
+          stroke="#463414"
+          stroke-width="1.2"
+          stroke-linejoin="round" />
+
+    <!-- Crown Diadem Plinth / Base Band -->
+    <path d="M 130 360
+             L 382 360
+             L 378 392
+             L 134 392 Z"
+          fill="url(#champagneGold)" />
+
+    <!-- Diadem Filigree Line -->
+    <line x1="148" y1="376" x2="364" y2="376" stroke="#483615" stroke-width="2.5" stroke-opacity="0.8" />
+
+    <!-- Base Jewels (3 Brilliant Diamonds) -->
+    <polygon points="176,376 183,369 190,376 183,383" fill="#FFFDF8" />
+    <polygon points="256,376 265,367 274,376 265,385" fill="#FFFDF8" />
+    <polygon points="322,376 329,369 336,376 329,383" fill="#FFFDF8" />
+
+    <!-- Center Sovereign Finial (Sceptre Diamond & Sphere) -->
+    <circle cx="256" cy="112" r="16" fill="url(#champagneGold)" />
+    <circle cx="256" cy="110" r="7" fill="#FFFFFF" />
+
+    <!-- Intermediate Peak Jewels -->
+    <circle cx="192" cy="170" r="11" fill="url(#champagneGold)" />
+    <circle cx="192" cy="168" r="4.5" fill="#FFFFFF" />
+    <circle cx="320" cy="170" r="11" fill="url(#champagneGold)" />
+    <circle cx="320" cy="168" r="4.5" fill="#FFFFFF" />
+
+    <!-- Outer Peak Jewels -->
+    <circle cx="110" cy="204" r="10.5" fill="url(#champagneGold)" />
+    <circle cx="110" cy="202" r="4" fill="#FFFFFF" />
+    <circle cx="402" cy="204" r="10.5" fill="url(#champagneGold)" />
+    <circle cx="402" cy="202" r="4" fill="#FFFFFF" />
+
+    <!-- Central Diamond Cutout / Monogram Core -->
+    <polygon points="256,220 276,262 256,304 236,262" fill="#0C0C0C" fill-opacity="0.95" stroke="url(#champagneGold)" stroke-width="2" />
+    <polygon points="256,238 267,262 256,286 245,262" fill="url(#champagneGold)" />
+
+    <!-- Side Inset Cutouts -->
+    <polygon points="202,248 213,272 202,296 191,272" fill="#0C0C0C" fill-opacity="0.85" stroke="url(#champagneGold)" stroke-width="1.5" />
+    <polygon points="310,248 321,272 310,296 299,272" fill="#0C0C0C" fill-opacity="0.85" stroke="url(#champagneGold)" stroke-width="1.5" />
+  </g>
+</svg>

@@ -1,0 +1,629 @@
+<!-- ═══════════════════════════════════════════════════════════════
+     KINGSLAYER RESTAURANT, BANQUET & ROOFTOP
+     OFFICIAL DIGITAL PLATFORM LAUNCH EXPERIENCE
+     Midnight Obsidian × Champagne Gold × Haute Hospitality Craftsmanship
+     ═══════════════════════════════════════════════════════════════ -->
+
+<div class="ks-launch" id="ks-launch" aria-label="Kingslayer Official Website Launch">
+
+  <!-- BACKGROUND AMBIENCE & PARTICLES CANVAS -->
+  <div class="ks-launch__ambient-bg" aria-hidden="true">
+    <div class="ks-launch__glow-orb ks-launch__glow-orb--top"></div>
+    <div class="ks-launch__glow-orb ks-launch__glow-orb--center"></div>
+    <div class="ks-launch__glow-orb ks-launch__glow-orb--bottom"></div>
+    <canvas id="ks-launch-canvas" class="ks-launch__canvas"></canvas>
+    <div class="ks-launch__grid-overlay"></div>
+  </div>
+
+  <!-- ── 1. LUXURY TOP NAVIGATION BAR (STANDALONE IDENTITY) ─────── -->
+  <header class="ks-launch__nav" aria-label="Official Launch Brand Navigation">
+    <div class="ks-launch__nav-inner">
+
+      <!-- Self-Contained Brand Identity Monogram & Wordmark (No Navigation Links) -->
+      <div class="ks-launch__brand" aria-label="Kingslayer Restaurant, Banquet &amp; Rooftop">
+        <div class="ks-launch__brand-crest" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7" y="7" width="26" height="26" transform="rotate(45 20 20)" stroke="#C6A76A" stroke-width="0.8" stroke-opacity="0.8"/>
+            <path d="M15 16 H18 M16.5 16 V24 M15 24 H18 M18 20 L23 16 H25.5 M20 19.5 L25.5 24 H23" stroke="#EDE5D7" stroke-width="1.2" stroke-linecap="square"/>
+          </svg>
+        </div>
+        <div class="ks-launch__brand-text">
+          <span class="ks-launch__brand-title">KINGSLAYER</span>
+          <span class="ks-launch__brand-sub">RESTAURANT &nbsp;·&nbsp; BANQUET &nbsp;·&nbsp; ROOFTOP</span>
+        </div>
+      </div>
+
+      <!-- Operational Status Pill (Both Locations Active & Serving Guests Daily) -->
+      <div class="ks-launch__operational-pill" title="Both restaurant destinations are open and welcoming guests daily">
+        <span class="ks-launch__live-dot" aria-hidden="true"></span>
+        <span class="ks-launch__operational-text">BALLIA &amp; VARANASI LOCATIONS OPEN DAILY · 11 AM – 11 PM</span>
+      </div>
+
+      <!-- Right Action Suite: Verified Direct Concierge Channel -->
+      <div class="ks-launch__nav-actions">
+        <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}?text={{ 'Hello Kingslayer Concierge, I would like to enquire about table reservations and banquet bookings.' | url_encode }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ks-launch__btn-concierge"
+           aria-label="Connect with Kingslayer VIP Concierge on WhatsApp">
+          <span class="ks-launch__btn-icon">✦</span>
+          <span class="ks-launch__btn-text">CONCIERGE</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ── 2. HERO STATEMENT: PHYSICAL RESTAURANTS OPEN · DIGITAL LAUNCHING ── -->
+  <main class="ks-launch__hero">
+    <div class="ks-launch__hero-container">
+
+      <!-- Official Digital Launch Kicker -->
+      <div class="ks-launch__kicker-wrapper">
+        <span class="ks-launch__kicker-badge">
+          <span class="ks-launch__kicker-spark">✦</span>
+          OFFICIAL DIGITAL PLATFORM · PREMIERE IN PROGRESS
+          <span class="ks-launch__kicker-spark">✦</span>
+        </span>
+      </div>
+
+      <!-- Main Headline: Commercial Truth & Distinction -->
+      <h1 class="ks-launch__headline">
+        OUR RESTAURANTS ARE OPEN. <br class="ks-hide-mobile">
+        <span class="ks-launch__headline-gradient">OUR DIGITAL MAJESTY LAUNCHES SOON.</span>
+      </h1>
+
+      <div class="ks-launch__divider" aria-hidden="true">
+        <span class="ks-launch__divider-line"></span>
+        <span class="ks-launch__divider-diamond">◆</span>
+        <span class="ks-launch__divider-line"></span>
+      </div>
+
+      <!-- Clear Business Narrative -->
+      <p class="ks-launch__lead">
+        Kingslayer Restaurant, Banquet &amp; Rooftop is proudly open and welcoming guests across both premier destinations in <strong>Ballia</strong> and <strong>Varanasi</strong>. While our enhanced official digital experience prepares for its public premiere, our dining halls, celebratory banquets, and open-air rooftop terraces are fully operational every day.
+      </p>
+
+      <!-- ── 3. HAUTE HORLOGERIE PRECISION DIGITAL CHRONOMETER ──── -->
+      <section class="ks-chronometer" id="ks-chronometer" aria-label="Kingslayer Official Website Launch Chronometer">
+        
+        <!-- Chronometer Architectural Header -->
+        <div class="ks-chronometer__header">
+          <div class="ks-chronometer__crest" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 18H20M5 15L3 8L8 11L12 5L16 11L21 8L19 15H5Z" stroke="#C6A76A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <p class="ks-chronometer__kicker">OFFICIAL DIGITAL PREMIERE COUNTDOWN</p>
+          <h2 class="ks-chronometer__title">WEBSITE LAUNCH REVEAL</h2>
+          <p class="ks-chronometer__subtitle">25-CALENDAR-DAY ARCHITECTURAL COMMITMENT · INCEPTION: 02 NOV 2026</p>
+        </div>
+
+        <!-- Precision Dials Stage -->
+        <div class="ks-countdown" id="ks-countdown" aria-live="polite">
+          
+          <!-- DAYS -->
+          <div class="ks-countdown__unit" id="unit-days">
+            <div class="ks-countdown__card">
+              <span class="ks-countdown__val" id="cd-days">21</span>
+            </div>
+            <span class="ks-countdown__label">DAYS</span>
+          </div>
+
+          <div class="ks-countdown__sep" aria-hidden="true">
+            <span class="ks-countdown__sep-dot"></span>
+            <span class="ks-countdown__sep-dot"></span>
+          </div>
+
+          <!-- HOURS -->
+          <div class="ks-countdown__unit" id="unit-hours">
+            <div class="ks-countdown__card">
+              <span class="ks-countdown__val" id="cd-hours">10</span>
+            </div>
+            <span class="ks-countdown__label">HOURS</span>
+          </div>
+
+          <div class="ks-countdown__sep" aria-hidden="true">
+            <span class="ks-countdown__sep-dot"></span>
+            <span class="ks-countdown__sep-dot"></span>
+          </div>
+
+          <!-- MINUTES -->
+          <div class="ks-countdown__unit" id="unit-minutes">
+            <div class="ks-countdown__card">
+              <span class="ks-countdown__val" id="cd-minutes">13</span>
+            </div>
+            <span class="ks-countdown__label">MINUTES</span>
+          </div>
+
+          <div class="ks-countdown__sep" aria-hidden="true">
+            <span class="ks-countdown__sep-dot"></span>
+            <span class="ks-countdown__sep-dot"></span>
+          </div>
+
+          <!-- SECONDS -->
+          <div class="ks-countdown__unit" id="unit-seconds">
+            <div class="ks-countdown__card">
+              <span class="ks-countdown__val" id="cd-seconds">22</span>
+            </div>
+            <span class="ks-countdown__label">SECONDS</span>
+          </div>
+
+        </div>
+
+        <!-- Calibrated 25-Day Journey Progress Gauge -->
+        <div class="ks-chronometer__gauge" aria-label="Project Timeline Progress">
+          <div class="ks-chronometer__gauge-track">
+            <div class="ks-chronometer__gauge-fill" id="cd-progress-fill" style="width: 17.6%;"></div>
+            <div class="ks-chronometer__gauge-pip" id="cd-progress-pip" style="left: 17.6%;"></div>
+          </div>
+          <div class="ks-chronometer__gauge-labels">
+            <span class="ks-gauge-label">INCEPTION · 02 NOV 2026</span>
+            <span class="ks-gauge-label ks-gauge-label--center" id="cd-progress-label">17.6% CRAFTSMANSHIP COMPLETED</span>
+            <span class="ks-gauge-label">DEADLINE · 27 NOV 2026 · 11:59 PM IST</span>
+          </div>
+        </div>
+
+        <!-- Official Timezone Calibration Badge -->
+        <div class="ks-chronometer__meta-badge">
+          <span class="ks-meta-spark">✦</span>
+          <span class="ks-meta-text">OFFICIAL DELIVERY DEADLINE: <strong>27 NOVEMBER 2026, 11:59 PM IST</strong> · ASIA/KOLKATA (UTC+05:30)</span>
+          <span class="ks-meta-spark">✦</span>
+        </div>
+
+        <!-- Expired State Notice (Smoothly displayed when countdown reaches 0) -->
+        <div class="ks-chronometer__expired" id="cd-expired" style="display: none;">
+          <span class="ks-launch__kicker-spark">✦</span>
+          <span class="ks-expired-title">THE NEW KINGSLAYER DIGITAL PLATFORM HAS OFFICIALLY LAUNCHED</span>
+          <span class="ks-launch__kicker-spark">✦</span>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+
+  <!-- ── 4. DUAL OPERATIONAL DESTINATIONS SHOWCASE (OPEN TODAY) ── -->
+  <section class="ks-launch__destinations" id="destinations" aria-label="Active Kingslayer Destinations">
+    <div class="ks-launch__section-header">
+      <p class="ks-launch__section-eyebrow">VISIT US TODAY</p>
+      <h2 class="ks-launch__section-title">TWO OPERATIONAL DESTINATIONS</h2>
+      <p class="ks-launch__section-subtitle">
+        Both destinations are fully staffed and welcoming patrons for royal dining, grand celebratory banquets, and starlit rooftop evenings.
+      </p>
+    </div>
+
+    <div class="ks-launch__cards-grid">
+
+      <!-- ── DESTINATION 01: BALLIA ── -->
+      <article class="ks-launch-card" id="destination-ballia">
+        <div class="ks-launch-card__media">
+          <picture>
+            <source srcset="{{ '/assets/images/hero_restaurant.webp' | relative_url }}" type="image/webp">
+            <img src="{{ '/assets/images/hero_restaurant.jpg' | relative_url }}"
+                 alt="Kingslayer Ballia Fine Dining, Imperial Banquet and Rooftop Destination"
+                 class="ks-launch-card__img"
+                 loading="eager"
+                 width="1200"
+                 height="700" />
+          </picture>
+          <div class="ks-launch-card__scrim" aria-hidden="true"></div>
+          <div class="ks-launch-card__frame" aria-hidden="true">
+            <span class="ks-corner ks-corner--tl"></span>
+            <span class="ks-corner ks-corner--tr"></span>
+            <span class="ks-corner ks-corner--bl"></span>
+            <span class="ks-corner ks-corner--br"></span>
+          </div>
+          <div class="ks-launch-card__status-tag">
+            <span class="ks-launch__live-dot" aria-hidden="true"></span>
+            <span>OPEN NOW · 11 AM – 11 PM</span>
+          </div>
+          <div class="ks-launch-card__watermark" aria-hidden="true">01</div>
+        </div>
+
+        <div class="ks-launch-card__body">
+          <div class="ks-launch-card__meta-top">
+            <span class="ks-launch-card__rating">★ 4.6 · 94 GOOGLE REVIEWS</span>
+            <span class="ks-launch-card__location-badge">NH-31, BALLIA</span>
+          </div>
+
+          <h3 class="ks-launch-card__title">KINGSLAYER BALLIA</h3>
+          <p class="ks-launch-card__tagline">Fine Dining &nbsp;·&nbsp; Imperial Banquet &nbsp;·&nbsp; Sky Rooftop</p>
+
+          <p class="ks-launch-card__desc">
+            Toll Tax Bairiya, Near Kadam Chauraha. An immersive multi-level culinary landmark offering an air-conditioned royal dining hall, celebratory banquets accommodating up to 300+ guests, and an open-air starlit sky rooftop with panoramic evening breezes.
+          </p>
+
+          <!-- Verified Key Offerings -->
+          <div class="ks-launch-card__amenities">
+            <span class="ks-launch-card__amenity">✦ Air-Conditioned Royal Dining Hall</span>
+            <span class="ks-launch-card__amenity">✦ Imperial Banquet Hall (300+ Guests)</span>
+            <span class="ks-launch-card__amenity">✦ Open-Air Starlit Sky Rooftop</span>
+            <span class="ks-launch-card__amenity">✦ Royal Awadhi &amp; Tandoori Masterpieces</span>
+            <span class="ks-launch-card__amenity">✦ Valet &amp; Dedicated Guest Parking</span>
+          </div>
+
+          <!-- Authentic Direct Actions (No internal website links) -->
+          <div class="ks-launch-card__actions">
+            <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}?text={{ 'Hello Kingslayer Ballia, I would like to reserve a table / enquire about banquet booking.' | url_encode }}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="ks-launch-card__btn-primary"
+               aria-label="Reserve via WhatsApp with Kingslayer Ballia">
+              <span>RESERVE ON WHATSAPP</span>
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </a>
+
+            <a href="tel:{{ site.data.contact.ballia.phone_raw }}"
+               class="ks-launch-card__btn-secondary"
+               aria-label="Call Kingslayer Ballia at +91 88811 43141">
+              <span>CALL {{ site.data.contact.ballia.phone_display }}</span>
+            </a>
+          </div>
+
+          <!-- Official Address Footer -->
+          <div class="ks-launch-card__footer">
+            <span class="ks-launch-card__address">
+              📍 {{ site.data.contact.ballia.address_line1 }}, {{ site.data.contact.ballia.address_line2 }}, {{ site.data.contact.ballia.city }}
+            </span>
+            <a href="{{ site.data.contact.ballia.google_maps_link }}" target="_blank" rel="noopener noreferrer" class="ks-launch-card__map-link" aria-label="Open Kingslayer Ballia in Google Maps">
+              Get Directions ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ── DESTINATION 02: VARANASI ── -->
+      <article class="ks-launch-card" id="destination-varanasi">
+        <div class="ks-launch-card__media">
+          <picture>
+            <source srcset="{{ '/assets/images/varanasi/hero_varanasi.webp' | relative_url }}" type="image/webp">
+            <img src="{{ '/assets/images/varanasi/hero_varanasi.jpg' | relative_url }}"
+                 alt="Kingslayer Varanasi Family Dining, Celebration Lounge and Party Spot"
+                 class="ks-launch-card__img"
+                 loading="eager"
+                 width="1200"
+                 height="700" />
+          </picture>
+          <div class="ks-launch-card__scrim" aria-hidden="true"></div>
+          <div class="ks-launch-card__frame" aria-hidden="true">
+            <span class="ks-corner ks-corner--tl"></span>
+            <span class="ks-corner ks-corner--tr"></span>
+            <span class="ks-corner ks-corner--bl"></span>
+            <span class="ks-corner ks-corner--br"></span>
+          </div>
+          <div class="ks-launch-card__status-tag">
+            <span class="ks-launch__live-dot" aria-hidden="true"></span>
+            <span>OPEN NOW · 11 AM – 11 PM</span>
+          </div>
+          <div class="ks-launch-card__watermark" aria-hidden="true">02</div>
+        </div>
+
+        <div class="ks-launch-card__body">
+          <div class="ks-launch-card__meta-top">
+            <span class="ks-launch-card__rating">★ 4.6 · 1,452 GOOGLE REVIEWS</span>
+            <span class="ks-launch-card__location-badge">LANKA, VARANASI</span>
+          </div>
+
+          <h3 class="ks-launch-card__title">KINGSLAYER VARANASI</h3>
+          <p class="ks-launch-card__tagline">Family Dining &nbsp;·&nbsp; Celebrations &nbsp;·&nbsp; Party Spot</p>
+
+          <p class="ks-launch-card__desc">
+            Beside PNB Bank Building, Lanka (near Ravidas Gate / BHU). The holy city’s beloved family dining sanctuary and celebration hub, acclaimed for joyful birthday parties, student reunions, anniversary feasts, and vibrant celebrations with dedicated music and custom decor.
+          </p>
+
+          <!-- Verified Key Offerings -->
+          <div class="ks-launch-card__amenities">
+            <span class="ks-launch-card__amenity">✦ Sophisticated Family Dining Sanctuary</span>
+            <span class="ks-launch-card__amenity">✦ High-Energy Celebration &amp; Party Spot</span>
+            <span class="ks-launch-card__amenity">✦ Dedicated DJ &amp; Dance Floor Zone</span>
+            <span class="ks-launch-card__amenity">✦ Bespoke Birthday &amp; Milestone Decor</span>
+            <span class="ks-launch-card__amenity">✦ Multi-Cuisine Gourmet Repertoire</span>
+          </div>
+
+          <!-- Authentic Direct Actions (No internal website links) -->
+          <div class="ks-launch-card__actions">
+            <a href="https://wa.me/{{ site.data.contact.varanasi.whatsapp }}?text={{ 'Hello Kingslayer Varanasi, I would like to reserve a table / enquire about celebrations.' | url_encode }}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="ks-launch-card__btn-primary"
+               aria-label="Reserve via WhatsApp with Kingslayer Varanasi">
+              <span>RESERVE ON WHATSAPP</span>
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </a>
+
+            <a href="tel:{{ site.data.contact.varanasi.phone_raw }}"
+               class="ks-launch-card__btn-secondary"
+               aria-label="Call Kingslayer Varanasi at +91 96286 69974">
+              <span>CALL {{ site.data.contact.varanasi.phone_display }}</span>
+            </a>
+          </div>
+
+          <!-- Official Address Footer -->
+          <div class="ks-launch-card__footer">
+            <span class="ks-launch-card__address">
+              📍 {{ site.data.contact.varanasi.address_line1 }}, {{ site.data.contact.varanasi.address_line2 }}, {{ site.data.contact.varanasi.city }}
+            </span>
+            <a href="{{ site.data.contact.varanasi.google_maps_link }}" target="_blank" rel="noopener noreferrer" class="ks-launch-card__map-link" aria-label="Open Kingslayer Varanasi in Google Maps">
+              Get Directions ↗
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ── 5. DIRECT CONCIERGE ASSISTANCE (VERIFIED CHANNELS) ─────── -->
+  <section class="ks-launch__concierge-section" aria-label="Direct Concierge Reservations">
+    <div class="ks-launch__concierge-container">
+
+      <div class="ks-launch__concierge-header">
+        <span class="ks-launch__kicker-spark">✦</span>
+        <h2 class="ks-launch__concierge-title">CONNECT WITH OUR CONCIERGE DESK</h2>
+        <p class="ks-launch__concierge-sub">
+          Instant assistance for royal dining reservations, grand wedding banquets, rooftop evenings, and private party celebrations.
+        </p>
+      </div>
+
+      <div class="ks-launch__concierge-grid">
+
+        <!-- Table Reservations -->
+        <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}?text={{ 'Hello Kingslayer Concierge, I would like to reserve a dining table.' | url_encode }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ks-concierge-channel">
+          <div class="ks-concierge-channel__icon">🍽️</div>
+          <h3 class="ks-concierge-channel__title">DINING TABLE RESERVATIONS</h3>
+          <p class="ks-concierge-channel__desc">Secure prime seating in our air-conditioned royal dining halls at Ballia or Varanasi.</p>
+          <span class="ks-concierge-channel__action">RESERVE VIA WHATSAPP →</span>
+        </a>
+
+        <!-- Banquet & Celebrations -->
+        <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}?text={{ 'Hello Kingslayer Concierge, I would like to enquire about banquet booking for an upcoming event.' | url_encode }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ks-concierge-channel">
+          <div class="ks-concierge-channel__icon">👑</div>
+          <h3 class="ks-concierge-channel__title">BANQUET &amp; WEDDING EVENTS</h3>
+          <p class="ks-concierge-channel__desc">Grand celebratory halls hosting up to 300+ guests with custom decor and catering.</p>
+          <span class="ks-concierge-channel__action">INQUIRE BANQUET DATES →</span>
+        </a>
+
+        <!-- Sky Rooftop & Parties -->
+        <a href="https://wa.me/{{ site.data.contact.varanasi.whatsapp }}?text={{ 'Hello Kingslayer Concierge, I would like to enquire about rooftop dining / party celebrations.' | url_encode }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ks-concierge-channel">
+          <div class="ks-concierge-channel__icon">✨</div>
+          <h3 class="ks-concierge-channel__title">ROOFTOP &amp; PARTY SPOT</h3>
+          <p class="ks-concierge-channel__desc">Starlit terrace evenings in Ballia or high-energy birthday bashes in Varanasi.</p>
+          <span class="ks-concierge-channel__action">PLAN CELEBRATION →</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── 6. EDITORIAL FOOTER (STANDALONE) ──────────────────────── -->
+  <footer class="ks-launch__footer" aria-label="Official Launch Footer">
+    <div class="ks-launch__footer-inner">
+
+      <div class="ks-launch__footer-brand">
+        <span class="ks-launch__footer-logo">KINGSLAYER</span>
+        <span class="ks-launch__footer-tagline">RESTAURANT &nbsp;·&nbsp; BANQUET &nbsp;·&nbsp; ROOFTOP</span>
+        <p class="ks-launch__footer-copy">
+          &copy; {{ 'now' | date: "%Y" }} KINGSLAYER. ALL RIGHTS RESERVED. BALLIA &amp; VARANASI, UTTAR PRADESH.
+        </p>
+      </div>
+
+      <!-- Social and Direct WhatsApp Channels (No internal website links) -->
+      <div class="ks-launch__footer-socials">
+        <a href="https://instagram.com" class="ks-launch-footer-link" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+        <span class="ks-launch-footer-dot">·</span>
+        <a href="https://facebook.com" class="ks-launch-footer-link" target="_blank" rel="noopener noreferrer">FACEBOOK</a>
+        <span class="ks-launch-footer-dot">·</span>
+        <a href="https://wa.me/{{ site.data.contact.ballia.whatsapp }}" class="ks-launch-footer-link" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
+      </div>
+
+    </div>
+  </footer>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HAUTE HORLOGERIE PRECISION CHRONOMETER ENGINE
+     Project Start: 02 November 2026, 00:00:00 IST (+05:30)
+     Official Launch Deadline: 27 November 2026, 11:59:00 PM IST (+05:30)
+     Committed Timeline: 25 Calendar Days
+     Zero-drift, Universal Timezone-Invariant, Refresh-Resistant, Graceful Expiry
+     ═══════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ── A. SINGLE CONFIGURABLE SOURCE OF TRUTH ────────────────────
+  /**
+   * KINGSLAYER OFFICIAL LAUNCH TIMELINE CONFIGURATION
+   * Modify deadlineISO if leadership formally revises the delivery date.
+   */
+  const LAUNCH_CONFIG = {
+    // Official delivery deadline: 27 November 2026, 11:59 PM IST
+    deadlineISO: '2026-11-27T23:59:00+05:30',
+    // Project inception: 2 November 2026, 00:00:00 IST
+    projectStartISO: '2026-11-02T00:00:00+05:30',
+    timezoneLabel: 'Asia/Kolkata (IST · UTC+05:30)',
+    calendarDaysCommitment: 25
+  };
+
+  // Pre-calculate immutable target timestamps in UTC epoch milliseconds
+  const targetEpoch = new Date(LAUNCH_CONFIG.deadlineISO).getTime();
+  const startEpoch = new Date(LAUNCH_CONFIG.projectStartISO).getTime();
+  const totalProjectDurationMs = targetEpoch - startEpoch;
+
+  // DOM Elements cache
+  const daysEl = document.getElementById('cd-days');
+  const hoursEl = document.getElementById('cd-hours');
+  const minsEl = document.getElementById('cd-minutes');
+  const secsEl = document.getElementById('cd-seconds');
+  const progressFillEl = document.getElementById('cd-progress-fill');
+  const progressPipEl = document.getElementById('cd-progress-pip');
+  const progressLabelEl = document.getElementById('cd-progress-label');
+  const countdownContainer = document.getElementById('ks-countdown');
+  const expiredNotice = document.getElementById('cd-expired');
+
+  /**
+   * Zero-flicker DOM text updater
+   */
+  function setDigit(el, val) {
+    if (el) {
+      const formatted = String(val).padStart(2, '0');
+      if (el.textContent !== formatted) {
+        el.textContent = formatted;
+      }
+    }
+  }
+
+  /**
+   * Core Precision Timekeeper Function
+   * Evaluated dynamically against Date.now() on every second.
+   * Universal UTC epoch calculation guarantees exact timing across all client timezones.
+   */
+  function tick() {
+    const now = Date.now();
+    const diff = targetEpoch - now;
+
+    // Check for expiration
+    if (diff <= 0) {
+      setDigit(daysEl, 0);
+      setDigit(hoursEl, 0);
+      setDigit(minsEl, 0);
+      setDigit(secsEl, 0);
+
+      if (progressFillEl) progressFillEl.style.width = '100%';
+      if (progressPipEl) progressPipEl.style.left = '100%';
+      if (progressLabelEl) progressLabelEl.textContent = '100.0% CRAFTSMANSHIP COMPLETED · PLATFORM LIVE';
+
+      if (countdownContainer) countdownContainer.style.display = 'none';
+      if (expiredNotice) expiredNotice.style.display = 'block';
+      return;
+    }
+
+    // Mathematical breakdown of remaining time
+    const totalSeconds = Math.floor(diff / 1000);
+    const d = Math.floor(totalSeconds / 86400);
+    const h = Math.floor((totalSeconds % 86400) / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+
+    // Render formatted digits
+    setDigit(daysEl, d);
+    setDigit(hoursEl, h);
+    setDigit(minsEl, m);
+    setDigit(secsEl, s);
+
+    // Calculate percentage of 25-day craftsmanship timeline elapsed
+    if (totalProjectDurationMs > 0 && progressFillEl) {
+      const elapsed = Math.max(0, now - startEpoch);
+      const ratio = Math.min(1, Math.max(0, elapsed / totalProjectDurationMs));
+      const percentStr = (ratio * 100).toFixed(1) + '%';
+      
+      progressFillEl.style.width = percentStr;
+      if (progressPipEl) progressPipEl.style.left = percentStr;
+      if (progressLabelEl) {
+        progressLabelEl.textContent = percentStr + ' CRAFTSMANSHIP COMPLETED';
+      }
+    }
+  }
+
+  // Initial immediate execution
+  tick();
+
+  // Fixed 1000ms pulse
+  const intervalId = setInterval(tick, 1000);
+
+  // Anti-Drift: Re-synchronize immediately when the tab is restored/focused
+  if (typeof document.addEventListener === 'function') {
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) tick();
+    });
+    window.addEventListener('focus', function() {
+      tick();
+    });
+  }
+
+  // ── B. AMBIENT PARTICLES CANVAS (Respects prefers-reduced-motion) ──
+  const canvas = document.getElementById('ks-launch-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    const particles = [];
+    const count = Math.min(width > 768 ? 32 : 16, 40);
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 1.2 + 0.5,
+        alpha: Math.random() * 0.35 + 0.1,
+        vx: (Math.random() - 0.5) * 0.12,
+        vy: - (Math.random() * 0.20 + 0.08)
+      });
+    }
+
+    function renderParticles() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = '#C6A76A';
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.y < 0) p.y = height;
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+
+        ctx.globalAlpha = p.alpha;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      requestAnimationFrame(renderParticles);
+    }
+
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      renderParticles();
+    }
+
+    window.addEventListener('resize', function() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }, { passive: true });
+  }
+
+  // Diagnostic exposure for automated verification & auditing
+  window.__KS_CHRONOMETER__ = {
+    config: LAUNCH_CONFIG,
+    targetEpoch: targetEpoch,
+    getRemainingSeconds: function() {
+      return Math.max(0, Math.floor((targetEpoch - Date.now()) / 1000));
+    }
+  };
+
+})();
+</script>
